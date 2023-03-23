@@ -7,7 +7,7 @@ Fill the document out following the guidelines listed in each section. Maintain 
 ## Group Members
 
 * [Alec](mmailto:asteene@uncc.edu)
-* [Name](mmailto:email@uncc.edu)
+* [Name](mmailto:jdougl39@uncc.edu)
 * [Name](mmailto:email@uncc.edu)
 * [Name](mmailto:email@uncc.edu)
 
