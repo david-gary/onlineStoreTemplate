@@ -2,12 +2,12 @@
 
 ## Blaise Thomas
 
-- **Github Username:** blaisethomas20
-- **Niner Net ID:** btom108
+- **Github Username:** BlaiseThomas20
+- **Niner Net ID:** bthom108
 
 ## Sreyas Kodukulla
 
-- **Github Username:** SreyasKodukulla
+- **Github Username:** sreyaskodukulla
 - **Niner Net ID:** skodukul
 
 
