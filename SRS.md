@@ -55,7 +55,7 @@ Each group member must supply at least three functional requirements for the pro
 In this section, you should list any constraints that you have for the project. Each group member must supply at least two constraints. These can be constraints on the project itself, the software system, or the stakeholders. Constraints can be anything that limits the scope of the project. For example, that this project's template code is written using Flask and Python constitutes a constraint on the backend of the project. Constraints can also be things like the required timeline of the project. Be creative.
 
 Constraint 1: We cannot include recommended items because we can't collect the user data to narrow it down.
-Constraint 2: Stakeholder cannot choose from a very vast collection of items, our site will be limited to only the scope of items we can include. 
+Constraint 2: Stakeholders cannot choose from a very vast collection of items, our site will be limited to only the scope of items we can include. 
 
 ## Use Cases
 
