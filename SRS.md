@@ -8,7 +8,7 @@ Fill the document out following the guidelines listed in each section. Maintain 
 
 * [Name](mailto:email@uncc.edu)
 * [Name](mmailto:email@uncc.edu)
-* [Name](mmailto:email@uncc.edu)
+* [Blaise Thomas](mmailto:bthom108@uncc.edu)
 * [Name](mmailto:email@uncc.edu)
 
 ## Revisions
@@ -30,8 +30,8 @@ When a change is made to the document, a new revision should be created. The rev
 
 ## Introduction
 
-Blaise Thomas Jewelry Store
-Blaise Thomas VS Code Test 2 
+The idea for our project is to create a hands on jewlery store. We will build a system that has features to be able to search for jewlery based on the type and the material. The software system will allow users to perform filtered searches, create a wishlist or shopping cart for any items, and it will also display every item and give a brief description of it. Our stakeholders are the individual customers that are interested in buying products from our store. Their needs are the products we offer and we will give them the ability to browse through to find the right item to fit their needs.
+
 ## Requirements
 
 Each group member must supply at least three functional requirements for the project. Each requirement should be written in the following format:
@@ -52,6 +52,13 @@ Each group member must supply at least three functional requirements for the pro
 ## Constraints
 
 In this section, you should list any constraints that you have for the project. Each group member must supply at least two constraints. These can be constraints on the project itself, the software system, or the stakeholders. Constraints can be anything that limits the scope of the project. For example, that this project's template code is written using Flask and Python constitutes a constraint on the backend of the project. Constraints can also be things like the required timeline of the project. Be creative.
+
+
+
+
+
+
+Constraint 4: No automated payments accepted, Only Debit/Credit Cards. No Refunds
 
 ## Use Cases
 
