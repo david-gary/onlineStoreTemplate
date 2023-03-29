@@ -31,7 +31,7 @@ When a change is made to the document, a new revision should be created. The rev
 ## Introduction
 
 Blaise Thomas Jewelry Store
-Blaise Thomas VS Code Test 2
+Blaise Thomas VS Code Test 2 
 ## Requirements
 
 Each group member must supply at least three functional requirements for the project. Each requirement should be written in the following format:
