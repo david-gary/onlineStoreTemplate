@@ -30,7 +30,7 @@ When a change is made to the document, a new revision should be created. The rev
 
 ## Introduction
 
-In this section, you should give a brief overview of what your project will be. Describe the software system you are building and what problems it solves. You should also give a short description of the stakeholders (users of the system) and what their needs are. There is no set formatting requirement, but you should maintain a consistent structure across future sections. Not all members must contribute to this section.
+introduction draft (replace above with final draft): The idea for our project is to create a hand on jewlery store. We will build a system that allows specific commands to be able to search for jewlery based on the type and the material.
 
 ## Requirements
 
