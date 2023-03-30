@@ -55,12 +55,19 @@ Each group member must supply at least three functional requirements for the pro
   * **Priority:** 5
   * **Rationale:** This functionality allows us to show much more detailed information as well as offering screen space for download buttons and resource links.
   * **Testing:** All lab tiles should be able to be clicked to take the user to a separate web page for each lab.
-    * **REQ-2:**
+  * **REQ-2:**
   * **Description:** Lab informational markdown files are displayed in webpage. 
   * **Type:** `Functional`
   * **Priority:** 3
   * **Rationale:** Being able to show the lab README or other instructional markdown file will give students an easy way to view their intructions for each lab.
   * **Testing:** Markdown files for each lab are visible on the lab webpage.
+* **REQ-3:**
+  * **Description:** Have A .ZIP file of the lab available to download.
+  * **Type:** `Functional`
+  * **Priority:** 1
+  * **Rationale:** Have the students easily able to work and edit their version of the lab without having to use an external resource.
+  * **Testing:** All lab files should be able to be downloaded.
+
 
 ## Constraints
 
