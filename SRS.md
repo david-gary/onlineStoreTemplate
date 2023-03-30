@@ -48,11 +48,17 @@ Each group member must supply at least three functional requirements for the pro
   * **Rationale:** To automate testing code, and prevents errors being pushed on to main branch.
   * **Testing:** It can be tested by Github actions and unit tests.
 * **REQ-2:** A unique identifier for the requirement. This should be a number that is unique across the entire document (something like REQ-1, REQ-2, etc. but be sure to replace the word `ID` with the unique identifier).
-  * **Description:** A short description of the requirement. This should be a single sentence that describes the requirement.
-  * **Type:** The type of requirement. Should be either `Functional` or `Non-Functional`.
-  * **Priority:** The priority of the requirement. This should be a number between 1 and 5, with 1 being the highest priority and 5 being the lowest priority.
-  * **Rationale:** A short description of why the requirement is important. This should be a single sentence that describes why the requirement is important.
-  * **Testing:** A short description of how the requirement can be tested. This should be a single sentence that describes how the requirement can be tested.
+  * **Description:** Make sure users can filter movies by genre
+  * **Type:** `Functional`
+  * **Priority:** 4.
+  * **Rationale:** Makes searching for movies more convenient.
+  * **Testing:** See if the logic is working on the front end, nd unit testing on the back-end.
+  **REQ-3:** A unique identifier for the requirement. This should be a number that is unique across the entire document (something like REQ-1, REQ-2, etc. but be sure to replace the word `ID` with the unique identifier).
+  * **Description:** Users can see the cover fo the movie
+  * **Type:** `Functional`
+  * **Priority:** 5.
+  * **Rationale:**Makes the website more pleseant to see and use.
+  * **Testing:** See if the user can see the pictures on the website.
 * **REQ-DIVERS**:
 	* **Description**: The website should work on several popular browsers like chrome, safari, edge, firefox, etc.
 	* **Type**: `Functional`
