@@ -18,6 +18,7 @@ When a change is made to the document, a new revision should be created. The rev
 | Version | Date | Description | Author | Reviewed By |
 | --- | --- | --- | --- | --- |
 | 1.0 | 03/22/23 | Initial draft | [David Gary](mailto:dgary9@uncc.edu) | [David Gary](mailto:dgary@uncc.edu) |
+| 1.1 | 03/28/23 | Adding Introduction Theme | [Beren Hollingsworth](mailto:bhollin8@uncc.edu) | [Beren Hollingsworth](mailto:bhollin8@uncc.edu) |
 
 ## Table of Contents
 
@@ -30,7 +31,7 @@ When a change is made to the document, a new revision should be created. The rev
 
 ## Introduction
 
-In this section, you should give a brief overview of what your project will be. Describe the software system you are building and what problems it solves. You should also give a short description of the stakeholders (users of the system) and what their needs are. There is no set formatting requirement, but you should maintain a consistent structure across future sections. Not all members must contribute to this section.
+CodeCompanionSE is a resource website for the ITSC 3155 Software Engineering class. This resource seeks to provide students information relating to their completion of the ITSC 3155 lab assignments. The website will show information on each lab and lab topic as well as displaying requirements, files, related documentation, and examples of lab related material. This page should assist the students in succeeding throughout the labs.
 
 ## Requirements
 
@@ -42,16 +43,30 @@ Each group member must supply at least three functional requirements for the pro
   * **Priority:** The priority of the requirement. This should be a number between 1 and 5, with 1 being the highest priority and 5 being the lowest priority.
   * **Rationale:** A short description of why the requirement is important. This should be a single sentence that describes why the requirement is important.
   * **Testing:** A short description of how the requirement can be tested. This should be a single sentence that describes how the requirement can be tested.
-* **ID:** A unique identifier for the requirement. This should be a number that is unique across the entire document (something like REQ-1, REQ-2, etc. but be sure to replace the word `ID` with the unique identifier).
-  * **Description:** A short description of the requirement. This should be a single sentence that describes the requirement.
-  * **Type:** The type of requirement. Should be either `Functional` or `Non-Functional`.
-  * **Priority:** The priority of the requirement. This should be a number between 1 and 5, with 1 being the highest priority and 5 being the lowest priority.
-  * **Rationale:** A short description of why the requirement is important. This should be a single sentence that describes why the requirement is important.
-  * **Testing:** A short description of how the requirement can be tested. This should be a single sentence that describes how the requirement can be tested.
+* **REQ-0:**
+  * **Description:** Website displays tiles with each tile representing one ITSC 3155 lab.
+  * **Type:** `Functional`
+  * **Priority:** 5
+  * **Rationale:** Displaying labs and lab information is the critical foundation for the functionality of the website. The site should be able to show all the labs related to the class in a viewable manner.
+  * **Testing:** All labs for the class should be visible within a minimal amount of scrolling from the homepage of the website. Each lab should look unique and be easily discernable. 
+  * **REQ-1:**
+  * **Description:** Lab tiles are clickable and take the user to more detailed information on the lab.
+  * **Type:** `Functional`
+  * **Priority:** 5
+  * **Rationale:** This functionality allows us to show much more detailed information as well as offering screen space for download buttons and resource links.
+  * **Testing:** All lab tiles should be able to be clicked to take the user to a separate web page for each lab.
+    * **REQ-2:**
+  * **Description:** Lab informational markdown files are displayed in webpage. 
+  * **Type:** `Functional`
+  * **Priority:** 3
+  * **Rationale:** Being able to show the lab README or other instructional markdown file will give students an easy way to view their intructions for each lab.
+  * **Testing:** Markdown files for each lab are visible on the lab webpage.
 
 ## Constraints
 
 In this section, you should list any constraints that you have for the project. Each group member must supply at least two constraints. These can be constraints on the project itself, the software system, or the stakeholders. Constraints can be anything that limits the scope of the project. For example, that this project's template code is written using Flask and Python constitutes a constraint on the backend of the project. Constraints can also be things like the required timeline of the project. Be creative.
+
+* **CON-0:**
 
 ## Use Cases
 
