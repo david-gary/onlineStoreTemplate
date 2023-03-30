@@ -79,6 +79,17 @@ CONST-2: only users with proper permissions should be able to view sales and use
 
 In this section, you should list use cases for the project. Use cases are a thorough description of how the system will be used. Each group member must supply at least two use cases. Each use case should be written in the following format:
 
+UC-1: create and index orders for completion
+    description: the user will click on the food that will be added to the order, and then click complete order when the order is completed, it will then go back to the main screen where there is a create order button for each table, and a list of all current orders on the side
+    actors: servers, who will make the orders, and chefs, who will prepare the orders from the list
+    preconditions: code needs to have a button for each table, a way to create an order, and a list to the side of the tables with the orders on it.
+    postconditions: order must be listed on the side of the tables part of the software
+UC-2: create sales data for the owner to look at
+    description: the owner of the store will be able to look at sales data for the day, with a number of each item sold
+    actors: the owner of the store
+    preconditions: the number of each item sold during the day will need to be tracked and put into a database
+    postconditions: the database will be printed onto a page that only the manager can access
+
 * **ID:** A unique identifier for the use case. This should be a number that is unique across the entire document (something like UC-1, UC-2, etc. but be sure to replace the word `ID` with the unique identifier).
   * **Description:** A description of the use case that gives the user a high-level overview of how the system is interacted with.
   * **Actors:** A list of the actors that are involved in the use case. Only include the actors that are directly involved. Actors are the people or things that interact with the system. For example, when ordering at a fast food restaurant, one might have the following actors: the customer, the cashier, and the cook. But only the customer and the cashier are directly involved in the use case of ordering food. The cook is not directly involved in the use case of ordering food.
