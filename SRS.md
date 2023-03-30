@@ -93,7 +93,7 @@ Each group member must supply at least three functional requirements for the pro
   * **Priority:** 5
   * **Rationale:** When people have similar questions and need quick answers a FAQ page is usually what they'll seek out. 
   * **Testing:** Test page on click
-  * **ID:** REQ-9
+* **ID:** REQ-9
   * **Description:** Works on Mobile
   * **Type:** Functional
   * **Priority:** 3
