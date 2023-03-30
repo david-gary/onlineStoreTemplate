@@ -37,18 +37,26 @@ The idea for our project is to create a hands on jewlery store. We will build a 
 
 Each group member must supply at least three functional requirements for the project. Each requirement should be written in the following format:
 
-* **ID:** A unique identifier for the requirement. This should be a number that is unique across the entire document (something like REQ-1, REQ-2, etc. but be sure to replace the word `ID` with the unique identifier).
-  * **Description:** A short description of the requirement. This should be a single sentence that describes the requirement. Do not replace the word `Description` with the actual description. Put the description in the space where these instructions are written. Maintain that practice for all future sections.
-  * **Type:** The type of requirement. Should be either `Functional` or `Non-Functional`.
-  * **Priority:** The priority of the requirement. This should be a number between 1 and 5, with 1 being the highest priority and 5 being the lowest priority.
-  * **Rationale:** A short description of why the requirement is important. This should be a single sentence that describes why the requirement is important.
-  * **Testing:** A short description of how the requirement can be tested. This should be a single sentence that describes how the requirement can be tested.
-* **ID:** A unique identifier for the requirement. This should be a number that is unique across the entire document (something like REQ-1, REQ-2, etc. but be sure to replace the word `ID` with the unique identifier).
-  * **Description:** A short description of the requirement. This should be a single sentence that describes the requirement.
-  * **Type:** The type of requirement. Should be either `Functional` or `Non-Functional`.
-  * **Priority:** The priority of the requirement. This should be a number between 1 and 5, with 1 being the highest priority and 5 being the lowest priority.
-  * **Rationale:** A short description of why the requirement is important. This should be a single sentence that describes why the requirement is important.
-  * **Testing:** A short description of how the requirement can be tested. This should be a single sentence that describes how the requirement can be tested.
+  * **ID:** REQ-1
+    * **Description:** The customer is trying to use the filter search funtion to find the right type of chain.
+    * **Type:** Functional
+    * **Priority:** 4
+    * **Rationale:** This is important because it will test a key feature of our store.
+    * **Testing:** We can test the requirement by seeing if the 'filter search' function returns the correct output after the user input.
+
+  * **ID:** REQ-2
+    * **Description:** The items will have a small description to help the users with their selections.
+    * **Type:** non-functional
+    * **Priority:** 3
+    * **Rationale:** This is important because it makes the store easier to navigate.
+    * **Testing:** We will test this by seeing if the description shows once we finish the webpage.
+
+  * **ID:** REQ-3
+    * **Description:** The webiste needs to flow properly in the sense that the user should be able to follow the right path based on how they interact. Must have clear and consise UI.
+    * **Type:** functional
+    * **Priority:** 5
+    * **Rationale:** This is important because if the user clicks to view chains, but rings show up instead, that means the webpage isn't up to the standards we want it to be at.
+    * **Testing:** We will test this by using the website after completeion and test the flow based on user input.
 
 ## Constraints
 
@@ -61,11 +69,17 @@ Constraint 2: Stakeholders cannot choose from a very vast collection of items, o
 
 In this section, you should list use cases for the project. Use cases are a thorough description of how the system will be used. Each group member must supply at least two use cases. Each use case should be written in the following format:
 
-* **ID:** A unique identifier for the use case. This should be a number that is unique across the entire document (something like UC-1, UC-2, etc. but be sure to replace the word `ID` with the unique identifier).
-  * **Description:** A description of the use case that gives the user a high-level overview of how the system is interacted with.
-  * **Actors:** A list of the actors that are involved in the use case. Only include the actors that are directly involved. Actors are the people or things that interact with the system. For example, when ordering at a fast food restaurant, one might have the following actors: the customer, the cashier, and the cook. But only the customer and the cashier are directly involved in the use case of ordering food. The cook is not directly involved in the use case of ordering food.
-  * **Preconditions:** A list of the preconditions for the use case. This should be a list of the preconditions for the use case, which are the conditions that must be met before the use case can be executed. Continuing with the restaurant example, the customer must have money in their wallet and the cashier must be logged in to the system before the use case of ordering food can be executed.
-  * **Postconditions:** A list of the postconditions for the use case. This should be a list of the postconditions for the use case, which are the conditions that must be met after the use case has been executed. Continuing with the restaurant example, the customer must have their food and the cashier must have the customer's money after the use case of ordering food has been executed.
+  * **ID:** UC-1
+    * **Description:** The customer is trying to utilize the filter search funtion.
+    * **Actors:** The customer
+    * **Preconditions:** There needs to be an option for filter search that is clear and easy to find.
+    * **Postconditions:** The search must come up with the proper result based on the filters that the customer applies.
+
+  * **ID:** UC-2
+    * **Description:** The customer should be able to properly view and read about every item we offer.
+    * **Actors:** The customer
+    * **Preconditions:** The items must be displayed in a neat and visually pleasing manner while also having the proper descriptions.
+    * **Postconditions:** Once the customer navigates to their desired item, they must be able to see the exact item they searched for with an image and description.
 
 ## User Stories
 
@@ -75,9 +89,17 @@ In this section, you should list user stories for the project. User stories are 
   * **Type of User:** The type of user that the user story is for. This should be a single word that describes the type of user. For example, a user story for a customer might be `Customer` and a user story for an administrator might be `Admin`.
   * **Description:** A description of the user story that gives a narrative from that user's perspective. This can be any length, but it must paint the picture of what the user wants to do, how they intend to do it, why they want to, and what they expect to happen.
 
+  * **ID:** US-1
+    * **Type of User:** Customer
+    * **Description:** The customer opens up the website, navigates to the filter search button because they are looking for a certain type of ring, they apply the filters, and they will be directed to the options we offer based on their preference.
+
+  * **ID:** US-2
+    * **Type of User:** Customer
+    * **Description:** The user navigates to the item they desire. Once they do that, they click on the image of the item and are shown a brief description about what the item is to aid them with their shopping experience.
+
 ## Glossary
 
 In this section, you should list any terms that are used in the document that may not be immediately obvious to a naive reader. Each group member must supply at least one term. Each term should be written in the following format:
 
-* **Term:** The term that is being defined. This should be a single word or phrase that is being defined.
-  * **Definition:** A definition of the term. This should be a short description of the term that is being defined. This should be a single sentence that describes the term.
+* **Term:** Filter Search
+  * **Definition:** the filter search is when a user can input certain things that they are looking for and not looking for (based on price, material, type) and will find items that match the conditions they have set in the search.
