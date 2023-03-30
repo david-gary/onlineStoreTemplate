@@ -36,49 +36,30 @@ In this section, you should give a brief overview of what your project will be. 
 
 Each group member must supply at least three functional requirements for the project. Each requirement should be written in the following format:
 
-* **ID:** A unique identifier for the requirement. This should be a number that is unique across the entire document (something like REQ-1, REQ-2, etc. but be sure to replace the word `ID` with the unique identifier).
-  * **Description:** A short description of the requirement. This should be a single sentence that describes the requirement. Do not replace the word `Description` with the actual description. Put the description in the space where these instructions are written. Maintain that practice for all future sections.
-  * **Type:** The type of requirement. Should be either `Functional` or `Non-Functional`.
-  * **Priority:** The priority of the requirement. This should be a number between 1 and 5, with 1 being the highest priority and 5 being the lowest priority.
-  * **Rationale:** A short description of why the requirement is important. This should be a single sentence that describes why the requirement is important.
-  * **Testing:** A short description of how the requirement can be tested. This should be a single sentence that describes how the requirement can be tested.
+* **ID:** REQ-10
+  * **Description:** Needs to have a shopping cart feature to hold their item(s) to purchase.
+ * **Type:** Functional
+  * **Priority:** 5
+  * **Rationale:** An online shopping cart is one of the foundations odf commerical websites to purchase products.
+  * **Testing:** Trying to store items in the cart and then buying those items at checkout.
 
+* **ID:** REQ-11
+  * **Description:** Website needs to be clear to the clients.
+  * **Type:** Non-functional
+  * **Priority:** 2
+  * **Rationale:** Though good design is not necessary "functional," it is important for clients to be able to use the website intuitively and have it make sense to them.
+  * **Testing:** HTML elements need to work as expected and the website should be redesigned until clear.
 
-
-
-
-
-REQ-7
-  Description: Needs to have a shopping cart feature to hold their item(s) to purchase.
-  Type: Functional
-  Priority: 5
-  Rationale: An online shopping cart is one of the foundations odf commerical websites to purchase products.
-  Testing: Trying to store items in the cart and then buying those items at checkout.
-
-REQ-8
-  Description: Website needs to be clear to the clients.
-  Type: Non-functional
-  Priority: 2
-  Rationale: Though good design is not necessary "functional," it is important for clients to be able to use the website intuitively and have it make sense to them.
-  Testing: HTML elements need to work as expected and the website should be redesigned until clear.
-
-REQ-9
-  Description: Checkout should only be available if there is at least one item in the shopping cart.
-  Type: Functional
-  Priority: 4
-  Rationale: Customers shouldn't be prompted to enter their card information if they're not about to buy anything.
-  Testing: When clicking on checkout, it should only proceed if there is an item in the cart.
+* **ID:** REQ-12
+  * **Description:** Checkout should only be available if there is at least one item in the shopping cart.
+  * **Type:** Functional
+  * **Priority:** 4
+  * **Rationale:** Customers shouldn't be prompted to enter their card information if they're not about to buy anything.
+  * **Testing:** When clicking on checkout, it should only proceed if there is an item in the cart.
 
 ## Constraints
 
 In this section, you should list any constraints that you have for the project. Each group member must supply at least two constraints. These can be constraints on the project itself, the software system, or the stakeholders. Constraints can be anything that limits the scope of the project. For example, that this project's template code is written using Flask and Python constitutes a constraint on the backend of the project. Constraints can also be things like the required timeline of the project. Be creative.
-
-
-
-
-
-
-
 
 Constraint 7: This project's code is written using Python, HTML, CSS, and Javascript.
 Contstraint 8: The project has to be finished by the end of UNCC's 2023 spring semester.
@@ -87,45 +68,32 @@ Contstraint 8: The project has to be finished by the end of UNCC's 2023 spring s
 
 In this section, you should list use cases for the project. Use cases are a thorough description of how the system will be used. Each group member must supply at least two use cases. Each use case should be written in the following format:
 
-* **ID:** A unique identifier for the use case. This should be a number that is unique across the entire document (something like UC-1, UC-2, etc. but be sure to replace the word `ID` with the unique identifier).
-  * **Description:** A description of the use case that gives the user a high-level overview of how the system is interacted with.
-  * **Actors:** A list of the actors that are involved in the use case. Only include the actors that are directly involved. Actors are the people or things that interact with the system. For example, when ordering at a fast food restaurant, one might have the following actors: the customer, the cashier, and the cook. But only the customer and the cashier are directly involved in the use case of ordering food. The cook is not directly involved in the use case of ordering food.
-  * **Preconditions:** A list of the preconditions for the use case. This should be a list of the preconditions for the use case, which are the conditions that must be met before the use case can be executed. Continuing with the restaurant example, the customer must have money in their wallet and the cashier must be logged in to the system before the use case of ordering food can be executed.
-  * **Postconditions:** A list of the postconditions for the use case. This should be a list of the postconditions for the use case, which are the conditions that must be met after the use case has been executed. Continuing with the restaurant example, the customer must have their food and the cashier must have the customer's money after the use case of ordering food has been executed.
+* **ID:** UC-7
+  * **Description:** The customer is virtual window shopping and is navigating around the website.
+  * **Actors:** The customer
+  * **Preconditions:** The customer can connect to the website
+  * **Postconditions:** The customer should feel that navigation was simple and clear. The customer should not feel confused by going through our website.
 
-UC-7
-  Description: The customer is virtual window shopping and is navigating around the website.
-  Actors: The customer
-  Precondition: The customer can connect to the website
-  Postcondition: The customer should feel that navigation was simple and clear. The customer should not feel confused by going through our website.
-
-UC-8
-  Description: The customer is trying to remove items from their shopping cart.
-  Actors: The customer
-  Precondition: The customer can connect to the website, the shopping cart is functional, the customer has put items in the shopping cart.
-  Postcondition: The customer's shopping cart no longer has the item in the shopping cart. If the shopping cart only has that item, it should be empty and unable to proceed to checkout.
+* **ID:** UC-8
+  * **Description:** The customer is trying to remove items from their shopping cart.
+  * **Actors:** The customer
+  * **Preconditions:** The customer can connect to the website, the shopping cart is functional, the customer has put items in the shopping cart.
+  * **Postconditions:** The customer's shopping cart no longer has the item in the shopping cart. If the shopping cart only has that item, it should be empty and unable to proceed to checkout.
 
 ## User Stories
 
-In this section, you should list user stories for the project. User stories are a short description of how a user will be interacting with the system. Each group member must supply at least two user stories. Each user story should be written in the following format:
+In this section, you should list user stories for the project. User stories are a short description of how a user will be interacting with the system. Each group member must supply at least two user stories. Each user story should be written in the following format
 
-* **ID:** A unique identifier for the user story. This should be a number that is unique across the entire document (something like US-1, US-2, etc. but be sure to replace the word `ID` with the unique identifier).
-  * **Type of User:** The type of user that the user story is for. This should be a single word that describes the type of user. For example, a user story for a customer might be `Customer` and a user story for an administrator might be `Admin`.
-  * **Description:** A description of the user story that gives a narrative from that user's perspective. This can be any length, but it must paint the picture of what the user wants to do, how they intend to do it, why they want to, and what they expect to happen.
-
-
-  US-7
-    Type of User: Customer
-    Description: The customer found our website and is interested in purchasing a piece of our jewelry. They browse the site, put an item in their shopping cart, click on the shopping cart icon, get taken to a checkout page, and confirm the order with an address and card information.
-  US-8
-    Type of User: IT
-    Description: The customer has a question about the website or has problems purchasing their items. They can send their issues to the provided email to have it checked out.
+  * **ID:** US-7
+    * **Type of User:** Customer
+    * **Description:** The customer found our website and is interested in purchasing a piece of our jewelry. They browse the site, put an item in their shopping cart, click on the shopping cart icon, get taken to a checkout page, and confirm the order with an address and card information.
+  * **ID:** US-8
+    * **Type of User:** IT
+    * **Description:** The customer has a question about the website or has problems purchasing their items. They can send their issues to the provided email to have it checked out.
 
 ## Glossary
 
 In this section, you should list any terms that are used in the document that may not be immediately obvious to a naive reader. Each group member must supply at least one term. Each term should be written in the following format:
 
-* **Term:** The term that is being defined. This should be a single word or phrase that is being defined.
-  * **Definition:** A definition of the term. This should be a short description of the term that is being defined. This should be a single sentence that describes the term.
-
-  shopping cart: software to allow customers to select products and buy them on the web.
+  * **Term:** shopping cart
+    * **Definition:** software to allow customers to select products and buy them on the web.
