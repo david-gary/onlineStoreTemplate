@@ -62,6 +62,13 @@ REQ-8
   Rationale: Though good design is not necessary "functional," it is important for clients to be able to use the website intuitively and have it make sense to them.
   Testing: HTML elements need to work as expected and the website should be redesigned until clear.
 
+REQ-9
+  Description: Checkout should only be available if there is at least one item in the shopping cart.
+  Type: Functional
+  Priority: 4
+  Rationale: Customers shouldn't be prompted to enter their card information if they're not about to buy anything.
+  Testing: When clicking on checkout, it should only proceed if there is an item in the cart.
+
 ## Constraints
 
 In this section, you should list any constraints that you have for the project. Each group member must supply at least two constraints. These can be constraints on the project itself, the software system, or the stakeholders. Constraints can be anything that limits the scope of the project. For example, that this project's template code is written using Flask and Python constitutes a constraint on the backend of the project. Constraints can also be things like the required timeline of the project. Be creative.
