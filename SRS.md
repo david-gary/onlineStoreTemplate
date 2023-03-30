@@ -123,10 +123,10 @@ The idea for our project is to create a hands on jewlery store. We will build a 
 * **Constraint 2:** Stakeholders cannot choose from a very vast collection of items, our site will be limited to only the scope of items we can include. 
 * **Constraint 3:** We do not display stakeholder reviews but we have admin reviews.
 * **Constraint 4:** We do not control delivery prices because we deliver products using a third party delivery system.
-* **Constraint 5:** No automated payments accepted, Only Debit/Credit Cards. Only Available to US Region
-* **Constraint 6:** This project's code is written using Python, HTML, CSS, and Javascript.
-* **Constraint 7:** The project has to be finished by the end of UNCC's 2023 spring semester.
-* **Constraint 8:** 
+* **Constraint 5:** No automated payments accepted, Only Debit/Credit Cards. 
+* **Constraint 6:** Only Available to US Region
+* **Constraint 7:** This project's code is written using Python, HTML, CSS, and Javascript.
+* **Constraint 8:** The project has to be finished by the end of UNCC's 2023 spring semester.
 
 ## Use Cases
 
