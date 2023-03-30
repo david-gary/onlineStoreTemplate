@@ -72,6 +72,8 @@ REQ-3: be able to make changes to completed orders
 ## Constraints
 
 In this section, you should list any constraints that you have for the project. Each group member must supply at least two constraints. These can be constraints on the project itself, the software system, or the stakeholders. Constraints can be anything that limits the scope of the project. For example, that this project's template code is written using Flask and Python constitutes a constraint on the backend of the project. Constraints can also be things like the required timeline of the project. Be creative.
+CONST-1: user should only be able to create orders if they have a server account
+CONST-2: only users with proper permissions should be able to view sales and user data
 
 ## Use Cases
 
