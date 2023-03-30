@@ -7,9 +7,9 @@ Fill the document out following the guidelines listed in each section. Maintain 
 ## Group Members
 
 * [Sreyas Kodukulla](mailto:skodukul.edu)
-* [Akanimoh Joseph Umoren](mmailto:aumoren@uncc.edu)
-* [Blaise Thomas](mmailto:bthom108@uncc.edu)
-* [Mercere Baker](mmailto:mbaker89@uncc.edu)
+* [Akanimoh Joseph Umoren](mailto:aumoren@uncc.edu)
+* [Blaise Thomas](mailto:bthom108@uncc.edu)
+* [Mercere Baker](mailto:mbaker89@uncc.edu)
 
 ## Revisions
 
