@@ -36,6 +36,20 @@ In this section, you should give a brief overview of what your project will be. 
 
 Each group member must supply at least three functional requirements for the project. Each requirement should be written in the following format:
 
+REQ-1: the user should be able to create orders.
+    description: the user should be able to put multiple food items into an order, the the order gets created when the user is finished adding items
+    type: functional
+    priority: 1
+    rationale: the user needs to be able to create orders in order for the kitchen to complete them
+    testing: we could test this by showing the contents of the completed order once the order is completed
+REQ-2: the orders should get stored in a database
+    description: once the orders are completed, they should get stored in a database so they can get acessed lated when needed
+    type: functional
+    priority: 1
+    rationale: the kitchen should be able to access the orders so they can fulfill them
+    testing: we could show a list of completed orders whenever a new order is completed
+
+
 * **ID:** A unique identifier for the requirement. This should be a number that is unique across the entire document (something like REQ-1, REQ-2, etc. but be sure to replace the word `ID` with the unique identifier).
   * **Description:** A short description of the requirement. This should be a single sentence that describes the requirement. Do not replace the word `Description` with the actual description. Put the description in the space where these instructions are written. Maintain that practice for all future sections.
   * **Type:** The type of requirement. Should be either `Functional` or `Non-Functional`.
