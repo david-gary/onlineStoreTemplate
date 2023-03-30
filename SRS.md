@@ -34,10 +34,6 @@ The idea for our project is to create a hands on jewlery store. We will build a 
 
 ## Requirements
 
-Each group member must supply at least three functional requirements for the project. Each requirement should be written in the following format:
-
-Each group member must supply at least three functional requirements for the project. Each requirement should be written in the following format:
-
 * **ID:** REQ-1
   * **Description:** The customer is trying to use the filter search funtion to find the right type of chain.
   * **Type:** Functional
@@ -123,20 +119,16 @@ Each group member must supply at least three functional requirements for the pro
 
 ## Constraints
 
-In this section, you should list any constraints that you have for the project. Each group member must supply at least two constraints. These can be constraints on the project itself, the software system, or the stakeholders. Constraints can be anything that limits the scope of the project. For example, that this project's template code is written using Flask and Python constitutes a constraint on the backend of the project. Constraints can also be things like the required timeline of the project. Be creative.
-
-Constraint 1: We cannot include recommended items because we can't collect the user data to narrow it down.
-Constraint 2: Stakeholders cannot choose from a very vast collection of items, our site will be limited to only the scope of items we can include. 
-Constraint 3: We do not display stakeholder reviews but we have admin reviews.
-Constraint 4: We do not control delivery prices because we deliver products using a third party delivery system.
-Constraint 5: No automated payments accepted, Only Debit/Credit Cards. Only Available to US Region
-Constraint 6: This project's code is written using Python, HTML, CSS, and Javascript.
-Contstraint 7: The project has to be finished by the end of UNCC's 2023 spring semester.
-
+* **Constraint 1:** We cannot include recommended items because we can't collect the user data to narrow it down.
+* **Constraint 2:** Stakeholders cannot choose from a very vast collection of items, our site will be limited to only the scope of items we can include. 
+* **Constraint 3:** We do not display stakeholder reviews but we have admin reviews.
+* **Constraint 4:** We do not control delivery prices because we deliver products using a third party delivery system.
+* **Constraint 5:** No automated payments accepted, Only Debit/Credit Cards. Only Available to US Region
+* **Constraint 6:** This project's code is written using Python, HTML, CSS, and Javascript.
+* **Constraint 7:** The project has to be finished by the end of UNCC's 2023 spring semester.
+* **Constraint 8:** 
 
 ## Use Cases
-
-In this section, you should list use cases for the project. Use cases are a thorough description of how the system will be used. Each group member must supply at least two use cases. Each use case should be written in the following format:
 
 * **ID:** UC-1
   * **Description:** The customer is trying to utilize the filter search funtion.
@@ -188,8 +180,6 @@ In this section, you should list use cases for the project. Use cases are a thor
   
 ## User Stories
 
-In this section, you should list user stories for the project. User stories are a short description of how a user will be interacting with the system. Each group member must supply at least two user stories. Each user story should be written in the following format:
-
 * **ID:** US-1
   * **Type of User:** Customer
   * **Description:** The customer opens up the website, navigates to the filter search button because they are looking for a certain type of ring, they apply the filters, and they will be directed to the options we offer based on their preference.
@@ -224,8 +214,6 @@ In this section, you should list user stories for the project. User stories are 
 
 
 ## Glossary
-
-In this section, you should list any terms that are used in the document that may not be immediately obvious to a naive reader. Each group member must supply at least one term. Each term should be written in the following format:
 
 * **Term:** Filter Search
   * **Definition:** the filter search is when a user can input certain things that they are looking for and not looking for (based on price, material, type) and will find items that match the conditions they have set in the search.
