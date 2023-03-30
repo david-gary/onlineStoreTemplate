@@ -190,8 +190,8 @@ In this section, you should list use cases for the project. Use cases are a thor
 In this section, you should list user stories for the project. User stories are a short description of how a user will be interacting with the system. Each group member must supply at least two user stories. Each user story should be written in the following format:
 
 * **ID:** US-1
-  * **Type of User:** Customer
-  * **Description:** The customer opens up the website, navigates to the filter search button because they are looking for a certain type of ring, they apply the filters, and they will be directed to the options we offer based on their preference.
+    * **Type of User:** Customer
+    * **Description:** The customer opens up the website, navigates to the filter search button because they are looking for a certain type of ring, they apply the filters, and they will be directed to the options we offer based on their preference.
 
 * **ID:** US-2
   * **Type of User:** Customer
