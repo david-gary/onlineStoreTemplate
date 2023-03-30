@@ -138,7 +138,7 @@ Contstraint 7: The project has to be finished by the end of UNCC's 2023 spring s
 
 In this section, you should list use cases for the project. Use cases are a thorough description of how the system will be used. Each group member must supply at least two use cases. Each use case should be written in the following format:
 
- * **ID:** UC-1
+* **ID:** UC-1
   * **Description:** The customer is trying to utilize the filter search funtion.
   * **Actors:** The customer
   * **Preconditions:** There needs to be an option for filter search that is clear and easy to find.
@@ -167,7 +167,8 @@ In this section, you should list use cases for the project. Use cases are a thor
   * **Actors:** I will be building the web page, and adding the extra descriptions, Mercer will be going behind me to make sure the webpage will link to the checkout page
   * **Preconditions:** Has to come from a previous page that was the items brief description, I.E Under the rings page it is the ring 3 Item, clicking that leads to the ring 3 Item webpage
   * **Postconditions:** You've landed on the webpage for that specific item, complete with the photo, description, and add to cart button. 
-  **ID:** UC-6
+
+* **ID:** UC-6
   * **Description:** Making sure that the webpages works across all devices
   * **Actors:** I will be making sure that the customers can access the page from different devices, such as tablets, smartphones, and computers
   * **Preconditions:** Has a device that can display webpage
@@ -190,8 +191,8 @@ In this section, you should list use cases for the project. Use cases are a thor
 In this section, you should list user stories for the project. User stories are a short description of how a user will be interacting with the system. Each group member must supply at least two user stories. Each user story should be written in the following format:
 
 * **ID:** US-1
-    * **Type of User:** Customer
-    * **Description:** The customer opens up the website, navigates to the filter search button because they are looking for a certain type of ring, they apply the filters, and they will be directed to the options we offer based on their preference.
+  * **Type of User:** Customer
+  * **Description:** The customer opens up the website, navigates to the filter search button because they are looking for a certain type of ring, they apply the filters, and they will be directed to the options we offer based on their preference.
 
 * **ID:** US-2
   * **Type of User:** Customer
@@ -208,16 +209,18 @@ In this section, you should list user stories for the project. User stories are 
 * **ID:** US-5 Web page that displays the item, a description, and an add to cart button for the user to purchase. 
   * **Type of User:** Customer
   * **Description:** As I'm looking through the catalouge I noticed an item that I liked, I clicked on the item and it took me to a separate page that provided more detail for me to make an informed decision, I then added to cart and return to shopping.
+
 * **ID:** US-6 Web page that displays properly regardless of the device used to acess it.
   * **Type of User:** Customer
   * **Description:** As I'm looking through the catalogue I noticed an item that I liked, I clicked on the item and it took me to a separate page that provided more detail for me to make an informed decision, I then added to cart and return to shopping. Later I told my friend about the website, and he accessed it from his phone to take a look at the item I ordered. He was impressed on how easy to use on mobile it was. 
 
 * **ID:** US-7
-    * **Type of User:** Customer
-    * **Description:** The customer found our website and is interested in purchasing a piece of our jewelry. They browse the site, put an item in their shopping cart, click on the shopping cart icon, get taken to a checkout page, and confirm the order with an address and card information.
-  * **ID:** US-8
-    * **Type of User:** IT
-    * **Description:** The customer has a question about the website or has problems purchasing their items. They can send their issues to the provided email to have it checked out.
+  * **Type of User:** Customer
+  * **Description:** The customer found our website and is interested in purchasing a piece of our jewelry. They browse the site, put an item in their shopping cart, click on the shopping cart icon, get taken to a checkout page, and confirm the order with an address and card information.
+
+* **ID:** US-8
+  * **Type of User:** IT
+  * **Description:** The customer has a question about the website or has problems purchasing their items. They can send their issues to the provided email to have it checked out.
 
 
 ## Glossary
@@ -231,7 +234,7 @@ In this section, you should list any terms that are used in the document that ma
   * **Definition:** A state in which two things are able to exist or occur together without problems or conflict.
 
 * **Term:** shopping cart
-    * **Definition:** software to allow customers to select products and buy them on the web.
+  * **Definition:** software to allow customers to select products and buy them on the web.
 
 * **Term:** Navigation bar
   * **Definition:** The webpage element that helps users navigate through the use of hyperlinks.
