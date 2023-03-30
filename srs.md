@@ -8,7 +8,7 @@ Fill the document out following the guidelines listed in each section. Maintain 
 
 * [Alec](mmailto:asteene@uncc.edu)
 * [Jack](mmailto:jdougl39@uncc.edu)
-* [Name](mmailto:email@uncc.edu)
+* [Nick](mmailto:nmatherl@uncc.edu)
 * [Name](mmailto:email@uncc.edu)
 
 ## Revisions
@@ -21,12 +21,16 @@ When a change is made to the document, a new revision should be created. The rev
 
 ## Table of Contents
 
-1. [Introduction](#introduction)
-2. [Requirements](#requirements)
-3. [Constraints](#constraints)
-4. [Use Cases](#use-cases)
-5. [User Stories](#user-stories)
-6. [Glossary](#glossary)
+- [Software Requirements Specification Document](#software-requirements-specification-document)
+  - [Group Members](#group-members)
+  - [Revisions](#revisions)
+  - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Requirements](#requirements)
+  - [Constraints](#constraints)
+  - [Use Cases](#use-cases)
+  - [User Stories](#user-stories)
+  - [Glossary](#glossary)
 
 ## Introduction
 
