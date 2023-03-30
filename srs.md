@@ -40,6 +40,26 @@ In this section, you should give a brief overview of what your project will be. 
 
 Each group member must supply at least three functional requirements for the project. Each requirement should be written in the following format:
 
+REQ-1: the user should be able to create orders.
+    description: the user should be able to put multiple food items into an order, the the order gets created when the user is finished adding items
+    type: functional
+    priority: 1
+    rationale: the user needs to be able to create orders in order for the kitchen to complete them
+    testing: we could test this by showing the contents of the completed order once the order is completed
+REQ-2: the orders should get stored in a database
+    description: once the orders are completed, they should get stored in a database so they can get acessed lated when needed
+    type: functional
+    priority: 1
+    rationale: the kitchen should be able to access the orders so they can fulfill them
+    testing: we could show a list of completed orders whenever a new order is completed
+REQ-3: be able to make changes to completed orders
+    description: once the orders are completed, a user should be able to change the order in case a mistake is made
+    type: functional
+    priority: 2
+    rationale: in case a customer changes their mind, or a user makes a mistake, the completed orders need to be changable
+    testing: we could create an order, then change it to see if the corresponding order on the order list is changed.
+
+
 * **ID:** A unique identifier for the requirement. This should be a number that is unique across the entire document (something like REQ-1, REQ-2, etc. but be sure to replace the word `ID` with the unique identifier).
   * **Description:** A short description of the requirement. This should be a single sentence that describes the requirement. Do not replace the word `Description` with the actual description. Put the description in the space where these instructions are written. Maintain that practice for all future sections.
   * **Type:** The type of requirement. Should be either `Functional` or `Non-Functional`.
@@ -56,6 +76,8 @@ Each group member must supply at least three functional requirements for the pro
 ## Constraints
 
 In this section, you should list any constraints that you have for the project. Each group member must supply at least two constraints. These can be constraints on the project itself, the software system, or the stakeholders. Constraints can be anything that limits the scope of the project. For example, that this project's template code is written using Flask and Python constitutes a constraint on the backend of the project. Constraints can also be things like the required timeline of the project. Be creative.
+CONST-1: user should only be able to create orders if they have a server account
+CONST-2: only users with proper permissions should be able to view sales and user data
 
 ## Use Cases
 
