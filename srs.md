@@ -48,6 +48,12 @@ REQ-2: the orders should get stored in a database
     priority: 1
     rationale: the kitchen should be able to access the orders so they can fulfill them
     testing: we could show a list of completed orders whenever a new order is completed
+REQ-3: be able to make changes to completed orders
+    description: once the orders are completed, a user should be able to change the order in case a mistake is made
+    type: functional
+    priority: 2
+    rationale: in case a customer changes their mind, or a user makes a mistake, the completed orders need to be changable
+    testing: we could create an order, then change it to see if the corresponding order on the order list is changed.
 
 
 * **ID:** A unique identifier for the requirement. This should be a number that is unique across the entire document (something like REQ-1, REQ-2, etc. but be sure to replace the word `ID` with the unique identifier).
