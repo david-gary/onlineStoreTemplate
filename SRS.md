@@ -63,7 +63,7 @@ Each group member must supply at least three functional requirements for the pro
 	* **Type**: `Functional`
 	* **Priority**: 3
 	* **Rationale**: Even more so than browsers, users can have a wide varity of internet speeds which can drastically effect the performance of websites, if a site is too bloated users may avoid it.
- 	* **Testing**: Testing can be done using chrome s throttling feature located within the network tab of the developer panel.
+  * **Testing**: Testing can be done using chrome s throttling feature located within the network tab of the developer panel.
 ## Constraints
 In this section, you should list any constraints that you have for the project. Each group member must supply at least two constraints. These can be constraints on the project itself, the software system, or the stakeholders. Constraints can be anything that limits the scope of the project. For example, that this project's template code is written using Flask and Python constitutes a constraint on the backend of the project. Constraints can also be things like the required timeline of the project. Be creative.
 * Project is to have comments describing the functionality of any custom methods, classes, and algorithms.
