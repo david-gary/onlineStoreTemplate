@@ -7,8 +7,8 @@ Fill the document out following the guidelines listed in each section. Maintain 
 ## Group Members
 
 * [Beren Hollingsworth](mailto:bhollin8@uncc.edu)
-* [Name](mmailto:email@uncc.edu)
-* [Name](mmailto:email@uncc.edu)
+* [Matthew Murphy](mmailto:mmurph83@uncc.edu)
+* [Fernando Contreras-Juarez](mailto:fcontre1@uncc.edu)
 * [Name](mmailto:email@uncc.edu)
 
 ## Revisions
