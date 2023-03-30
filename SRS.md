@@ -83,12 +83,14 @@ The idea for our project is to create a hands on jewlery store. We will build a 
   * **Rationale:** You'd have a list of the different products with images, onclick it will take you to just the 
   the Item itself
   * **Testing:** Onclick should take you to different webPages
+  
 * **ID:** REQ-8
   * **Description:** FAQ PAGE
   * **Type:** Non-Functional, gives people answers to FAQs
   * **Priority:** 5
   * **Rationale:** When people have similar questions and need quick answers a FAQ page is usually what they'll seek out. 
   * **Testing:** Test page on click
+
 * **ID:** REQ-9
   * **Description:** Works on Mobile
   * **Type:** Functional
@@ -98,7 +100,7 @@ The idea for our project is to create a hands on jewlery store. We will build a 
 
 * **ID:** REQ-10
   * **Description:** Needs to have a shopping cart feature to hold their item(s) to purchase.
- * **Type:** Functional
+  * **Type:** Functional
   * **Priority:** 5
   * **Rationale:** An online shopping cart is one of the foundations odf commerical websites to purchase products.
   * **Testing:** Trying to store items in the cart and then buying those items at checkout.
