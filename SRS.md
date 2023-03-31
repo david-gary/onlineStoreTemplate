@@ -69,6 +69,13 @@ Each group member must supply at least three functional requirements for the pro
   * **Priority:** 1
   * **Rationale:** Have the `Student`s easily able to work and edit their version of the lab without having to use an external resource.
   * **Testing:** All lab files should be able to be downloaded.
+* **REQ-4**
+  * **Description:** `Student` requires user login to access labs.
+  * **Type:** `Functional`
+  * **Priority:** 3
+  * **Rationale:** `Student` can keep track of labs that have been accessed
+  * **Testing:** Labs should be accessible to those who are logged in.
+
 
 
 ## Constraints
