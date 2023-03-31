@@ -94,6 +94,8 @@ In this section, you should list any constraints that you have for the project. 
   * The logic of the website will be written in Python with Flask.
 * **CON-2:**
   * Difficulty in getting an SSL certificate for the website.
+* **CON-3:**
+  Ample resouces to host all the labs and instances for those labs.
 
 ## Use Cases
 
