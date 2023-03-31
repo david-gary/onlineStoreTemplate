@@ -9,7 +9,7 @@ Fill the document out following the guidelines listed in each section. Maintain 
 * [Beren Hollingsworth](mailto:bhollin8@uncc.edu)
 * [Matthew Murphy](mmailto:mmurph83@uncc.edu)
 * [Fernando Contreras-Juarez](mailto:fcontre1@uncc.edu)
-* [Name](mmailto:email@uncc.edu)
+* [Abrar Mian](mailto:amian2@uncc.edu)
 
 ## Revisions
 
@@ -81,6 +81,13 @@ Each group member must supply at least three functional requirements for the pro
   * **Priority:** 3
   * **Rationale:** The Website can handle the traffic if `Student`s are seeking to log on.
   * **Testing:** This allows almost the entire class to be logged in and accessing labs.
+* **REQ-6:** 
+  * **Description:** Allow `Students` to view files in WEB IDE
+  * **Type:** Functional
+  * **Priority:** 3
+  * **Rationale:** IDE will allow user to be more familiar with lab content
+  * **Testing:** Verify If IDE viewer is available and the Files that shows on the lab page is the correct one associated with that lab.
+  
 
 
 
@@ -95,7 +102,11 @@ In this section, you should list any constraints that you have for the project. 
 * **CON-2:**
   * Difficulty in getting an SSL certificate for the website.
 * **CON-3:**
-  Ample resouces to host all the labs and instances for those labs.
+  * Ample resouces to host all the labs and instances for those labs.
+* **CON-4:**
+  * The website will be hosted on a server that is capable of handling 50 concurrent users.
+* **CON-5:**
+  * Easy to implement with technologies we all know and are experienced with. 
 
 ## Use Cases
 
@@ -132,6 +143,16 @@ In this section, you should list use cases for the project. Use cases are a thor
   * **Actors:** `Student`
   * **Preconditions:** The `Student` must be logged into the webite.
   * **Postconditions:**  The `Student` User actions are no longer logged onto the website.
+  * **UC-5:** 
+  * **Description:** `Student` wants to login to view stored labs
+  * **Actors:** Website and `Student`
+  * **Preconditions:** `Student` must have account. Also necessary to have stored old labs 
+  * **Postconditions:** `Student` must be able to navigate to stored lab page and see old labs they have "purchased"
+* **UC-6:** 
+  * **Description:** `Student` wants to create an account and browse
+  * **Actors:** Website and `Student`
+  * **Preconditions:** Virtually none
+  * **Postconditions:** `Student` has created an account and is able to add labs to "purchase"
 
 ## User Stories
 
@@ -147,6 +168,12 @@ In this section, you should list user stories for the project. User stories are 
 * **US-1:**
   * **Type of User:** `Student`
   * **Description:** A `Student` is in a large state of panic because a lab is due very soon. The `Student` is able to quickly download the completed lab files from the website. The website provides documentation links and examples to help the `Student` understand what they are expected to do. The `Student` is able to efficiently complete the lab given the resources. 
+* **US-2:** 
+  * **Type of User:** `Student`
+  * **Description:** The `Student` would ike to purchase new labs. The `Student` logins to their account on the website. They navigate to the shopping page. They add Lab6 to their cart. They then proceed to "purchase it" and receive it in their account.
+* **US-3:** 
+  * **Type of User:** Admin
+  * **Description:** Admin would like to view the inventory of labs available. They login on the qebsite. Navigate to their `Admin` page. Find tab listing recent purchases in the order they happened. The information includes: purchase date, cost, and buyer.
 
 ## Glossary
 
