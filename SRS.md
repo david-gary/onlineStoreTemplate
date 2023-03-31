@@ -22,8 +22,10 @@ When a change is made to the document, a new revision should be created. The rev
 | 1.2 | 03/24/23 | Added Name    | [Rahul-Das](mailto:rdas6@uncc.edu)        |    [Rahul-Das](mailto:rdas6@uncc.edu)     |
 | 1.3 | 03/29/23 | Added Requirements    | [Rahul-Das](mailto:rdas6@uncc.edu)        |    [Rahul-Das](mailto:rdas6@uncc.edu)     |
 | 1.4 | 03/30/23 | Fixing Stuff    | [Matthew Young](mailto:myoun101@uncc.edu) | [Matthew Young](mailto:myoun101@uncc.edu) | 
-| 1.4 | 03/30/23 | Added REQ-ACC    | [Matthew Young](mailto:myoun101@uncc.edu) | [Matthew Young](mailto:myoun101@uncc.edu) | 
 | 1.4 | 03/30/23 | Added Name   | [Akhil Adusumilli](mailto:aadusumi@uncc.edu) | [Akhil Adusumilli](mailto:aadusumi@uncc.edu) | 
+| 1.5 | 03/30/23 | Added REQ-ACC    | [Matthew Young](mailto:myoun101@uncc.edu) | [Matthew Young](mailto:myoun101@uncc.edu) | 
+| 1.6 | 03/29/23 | Added Requirements    | [Rahul-Das](mailto:rdas6@uncc.edu)        |    [Rahul-Das](mailto:rdas6@uncc.edu)     |
+
 
 ## Table of Contents
 
@@ -54,7 +56,7 @@ Each group member must supply at least three functional requirements for the pro
   * **Priority:** 4.
   * **Rationale:** Makes searching for movies more convenient.
   * **Testing:** See if the logic is working on the front end, nd unit testing on the back-end.
-  **REQ-3:** A unique identifier for the requirement. This should be a number that is unique across the entire document (something like REQ-1, REQ-2, etc. but be sure to replace the word `ID` with the unique identifier).
+* **REQ-3:** A unique identifier for the requirement. This should be a number that is unique across the entire document (something like REQ-1, REQ-2, etc. but be sure to replace the word `ID` with the unique identifier).
   * **Description:** Users can see the cover fo the movie
   * **Type:** `Functional`
   * **Priority:** 5.
@@ -74,7 +76,7 @@ Each group member must supply at least three functional requirements for the pro
   * **Testing**: Testing can be done using chrome s throttling feature located within the network tab of the developer panel.
 * **REQ-ACC**
   * **Description**: The website should have a login system for users to use.
-  * **Type**: Functional
+  * **Type**: `Functional`
   * **Rationale**: In order for users to utilize a cross-device shopping cart they will have to have an account.
   * **Testing**: Testing will be done by creating accounts and utilizing several devices and/or private browsing to ensure the data is properly accessed and utilized.
 ## Constraints
@@ -114,6 +116,24 @@ In this section, you should list use cases for the project. Use cases are a thor
   * **Postconditions**:
     * Account should be added to the User Management System's database if creation is successful
     * Account should be automatically logged in.
+* **UC-PURCHASE**
+  * **Description**: User wants to buy a movie.
+  * **Actors**: User, User Management System.
+  * **Preconditions**:
+    * Must have a account.
+    * Valid credit card. 
+  * **Postconditions**:
+    * Purchase should be completed after given info
+    * If no info is given, purchase will noot go through. 
+* **UC-REFUND**
+  * **Description**: User wants to return a movie.
+  * **Actors**: User, User Management System.
+  * **Preconditions**:
+    * Must have a account.
+    * Valid credit card. 
+  * **Postconditions**:
+    * Refund should be completed after given info
+    * Money will be added back.         
 
 ## User Stories
 
@@ -128,6 +148,12 @@ In this section, you should list user stories for the project. User stories are 
 * **US-ACC-CREATE**
   * **Type of User:** `Customer`
   * **Description:** User does not have an account and wishes to save their cart so that they can purchase items when they have money available. User accesses the login page and clicks the `Create Account` link. User is prompted for a username, password and to reenter said password. User obliges. User is told that they have a typo in their password reentry and they fix it. User creates the account and their cart is automatically saved.
+* **USER-GENRE**
+  * **Type of User:** `Customer`
+  * **Description:** The user is scrolling through a big list of movie but wants to find a specific genre to optimize his time. He clicks on the `Select Genre` button and select the genre of movie he wants to watch.
+* **USER-RATING**
+  * **Type of User:** `Customer`
+  * **Description:** The user in the mood to watch some horrible movies to laugh at. He clicks on the `Filter by Rating` button and clicks on his preffered star rating.    
 
 ## Glossary
 
@@ -139,3 +165,6 @@ In this section, you should list any terms that are used in the document that ma
 	* Definition: An intentional limitation of information flow whether it be the clock speed of a cpu or network bandwidth, can be used to simulate poor hardware/network connections, conserve power, and reduce heat generation. 
 * **Bandwidth**:
 	* Definition: The capacity or max speed of a network. 
+* **Rest API**:
+	* Definition: API stands for Application Programming Inerface and uses HTTP methods like get, post,update and read to allocate data.  
+
