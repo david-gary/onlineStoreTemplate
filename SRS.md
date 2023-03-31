@@ -92,6 +92,8 @@ In this section, you should list any constraints that you have for the project. 
   * The database should store course material progression so that it is instanced for each unique user.
 * **CON-1:**
   * The logic of the website will be written in Python with Flask.
+* **CON-2:**
+  * Difficulty in getting an SSL certificate for the website.
 
 ## Use Cases
 
