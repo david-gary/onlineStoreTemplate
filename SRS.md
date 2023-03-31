@@ -87,9 +87,18 @@ Each group member must supply at least three functional requirements for the pro
   * **Priority:** 3
   * **Rationale:** IDE will allow user to be more familiar with lab content
   * **Testing:** Verify If IDE viewer is available and the Files that shows on the lab page is the correct one associated with that lab.
-  
-
-
+* **REQ-7:** 
+  * **Description:**`Student` may downlaod lab/ store lab on their account
+  * **Type:** Functional
+  * **Priority:** 2
+  * **Rationale:** `Student` need to be able to see which labs theyve purchased/stores on their account.
+  * **Testing:** Verify that `Student` can add lab to his account, logout and log back in with the data still being there.
+* **REQ-8:**
+  * **Description:** `Student` can view lab progress
+  * **Type:** Functional
+  * **Priority:** 2
+  * **Rationale:** `Student` can see which labs they have completed and which ones they have not.
+  * **Testing:** Verify that `Student` can see which labs they have completed and which ones they have not.
 
 ## Constraints
 
@@ -143,7 +152,7 @@ In this section, you should list use cases for the project. Use cases are a thor
   * **Actors:** `Student`
   * **Preconditions:** The `Student` must be logged into the webite.
   * **Postconditions:**  The `Student` User actions are no longer logged onto the website.
-  * **UC-5:** 
+* **UC-5:** 
   * **Description:** `Student` wants to login to view stored labs
   * **Actors:** Website and `Student`
   * **Preconditions:** `Student` must have account. Also necessary to have stored old labs 
@@ -172,7 +181,7 @@ In this section, you should list user stories for the project. User stories are 
   * **Type of User:** `Student`
   * **Description:** The `Student` would ike to purchase new labs. The `Student` logins to their account on the website. They navigate to the shopping page. They add Lab6 to their cart. They then proceed to "purchase it" and receive it in their account.
 * **US-3:** 
-  * **Type of User:** Admin
+  * **Type of User:** `Admin`
   * **Description:** Admin would like to view the inventory of labs available. They login on the qebsite. Navigate to their `Admin` page. Find tab listing recent purchases in the order they happened. The information includes: purchase date, cost, and buyer.
 
 ## Glossary
@@ -181,3 +190,7 @@ In this section, you should list any terms that are used in the document that ma
 
 * **Lab:**
   * **Definition:** An assignment from the ITSC 3155 Software Engineering class.
+* **Lab Files:**
+  * **Definition:** The files that are required to complete a lab.
+* **Lab Instructions:**
+  * **Definition:** The instructions that are required to complete a lab.
