@@ -183,6 +183,12 @@ In this section, you should list user stories for the project. User stories are 
 * **US-3:** 
   * **Type of User:** `Admin`
   * **Description:** Admin would like to view the inventory of labs available. They login on the qebsite. Navigate to their `Admin` page. Find tab listing recent purchases in the order they happened. The information includes: purchase date, cost, and buyer.
+  * **US-4:**
+  * **Type of User:** `Student`
+  * **Description:** A `Student` is accessing the labs on a public computer to check the due date for the labs. Once the student finds  out when the labs are due, the student logs out so no one can access their account on the computer.
+* **US-5:**
+  * **Type of User:** `Student`
+  * **Description:** Two `Student`s are using one computer to quickly check their progress on their labs on the website, the first `Student` logs in and logs out after they are finished. This allows the 2nd `Student`to use the same computer to log into their account and check their user progress.
 
 ## Glossary
 
