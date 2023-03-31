@@ -73,8 +73,14 @@ Each group member must supply at least three functional requirements for the pro
   * **Description:** `Student` requires user login to access labs.
   * **Type:** `Functional`
   * **Priority:** 3
-  * **Rationale:** `Student` can keep track of labs that have been accessed
+  * **Rationale:** `Student` can keep track of labs that have been accessed.
   * **Testing:** Labs should be accessible to those who are logged in.
+* **REQ-5**
+  * **Desciption:** Website able to handle 50 concurrent users logged in.
+  * **Type:** `Non Functional`
+  * **Priority:** 3
+  * **Rationale:** The Website can handle the traffic if `Student`s are seeking to log on.
+  * **Testing:** This allows almost the entire class to be logged in and accessing labs.
 
 
 
