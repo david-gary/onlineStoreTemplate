@@ -122,6 +122,11 @@ In this section, you should list use cases for the project. Use cases are a thor
   * **Actors:** `Student`
   * **Preconditions:** The `Student` must be logged in and the lab files must have been uploaded to the website.
   * **Postconditions:** The `Student` has downloaded all files relating to the lab.
+* **UC-3:**
+  * **Description:** A `Student` logs into the website.
+  * **Actors:** `Student`
+  * **Preconditions:** The `Student`knows their account information, username/email and password.
+  * **Postconditions:** The `Student` gains access to their account and to the labs
 
 ## User Stories
 
