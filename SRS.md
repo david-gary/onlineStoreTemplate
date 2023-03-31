@@ -125,8 +125,13 @@ In this section, you should list use cases for the project. Use cases are a thor
 * **UC-3:**
   * **Description:** A `Student` logs into the website.
   * **Actors:** `Student`
-  * **Preconditions:** The `Student`knows their account information, username/email and password.
-  * **Postconditions:** The `Student` gains access to their account and to the labs
+  * **Preconditions:** The `Student` knows their account information, username/email and password.
+  * **Postconditions:** The `Student` gains access to their account and to the labs.
+* **UC-4:**
+  * **Description:** A `Student` logs out of the website.
+  * **Actors:** `Student`
+  * **Preconditions:** The `Student` must be logged into the webite.
+  * **Postconditions:**  The `Student` User actions are no longer logged onto the website.
 
 ## User Stories
 
