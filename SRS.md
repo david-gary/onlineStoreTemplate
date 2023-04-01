@@ -7,7 +7,7 @@ Fill the document out following the guidelines listed in each section. Maintain 
 ## Group Members
 
 * [Beren Hollingsworth](mailto:bhollin8@uncc.edu)
-* [Matthew Murphy](mmailto:mmurph83@uncc.edu)
+* [Matthew Murphy](mailto:mmurph83@uncc.edu)
 * [Fernando Contreras-Juarez](mailto:fcontre1@uncc.edu)
 * [Abrar Mian](mailto:amian2@uncc.edu)
 
@@ -99,6 +99,24 @@ Each group member must supply at least three functional requirements for the pro
   * **Priority:** 2
   * **Rationale:** `Student` can see which labs they have completed and which ones they have not.
   * **Testing:** Verify that `Student` can see which labs they have completed and which ones they have not.
+* **REQ-9:**
+  * **Description:** Provide a search functionality for `Student` to find specific lab topics or keywords.
+  * **Type:** `Functional`
+  * **Priority:** 2 
+  * **Rationale:** This feature will enable `Student` to efficiently locate relevant information related to their labs, improving their overall learning experience.
+  * **Testing:** Test the search functionality by entering various keywords or lab topics to ensure it returns accurate and relevant results.
+* **REQ-10:**
+  * **Description:** Implement a discussion forum for each lab where Students can ask questions and collaborate. 
+  * **Type:** `Functional`
+  * **Priority:** 4
+  * **Rationale:** A discussion forum will foster collaboration among Students, allowing them to help each other, share insights, and clarify doubts about the labs.
+  * **Testing:** Ensure that the discussion forum is accessible for each lab, and Students can post questions, reply to others, and interact with their peers.
+* **REQ-11:**
+  * **Description:** Display a progress tracker on the Student's dashboard, showing the number of labs completed and remaining.
+  * **Type:** `Functional`
+  * **Priority:** 3
+  * **Rationale:** A `Student` that can track their progress can stay organized and motivated by visualizing their progress in the course and the labs remaining to be completed.
+  * **Testing:** Verify that the progress tracker accurately reflects the number of completed labs and updates as the Student completes additional labs.
 
 ## Constraints
 
@@ -115,7 +133,11 @@ In this section, you should list any constraints that you have for the project. 
 * **CON-4:**
   * The website will be hosted on a server that is capable of handling 50 concurrent users.
 * **CON-5:**
-  * Easy to implement with technologies we all know and are experienced with. 
+  * Easy to implement with technologies we all know and are experienced with.
+* **CON-6:**
+  * Website needs to be functional using different browsers and devices like Windows, macOS, Android, ChromOS, Edge, Chrome, Safari, Firefox.
+* **CON-7:**
+  * Project takes place in last half of a school semester. Website must be completed by a defined deadline, limiting the scope. 
 
 ## Use Cases
 
@@ -162,6 +184,16 @@ In this section, you should list use cases for the project. Use cases are a thor
   * **Actors:** Website and `Student`
   * **Preconditions:** Virtually none
   * **Postconditions:** `Student` has created an account and is able to add labs to "purchase"
+* **UC-7:**
+ *  **Description:** A `Student` participates in the discussion forum for a specific lab.
+ *  **Actors:** Student
+ *  **Preconditions:** The `Student` must be logged in, and the discussion forum for the lab must be available.
+ *  **Postconditions:** The `Student` can post questions, reply to other Students' questions, and engage in collaborative problem-solving.
+* **UC-8:**
+  * **Description:** A `Student` searches for a specific lab topic or keyword using the search functionality.
+  * **Actors:** `Student` 
+  * **Preconditions:** The `Student` must be logged in, and the search functionality must be available on the website. 
+  * **Postconditions:** The `Student` receives a list of relevant labs or resources related to the searched keyword or topic.
 
 ## User Stories
 
@@ -182,14 +214,24 @@ In this section, you should list user stories for the project. User stories are 
   * **Description:** The `Student` would ike to purchase new labs. The `Student` logins to their account on the website. They navigate to the shopping page. They add Lab6 to their cart. They then proceed to "purchase it" and receive it in their account.
 * **US-3:** 
   * **Type of User:** `Admin`
-  * **Description:** Admin would like to view the inventory of labs available. They login on the qebsite. Navigate to their `Admin` page. Find tab listing recent purchases in the order they happened. The information includes: purchase date, cost, and buyer.
+  * **Description:** Admin would like to view the inventory of labs available. They login on the website. Navigate to their `Admin` page. Find tab listing recent purchases in the order they happened. The information includes: purchase date, cost, and buyer.
   * **US-4:**
   * **Type of User:** `Student`
   * **Description:** A `Student` is accessing the labs on a public computer to check the due date for the labs. Once the student finds  out when the labs are due, the student logs out so no one can access their account on the computer.
 * **US-5:**
   * **Type of User:** `Student`
   * **Description:** Two `Student`s are using one computer to quickly check their progress on their labs on the website, the first `Student` logs in and logs out after they are finished. This allows the 2nd `Student`to use the same computer to log into their account and check their user progress.
+* **US-6:**
+  * **Type of User:** `Student`
+  * **Description:** Two `Student`s are using one computer to quickly check their progress on their labs on the website, the first `Student` logs in and logs out after they are finished. This allows the 2nd `Student`to use the same computer to log into their account and check their user progress.
+* **US-7:**
+  * **Type of User:** `Student`
+  * **Description:** A `Student` is struggling with one of the labs. The `Student` logs into the website, navigates to the particular lab, and accesses the discussion forum for that lab. They post their question and get helpful replies from their peers, which helps them understand the concept of the lab. 
+* **US-8:**
+  * **Type of User:** `Student`
+  * **Description:** A `Student` needs to finish their upcoming lab, but their computer is not working. They have to use their parents laptop, which does have enough space to run a dedicated IDE. The `Student` uses the websites Web-IDE to complete their lab. 
 
+  
 ## Glossary
 
 In this section, you should list any terms that are used in the document that may not be immediately obvious to a naive reader. Each group member must supply at least one term. Each term should be written in the following format:
@@ -200,3 +242,5 @@ In this section, you should list any terms that are used in the document that ma
   * **Definition:** The files that are required to complete a lab.
 * **Lab Instructions:**
   * **Definition:** The instructions that are required to complete a lab.
+* **Web-IDE:**
+  * **Definition:** A Web Integrated Development Environment (Web IDE), is a web browser based IDE that allows for software development or web development.
