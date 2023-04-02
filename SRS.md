@@ -25,7 +25,7 @@ When a change is made to the document, a new revision should be created. The rev
 | 1.4 | 03/30/23 | Added Name   | [Akhil Adusumilli](mailto:aadusumi@uncc.edu) | [Akhil Adusumilli](mailto:aadusumi@uncc.edu) | 
 | 1.5 | 03/30/23 | Added REQ-ACC    | [Matthew Young](mailto:myoun101@uncc.edu) | [Matthew Young](mailto:myoun101@uncc.edu) | 
 | 1.6 | 03/29/23 | Added Requirements    | [Rahul-Das](mailto:rdas6@uncc.edu)        |    [Rahul-Das](mailto:rdas6@uncc.edu)     |
-
+| 1.6 | 04/01/23 | Added Requirements   | [Akhil Adusumilli](mailto:aadusumi@uncc.edu) | [Akhil Adusumilli](mailto:aadusumi@uncc.edu) | 
 
 ## Table of Contents
 
@@ -57,7 +57,7 @@ Each group member must supply at least three functional requirements for the pro
   * **Rationale:** Makes searching for movies more convenient.
   * **Testing:** See if the logic is working on the front end, nd unit testing on the back-end.
 * **REQ-3:** A unique identifier for the requirement. This should be a number that is unique across the entire document (something like REQ-1, REQ-2, etc. but be sure to replace the word `ID` with the unique identifier).
-  * **Description:** Users can see the cover fo the movie
+  * **Description:** Users can see the cover of the movie
   * **Type:** `Functional`
   * **Priority:** 5.
   * **Rationale:**Makes the website more pleseant to see and use.
@@ -79,6 +79,23 @@ Each group member must supply at least three functional requirements for the pro
   * **Type**: `Functional`
   * **Rationale**: In order for users to utilize a cross-device shopping cart they will have to have an account.
   * **Testing**: Testing will be done by creating accounts and utilizing several devices and/or private browsing to ensure the data is properly accessed and utilized.
+* **REQ-7**
+  * **Description**: Users will have basic information about movie, including name and release date.
+  * **Type**: `Functional`
+  * **Rationale**: Allows users to know what movie is being shown
+  * **Testing**: Can be tested by creating a movie and seeing is the name and date show up underneath the movie.
+* **REQ-8**
+  * **Description**: Users are able to search for movies by name.
+  * **Type**: `Functional`
+  * **Rationale**: Allows users to find what specific movies they are looking for.
+  * **Testing**: Testing can be done by creating a test list of movies and searching for keywords. That should 
+  return a certain movie from the test list.
+* **REQ-9**
+  * **Description**: Users can see a shopping cart with all current purchases showing.
+  * **Type**: `Functional`
+  * **Rationale**: Allows users to see their selections and make changes easily
+  * **Testing**: Can be tested by selecting some movies to add to cart and seeing if they appear in the cart.
+
 ## Constraints
 In this section, you should list any constraints that you have for the project. Each group member must supply at least two constraints. These can be constraints on the project itself, the software system, or the stakeholders. Constraints can be anything that limits the scope of the project. For example, that this project's template code is written using Flask and Python constitutes a constraint on the backend of the project. Constraints can also be things like the required timeline of the project. Be creative.
 * Project is to have comments describing the functionality of any custom methods, classes, and algorithms.
