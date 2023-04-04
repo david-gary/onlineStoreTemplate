@@ -1,0 +1,15 @@
+@startuml rectangle 
+left to right direction    
+actor Managament
+rectangle "Users" as User{
+(Login)
+  (Register)
+  (View Cart)
+  (View Items)
+  (View Orders)
+  (View Profile)
+  (Filter by Preference)
+  (Logout)
+}
+User -> (Login)
+@enduml

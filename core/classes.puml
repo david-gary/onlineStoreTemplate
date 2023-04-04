@@ -34,5 +34,14 @@ class "UserFilter" as core.session.UserFilter #aliceblue{
   filterByDateOld() -> array
   filterByDateNew() -> array
 }
+class "Movie" as core #aliceblue{
+   title: String
+   price : float
+   rating: int
+   genre: String
+   cover: String
+   date: datetime
+   getters&setters()
+}
 
 @enduml
