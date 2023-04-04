@@ -51,6 +51,30 @@ Each group member must supply at least three functional requirements for the pro
   * **Rationale:** A short description of why the requirement is important. This should be a single sentence that describes why the requirement is important.
   * **Testing:** A short description of how the requirement can be tested. This should be a single sentence that describes how the requirement can be tested.
 
+  Function 1 
+    Description- Being able to buy and sell music
+    Type- Functional
+    Priority-5
+    Rationals-It is the main function of our store
+    Testing- Can be tested by running a fake checkout/selling test
+  
+  Function 2
+    Description- Recommend artist for that artist you picked
+    Type- Functional
+    Priority-3
+    Rationals-Enhances the experience with our program so that we can 
+    Testing- Can be tested by running a the sell/checkout function
+
+   Function 3
+    Description- Merch Shop
+    Type- Functional
+    Priority-3
+    Rationals-Would allow customers to buy merch from there favorite artist's 
+    Testing- Can be tested by running a the sell/checkout function
+  
+
+
+
 ## Constraints
 
 In this section, you should list any constraints that you have for the project. Each group member must supply at least two constraints. These can be constraints on the project itself, the software system, or the stakeholders. Constraints can be anything that limits the scope of the project. For example, that this project's template code is written using Flask and Python constitutes a constraint on the backend of the project. Constraints can also be things like the required timeline of the project. Be creative.
