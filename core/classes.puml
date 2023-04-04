@@ -20,5 +20,19 @@ class "UserSession" as core.session.UserSession #aliceblue {
   submit_cart() -> None
   update_item_quantity(id: str, change_to_quantity: int) -> None
   update_total_cost() -> None
+  delete_cart(id:str) -> None
+  
 }
+class "UserFilter" as core.session.UserFilter #aliceblue{
+  db : Database
+  result : array
+  filterByRatingHigh() -> array
+  filterByRatingLow() -> array
+  filterByGenre(genre:str) -> array
+  filterByDate(date:str) -> array
+  filterByStars(stars:int) ->array
+  filterByDateOld() -> array
+  filterByDateNew() -> array
+}
+
 @enduml
