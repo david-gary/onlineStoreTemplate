@@ -1,7 +1,8 @@
 @startuml rectangle 
 left to right direction    
 actor User
-rectangle "Actions" as actions{
+actor Admin
+rectangle "Summary" as summary{
   (Login)
   (Register)
   (View Cart)
@@ -14,6 +15,7 @@ rectangle "Actions" as actions{
   (Purchase)
   (Filter by Watch Time)
 }
+
 User --> (Login)
 User --> (Register)
 User --> (View Cart)
@@ -25,4 +27,13 @@ User --> (Logout)
 User --> (Refund)
 User --> (Purchase)
 User --> (Filter by Watch Time)
+Admin -->(Register):Will add user to the database and save credential
+Admin -->(Purchase):Will complete purchase and allocate movie data accordingly
+Admin -->(Refund):Will give money back to the user
+rectangle "Checout" as checkout{
+User--(checkout)
+(checkout) .> (purchase) : include
+(paymentinfo) .> : allows purchase
+}
+
 @enduml
