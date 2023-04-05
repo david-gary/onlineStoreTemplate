@@ -1,0 +1,16 @@
+@startuml rectangle 
+left to right direction    
+actor Admin
+rectangle "Management" as Management{
+  (Register User)
+  (Refund User)
+  (Purchase User)
+  (Add Movies User)
+}
+Admin --> (Register User)
+Admin --> (Refund User)
+Admin --> (Purchase User)
+Admin --> (Add Movies to Database)
+(Purchase User)---(Add Movies to Database)
+
+@enduml

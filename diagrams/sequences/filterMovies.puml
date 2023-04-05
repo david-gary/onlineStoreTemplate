@@ -1,0 +1,18 @@
+@startuml filterMovies
+actor Customer
+boundary "Website" as system
+control "REST API" as API
+control "Database" as db
+Customer -> system: Filter by Condition
+activate system
+system -> API : HTTP get method to get a array of movies
+activate API
+API-->db:Get information about a movie with a certain condition
+activate db
+db--> API: retrive movies by query
+deactivate db
+API-> system:Show results of the users condition
+deactivate API
+system -> system:showcase the movies that met the users condition
+deactivate system
+@enduml
