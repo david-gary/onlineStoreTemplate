@@ -2,10 +2,11 @@
 
 from authentication.authTools import login_pipeline, update_passwords, hash_password
 from database.db import Database
-from flask import Flask, render_template, request
+from flask import Flask, flash, render_template, request
 from core.session import Sessions
 
 app = Flask(__name__)
+app.secret_key = b'7Zwe3_34rteff'
 HOST, PORT = 'localhost', 8080
 global username, products, db, sessions
 username = 'default'
@@ -58,14 +59,17 @@ def login():
         - sessions: adds a new session to the sessions object
 
     """
+    error = None
     username = request.form['username']
     password = request.form['password']
     if login_pipeline(username, password):
+        print("login")
         sessions.add_new_session(username, db)
         return render_template('home.html', products=products, sessions=sessions)
     else:
         print(f"Incorrect username ({username}) or password ({password}).")
-        return render_template('index.html')
+        flash("Incorrect username or password.", 'error')
+    return render_template('login.html', uname=username)
 
 
 @app.route('/register')
@@ -104,7 +108,7 @@ def register():
     last_name = request.form['last_name']
     salt, key = hash_password(password)
     update_passwords(username, key, salt)
-    db.insert_user(username, key, email, first_name, last_name)
+    db.insert_user(username, key, salt, email, first_name, last_name)
     return render_template('index.html')
 
 
