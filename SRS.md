@@ -24,10 +24,8 @@ When a change is made to the document, a new revision should be created. The rev
 | 1.4 | 03/30/23 | Fixing Stuff    | [Matthew Young](mailto:myoun101@uncc.edu) | [Matthew Young](mailto:myoun101@uncc.edu) | 
 | 1.4 | 03/30/23 | Added Name   | [Akhil Adusumilli](mailto:aadusumi@uncc.edu) | [Akhil Adusumilli](mailto:aadusumi@uncc.edu) | 
 | 1.5 | 03/30/23 | Added REQ-ACC    | [Matthew Young](mailto:myoun101@uncc.edu) | [Matthew Young](mailto:myoun101@uncc.edu) | 
-| 1.6 | 03/29/23 | Added Requirements    | [Rahul-Das](mailto:rdas6@uncc.edu)        |    [Rahul-Das](mailto:rdas6@uncc.edu)     |
-[Artem Dyadchenko](adyadche@uncc.edu) | 
-| 1.7 | 04/4/23 | Added Name    | [Artem Dyadchenko](adyadche@uncc.edu)        |    [Artem Dyadchenko](adyadche@uncc.edu)     |
-[Artem Dyadchenko](adyadche@uncc.edu) | 
+| 1.6 | 03/29/23 | Added Requirements    | [Rahul-Das](mailto:rdas6@uncc.edu)        |    [Rahul-Das](mailto:rdas6@uncc.edu)     | 
+| 1.7 | 04/4/23 | Added Name    | [Artem Dyadchenko](adyadche@uncc.edu)        |    [Artem Dyadchenko](adyadche@uncc.edu)     | 
 | 1.8 | 04/4/23 | Added Requirements  | [Artem Dyadchenko](adyadche@uncc.edu)  |    [Artem Dyadchenko](adyadche@uncc.edu)     |
 
 
