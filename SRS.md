@@ -9,7 +9,7 @@ Fill the document out following the guidelines listed in each section. Maintain 
 * [Matthew Young](mailto:myoun101@uncc.edu)
 * [Rahul Das](mailto:rdas6@uncc.edu)
 * [Akhil Adusumilli](mailto:aadusumi@uncc.edu)
-* [Name](mmailto:email@uncc.edu)
+* [Artem Dyadchenko](adyadche@uncc.edu)
 
 ## Revisions
 
@@ -26,6 +26,8 @@ When a change is made to the document, a new revision should be created. The rev
 | 1.5 | 03/30/23 | Added REQ-ACC    | [Matthew Young](mailto:myoun101@uncc.edu) | [Matthew Young](mailto:myoun101@uncc.edu) | 
 | 1.6 | 03/29/23 | Added Requirements    | [Rahul-Das](mailto:rdas6@uncc.edu)        |    [Rahul-Das](mailto:rdas6@uncc.edu)     |
 | 1.6 | 04/01/23 | Added Requirements   | [Akhil Adusumilli](mailto:aadusumi@uncc.edu) | [Akhil Adusumilli](mailto:aadusumi@uncc.edu) | 
+| 1.7 | 04/4/23 | Added Name    | [Artem Dyadchenko](adyadche@uncc.edu)        |    [Artem Dyadchenko](adyadche@uncc.edu)     | 
+| 1.8 | 04/4/23 | Added Requirements  | [Artem Dyadchenko](adyadche@uncc.edu)  |    [Artem Dyadchenko](adyadche@uncc.edu)     |
 
 ## Table of Contents
 
@@ -95,7 +97,24 @@ Each group member must supply at least three functional requirements for the pro
   * **Type**: `Functional`
   * **Rationale**: Allows users to see their selections and make changes easily
   * **Testing**: Can be tested by selecting some movies to add to cart and seeing if they appear in the cart.
-
+* **REQ-AAA**
+  * **Description**: The website should look good on both the phone and computer.
+  * **Type**: `Functional`
+  * **Priority**: 4
+  * **Rationale**: Users may want to use the websire both on their computer and on their phone.
+  * **Testing**: The testing can be done using the website on phone and computer.
+* **REQ-BBB**
+  * **Description**: Under each image of the movie sould be the title of the movie and the year of release.
+  * **Type**: `Functional`
+  * **Priority**: 3
+  * **Rationale**: Add the title and the year of release so users know what kind of movie it is.
+  * **Testing**: The esting can be done after viewing if the site has the title and year of release written under each image of the movie.
+* **REQ-CCC**
+  * **Description**: The website should have a navigation menu.
+  * **Type**: `Functional`
+  * **Priority**: 3
+  * **Rationale**: The website should have a navigation menu to allow the user to navigate the site.
+  * **Testing**: The testing can be done by seeng if there is a navigation menu on the site, and whether it works.
 ## Constraints
 In this section, you should list any constraints that you have for the project. Each group member must supply at least two constraints. These can be constraints on the project itself, the software system, or the stakeholders. Constraints can be anything that limits the scope of the project. For example, that this project's template code is written using Flask and Python constitutes a constraint on the backend of the project. Constraints can also be things like the required timeline of the project. Be creative.
 * Project is to have comments describing the functionality of any custom methods, classes, and algorithms.
