@@ -1,0 +1,39 @@
+@startuml rectangle 
+left to right direction    
+actor User
+actor Admin
+rectangle "Summary" as summary{
+  (Login)
+  (Register)
+  (View Cart)
+  (View Movies)
+  (View WatchList)
+  (View Profile)
+  (Filter by Preference)
+  (Logout)
+  (Refund)
+  (Purchase)
+  (Filter by Watch Time)
+}
+
+User --> (Login)
+User --> (Register)
+User --> (View Cart)
+User --> (View Movies)
+User --> (View WatchList)
+User --> (View Profile)
+User --> (Filter by Preference)
+User --> (Logout)
+User --> (Refund)
+User --> (Purchase)
+User --> (Filter by Watch Time)
+Admin -->(Register):Will add user to the database and save credential
+Admin -->(Purchase):Will complete purchase and allocate movie data accordingly
+Admin -->(Refund):Will give money back to the user
+rectangle "Checout" as checkout{
+User--(checkout)
+(checkout) .> (purchase) : include
+(paymentinfo) .> : allows purchase
+}
+
+@enduml

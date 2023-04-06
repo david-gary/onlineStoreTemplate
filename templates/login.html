@@ -5,9 +5,18 @@
     <h3>Welcome back!</h3>
     <div class="col-md-12" id="login_class">
         <form action="/home" method="post" id="login_form">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {%if messages%}
+                <ul class="flashes">
+                    {% for category, message in messages %}
+                        <li class="{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            {% endwith %}
             <div class="form-group" id="info_form_group">
                 <label for="username">Username</label>
-                <input type="text" class="form-control" id="username" name="username" placeholder="Enter username">
+                <input type="text" class="form-control" id="username" name="username" placeholder="Username" value="{{uname if uname}}">
             </div>
             <div class="form-group" id="info_form_group">
                 <label for=" password">Password</label>

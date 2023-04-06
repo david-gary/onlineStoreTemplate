@@ -250,7 +250,7 @@ class Database:
     # ------------------ Users -------------------
     # --------------------------------------------
 
-    def insert_user(self, username: str, password_hash: str, email: str, first_name: str, last_name: str) -> None:
+    def insert_user(self, username: str, password_hash: str, password_salt: str, email: str, first_name: str, last_name: str) -> None:
         """
         Inserts a new user into the database.
 
@@ -263,8 +263,8 @@ class Database:
             - None
         """
         self.cursor.execute(
-            "INSERT INTO users (username, password_hash, email, first_name, last_name) VALUES (?, ?, ?, ?, ?)",
-            (username, password_hash, email, first_name, last_name))
+            "INSERT INTO users (username, password_hash, salt, email, first_name, last_name) VALUES (?, ?, ?, ?, ?, ?)",
+            (username, password_hash, password_salt, email, first_name, last_name))
         self.connection.commit()
 
     # ------ Getter methods ------
@@ -282,6 +282,19 @@ class Database:
         self.cursor.execute("SELECT * FROM users")
         return self.cursor.fetchall()
 
+    def get_salt_by_username(self, username: str):
+        """
+        Gets the password salt of a user from the database.
+
+        args:
+            - username: The username of the user whose password salt to get
+        
+        returns:
+            - The password salt of the user whose password hash to get
+        """
+        self.cursor.execute("SELECT salt FROM users WHERE username = ?", (username,))
+        return self.cursor.fetchone()['salt']
+
     def get_password_hash_by_username(self, username: str):
         """
         Gets the password hash of a user from the database.
@@ -294,7 +307,7 @@ class Database:
         """
         self.cursor.execute(
             "SELECT password_hash FROM users WHERE username = ?", (username,))
-        return self.cursor.fetchone()
+        return self.cursor.fetchone()['password_hash']
 
     def get_email_by_username(self, username: str):
         """
@@ -338,6 +351,20 @@ class Database:
             "SELECT last_name FROM users WHERE username = ?", (username,))
         return self.cursor.fetchone()
 
+    def does_user_exist(self, username: str):
+        """
+        Checks if the specified user exists given their username
+
+        args:
+            - username: The username of the user to check
+
+        returns:
+            - Whether or not the user was found.
+        """
+
+        self.cursor.execute("SELECT * FROM users WHERE username = ?", (username,))
+        return self.cursor.fetchone() != None
+
     # ------ Setter methods ------
 
     def set_password_hash(self, username: str, new_password_hash: str):
@@ -353,6 +380,20 @@ class Database:
         """
         self.cursor.execute(
             "UPDATE users SET password_hash = ? WHERE username = ?", (new_password_hash, username))
+        self.connection.commit()
+    
+    def set_password_salt(self, username: str, new_salt: str):
+        """
+        Updates the password salt of the user in the database
+
+        args:
+            - username: The username of the user to update.
+            - new_salt: The new salt of the user's password
+        
+        returns:
+            - None
+        """
+        self.cursor.execute("UPDATE users SET salt = ? WHERE username = ?", (new_salt, username))
         self.connection.commit()
 
     def set_email(self, username: str, new_email: str):

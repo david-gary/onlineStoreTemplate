@@ -1,4 +1,5 @@
 from hashlib import sha512
+import app
 import os
 
 
@@ -29,13 +30,9 @@ def username_exists(username: str) -> bool:
     returns:
         - True if the username exists, False if not.
     """
+    data = app.db
 
-    with open("authentication/passwords.txt", "r") as file:
-        lines = file.readlines()
-    for line in lines:
-        if line.split(":")[0] == username:
-            return True
-    return False
+    return data.does_user_exist(username)
 
 
 def update_passwords(username: str, key: str, salt: str):
@@ -54,19 +51,10 @@ def update_passwords(username: str, key: str, salt: str):
     modifies:
         - passwords.txt: Updates an existing or adds a new username and password combination to the file.
     """
+    data = app.db
 
-    with open("authentication/passwords.txt", "r") as file:
-        lines = file.readlines()
-    with open("authentication/passwords.txt", "w") as file:
-        found_flag = False
-        for line in lines:
-            if line.split(":")[0] == username:
-                found_flag = True
-                file.write(f"{username}:{salt}:{key}")
-            else:
-                file.write(line)
-        if not found_flag:
-            file.write(f"\n{username}:{salt}:{key}")
+    data.set_password_hash(username, key)
+    data.set_password_salt(username, salt)
 
 
 def check_password(password: str, salt: str, key: str) -> bool:
@@ -101,14 +89,12 @@ def login_pipeline(username: str, password: str) -> bool:
     if not username_exists(username):
         return False
 
-    with open("authentication/passwords.txt", "r") as file:
-        lines = file.readlines()
-    for line in lines:
-        if line.split(":")[0] == username:
-            salt = line.split(":")[1]
-            key = line.split(":")[2]
-            return check_password(password, salt, key)
-    return False
+    data = app.db
+
+    p_hash = data.get_password_hash_by_username(username)
+    p_salt = data.get_salt_by_username(username)
+
+    return check_password(password, p_salt, p_hash)
 
 
 def main():
