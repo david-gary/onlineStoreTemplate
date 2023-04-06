@@ -4,6 +4,7 @@ class "Database" as database.db.Database #aliceblue {
   connection
   cursor
   database_path : str
+  does_user_exist(username: str)
   get_all_item_ids()
   get_all_user_information()
   get_cost_by_sale_id(sale_id: int)
@@ -29,11 +30,12 @@ class "Database" as database.db.Database #aliceblue {
   get_sales_by_quantity_range(start_quantity: int, end_quantity: int)
   get_sales_by_transaction_id(transaction_id: int)
   get_sales_by_username(username: str)
+  get_salt_by_username(username: str)
   get_transaction_id_by_sale_id(sale_id: int)
   get_username_by_sale_id(sale_id: int)
   insert_new_item(item_name: str, price: int, info: str) -> None
   insert_new_sale(transaction_id: int, username: str, item_id: int, quantity: int, sale_date: dt.date, cost: float)
-  insert_user(username: str, password_hash: str, email: str, first_name: str, last_name: str) -> None
+  insert_user(username: str, password_hash: str, password_salt: str, email: str, first_name: str, last_name: str) -> None
   set_email(username: str, new_email: str)
   set_first_name(username: str, new_first_name: str)
   set_item_category(item_id: int, new_category: str)
@@ -44,6 +46,7 @@ class "Database" as database.db.Database #aliceblue {
   set_item_stock(item_id: int, new_stock: int)
   set_last_name(username: str, new_last_name: str)
   set_password_hash(username: str, new_password_hash: str)
+  set_password_salt(username: str, new_salt: str)
   set_sale_cost(sale_id: int, discount: float, tax: float)
   set_sale_date(sale_id: int, new_sale_date: dt.date)
   set_sale_item_id(sale_id: int, new_item_id: int)
