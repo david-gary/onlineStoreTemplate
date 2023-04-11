@@ -7,12 +7,10 @@ Fill the document out following the guidelines listed in each section. Maintain 
 
 ## Group Members
 
-=======
 * [Sreyas Kodukulla](mailto:skodukul.edu)
 * [Akanimoh Joseph Umoren](mailto:aumoren@uncc.edu)
 * [Blaise Thomas](mailto:bthom108@uncc.edu)
 * [Mercere Baker](mailto:mbaker89@uncc.edu)
-
 
 ## Revisions
 
@@ -34,10 +32,10 @@ When a change is made to the document, a new revision should be created. The rev
 ## Introduction
 
 The idea for our project is to create a hands on jewlery store. We will build a system that has features to be able to search for jewlery based on the type and the material. The software system will allow users to perform filtered searches, create a wishlist or shopping cart for any items, and it will also display every item and give a brief description of it. Our stakeholders are the individual customers that are interested in buying products from our store. Their needs are the products we offer and we will give them the ability to browse through to find the right item to fit their needs.
+the filter search is when a user can input certain things that they are looking for and not looking for (based on price, material, type) and will find items that match the conditions they have set in the search.
 
- the filter search is when a user can input certain things that they are looking for and not looking for (based on price, material, type) and will find items that match the conditions they have set in the search.
-=======
 ## Requirements
+Each group member must supply at least three functional requirements for the project. Each requirement should be written in the following format:
 
 * **ID:** REQ-1
   * **Description:** The customer is trying to use the filter search funtion to find the right type of chain.
@@ -88,7 +86,7 @@ The idea for our project is to create a hands on jewlery store. We will build a 
   * **Rationale:** You'd have a list of the different products with images, onclick it will take you to just the 
   the Item itself
   * **Testing:** Onclick should take you to different webPages
-  
+
 * **ID:** REQ-8
   * **Description:** FAQ PAGE
   * **Type:** Non-Functional, gives people answers to FAQs
@@ -136,6 +134,15 @@ The idea for our project is to create a hands on jewlery store. We will build a 
 * **Constraint 8:** The project has to be finished by the end of UNCC's 2023 spring semester.
 
 ## Use Cases
+
+Constraint 1: We cannot include recommended items because we can't collect the user data to narrow it down.
+Constraint 2: Stakeholders cannot choose from a very vast collection of items, our site will be limited to only the scope of items we can include. 
+Constraint 3: We do not display stakeholder reviews but we have admin reviews.
+Constraint 4: We do not control delivery prices because we deliver products using a third party delivery system.
+Constraint 5: No automated payments accepted, Only Debit/Credit Cards. Only Available to US Region
+Constraint 6: This project's code is written using Python, HTML, CSS, and Javascript.
+Contstraint 7: The project has to be finished by the end of UNCC's 2023 spring semester.
+
 
 * **ID:** UC-1
   * **Description:** The customer is trying to utilize the filter search funtion.
@@ -220,6 +227,92 @@ The idea for our project is to create a hands on jewlery store. We will build a 
   * **Description:** The customer has a question about the website or has problems purchasing their items. They can send their issues to the provided email to have it checked out.
 
 
+## Use Cases
+
+In this section, you should list use cases for the project. Use cases are a thorough description of how the system will be used. Each group member must supply at least two use cases. Each use case should be written in the following format:
+
+ * **ID:** UC-1
+  * **Description:** The customer is trying to utilize the filter search funtion.
+  * **Actors:** The customer
+  * **Preconditions:** There needs to be an option for filter search that is clear and easy to find.
+  * **Postconditions:** The search must come up with the proper result based on the filters that the customer applies.
+
+* **ID:** UC-2
+  * **Description:** The customer should be able to properly view and read about every item we offer.
+  * **Actors:** The customer
+  * **Preconditions:** The items must be displayed in a neat and visually pleasing manner while also having the proper descriptions.
+  * **Postconditions:** Once the customer navigates to their desired item, they must be able to see the exact item they searched for with an image and description.
+
+* **ID:** UC-3
+  * **Description:** The customer clicks the checkout button
+  * **Actors:** The customer
+  * **Preconditions:** The customer has at least one item in their cart
+  * **Postconditions:** The items in the customer's cart are displayed and they are prompted to confirm that akll the items and their amounts are correct.
+
+* **ID:** UC-4
+  * **Description:** The customer completes their purchase
+  * **Actors:** The customer
+  * **Preconditions:** The customer went through all the necessary purchase steps without any issues
+  * **Postconditions:** The customer is redirected to a page where a confirmation message of their order is displayed and other information about the details of th purchase is displayed as well.
+
+* **ID:** UC-5
+  * **Description:** Making a singular webpage for each item with more depth of review and descriptions that also allows them to add to cart
+  * **Actors:** I will be building the web page, and adding the extra descriptions, Mercer will be going behind me to make sure the webpage will link to the checkout page
+  * **Preconditions:** Has to come from a previous page that was the items brief description, I.E Under the rings page it is the ring 3 Item, clicking that leads to the ring 3 Item webpage
+  * **Postconditions:** You've landed on the webpage for that specific item, complete with the photo, description, and add to cart button. 
+  **ID:** UC-6
+  * **Description:** Making sure that the webpages works across all devices
+  * **Actors:** I will be making sure that the customers can access the page from different devices, such as tablets, smartphones, and computers
+  * **Preconditions:** Has a device that can display webpage
+  * **Postconditions:** The webpage displays properly with no errors or loss in usability
+
+* **ID:** UC-7
+  * **Description:** The customer is virtual window shopping and is navigating around the website.
+  * **Actors:** The customer
+  * **Preconditions:** The customer can connect to the website
+  * **Postconditions:** The customer should feel that navigation was simple and clear. The customer should not feel confused by going through our website.
+
+* **ID:** UC-8
+  * **Description:** The customer is trying to remove items from their shopping cart.
+  * **Actors:** The customer
+  * **Preconditions:** The customer can connect to the website, the shopping cart is functional, the customer has put items in the shopping cart.
+  * **Postconditions:** The customer's shopping cart no longer has the item in the shopping cart. If the shopping cart only has that item, it should be empty and unable to proceed to checkout.
+  
+## User Stories
+
+In this section, you should list user stories for the project. User stories are a short description of how a user will be interacting with the system. Each group member must supply at least two user stories. Each user story should be written in the following format:
+
+* **ID:** US-1
+  * **Type of User:** Customer
+  * **Description:** The customer opens up the website, navigates to the filter search button because they are looking for a certain type of ring, they apply the filters, and they will be directed to the options we offer based on their preference.
+
+* **ID:** US-2
+  * **Type of User:** Customer
+  * **Description:** The user navigates to the item they desire. Once they do that, they click on the image of the item and are shown a brief description about what the item is to aid them with their shopping experience.
+
+* **ID:** US-3
+  * **Type of User:** Customer
+  * **Description:** The customer does not want to delete an item in cart that they do not want to purchase anymore. They click on the cart icon which lists the items in their cart and there is an option to remove each item from the cart. They successfully remove the item they do not need anymore.
+
+* **ID:** US-4
+  * **Type of User:** Customer
+  * **Description:** The customer is currently viewing necklaces and wants to look at rings instead. They use the navigation bar to successfully got to the ring section.
+
+* **ID:** US-5 Web page that displays the item, a description, and an add to cart button for the user to purchase. 
+  * **Type of User:** Customer
+  * **Description:** As I'm looking through the catalouge I noticed an item that I liked, I clicked on the item and it took me to a separate page that provided more detail for me to make an informed decision, I then added to cart and return to shopping.
+* **ID:** US-6 Web page that displays properly regardless of the device used to acess it.
+  * **Type of User:** Customer
+  * **Description:** As I'm looking through the catalogue I noticed an item that I liked, I clicked on the item and it took me to a separate page that provided more detail for me to make an informed decision, I then added to cart and return to shopping. Later I told my friend about the website, and he accessed it from his phone to take a look at the item I ordered. He was impressed on how easy to use on mobile it was. 
+
+* **ID:** US-7
+    * **Type of User:** Customer
+    * **Description:** The customer found our website and is interested in purchasing a piece of our jewelry. They browse the site, put an item in their shopping cart, click on the shopping cart icon, get taken to a checkout page, and confirm the order with an address and card information.
+  * **ID:** US-8
+    * **Type of User:** IT
+    * **Description:** The customer has a question about the website or has problems purchasing their items. They can send their issues to the provided email to have it checked out.
+
+
 ## Glossary
 
 * **Term:** Filter Search
@@ -234,3 +327,14 @@ The idea for our project is to create a hands on jewlery store. We will build a 
 * **Term:** Navigation bar
   * **Definition:** The webpage element that helps users navigate through the use of hyperlinks.
 
+* **Term:** Filter Search
+  * **Definition:** the filter search is when a user can input certain things that they are looking for and not looking for (based on price, material, type) and will find items that match the conditions they have set in the search.
+
+* **Term:** Compatability
+  * **Definition:** A state in which two things are able to exist or occur together without problems or conflict.
+
+* **Term:** shopping cart
+    * **Definition:** software to allow customers to select products and buy them on the web.
+
+* **Term:** Navigation bar
+  * **Definition:** The webpage element that helps users navigate through the use of hyperlinks.

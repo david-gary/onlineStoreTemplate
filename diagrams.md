@@ -25,6 +25,7 @@ This activity will require you to generate Class, Package, Use Case, and Sequenc
 All of the above diagrams must be generated, so split this work evenly and push and pull code often. To generate a class diagram for a subdirectory or file, you must first generate the `plantuml` files using `pyreverse`. Then, you must use `plantuml` to generate the diagram from the `plantuml` file. Here's an example of how to do this for the package diagram in the `testing` subdirectory.
 
 ```bash
+
 pyreverse --output puml --colorized -A --output-directory testing testin # generates testing/package.puml
 python3.10 -m plantuml testing/package.puml # generates testing/package.png
 ```
@@ -34,6 +35,17 @@ Since `testing` has no classes, we do not need a class diagram, but if we did, w
 - Delete the `.puml` files that do not have a corresponding `.png` file. For example, since `testing` has no classes, we would delete `testing/classes.puml`.
 - For each subdirectory, create copies of the `.puml` and `.png` files with naming schemes that include `_initial` in the name.
   - For example, `testing/package.puml` would have a copy called `testing/package_initial.puml` and `testing/package.png` would have a copy called `testing/package_initial.png`.
+
+pyreverse --output puml --colorized -A --output-directory testing testing # generates testing/packages.puml
+python3.10 -m plantuml testing/packages.puml # generates testing/packages.png
+```
+
+Since `testing` has no classes, we do not need a class diagram, but if we did, we would change the `testing/packages.puml` to `testing/classes.puml` in the last command.
+
+- Delete the `.puml` files that do not have a corresponding `.png` file. For example, since `testing` has no classes, we would delete `testing/classes.puml`.
+- For each subdirectory, create copies of the `.puml` and `.png` files with naming schemes that include `_initial` in the name.
+  - For example, `testing/packages.puml` would have a copy called `testing/package_initial.puml` and `testing/packages.png` would have a copy called `testing/package_initial.png`.
+
 
 ## Task 3: Update Structure Diagrams
 
