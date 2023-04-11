@@ -14,5 +14,11 @@ activate sessions
 sessions --> system: None
 deactivate sessions
 system -> system: redirect to home page
+Customer -> system: View Cart
+activate system
+system -> auth: viewCart
+activate auth
+auth -> system: True
+deactivate auth
 deactivate system
 @enduml
