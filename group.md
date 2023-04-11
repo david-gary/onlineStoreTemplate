@@ -1,22 +1,22 @@
 # Group Members
-
-## Mercere Baker
-
-- **Github Username:** mercerebaker
-- **Niner Net ID:** mbaker89@uncc.edu
-
 ## Blaise Thomas
 
-- **Github Username:** blaisethomas20
-- **Niner Net ID:** bthom108@uncc.edu
-- **Role:** Developer
-
-## Akanimoh Joseph Umoren
-
-- **Github Username:** oneofthejoesephs
-- **Niner Net ID:** aumoren@uncc.edu
+- **Github Username:** BlaiseThomas20
+- **Niner Net ID:** bthom108
 
 ## Sreyas Kodukulla
 
 - **Github Username:** sreyaskodukulla
-- **Niner Net ID:** skodukul@uncc.edu
+- **Niner Net ID:** skodukul
+
+
+## Mercere Baker
+
+- **Github Username:** MercereBaker
+- **Niner Net ID:** mbaker89
+
+## Akaninoh Joseph Aumoren
+
+- **Github Username:** oneofthejosephs
+- **Niner Net ID:** aumoren
+
