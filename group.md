@@ -1,5 +1,4 @@
 # Group Members
-
 ## Blaise Thomas
 
 - **Github Username:** BlaiseThomas20
@@ -20,3 +19,4 @@
 
 - **Github Username:** oneofthejosephs
 - **Niner Net ID:** aumoren
+
