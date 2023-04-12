@@ -1,5 +1,5 @@
 # Project 2: Design
-
+Blaise Thomas
 ## Introduction
 
 In this phase, you will be mapping out your project and creating easily understandable diagrams that will help you and your team know your codebase inside and out. This also makes it much easier to communicate the flow of your application to less technical audiences or anyone who is new to your project. We will be using `pyreverse` and `plantuml` to help us create, update, and visualize our diagrams.
