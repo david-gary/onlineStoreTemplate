@@ -14,10 +14,10 @@ INSERT into `inventory` (`item_name`, `info`, `price`, `stock`, `image_url`, `ca
 VALUES ('Diamond Ring', 'A luxurious ring with a sparkling diamond as the centerpiece.', 5000.00, 50, 'static/images/diamond_ring.jpeg', 'Jewelry');
 
 INSERT into `inventory` (`item_name`, `info`, `price`, `stock`, `image_url`, `category`)
-VALUES ('Bananas', 'A long curved fruit which grows in clusters and has soft pulpy flesh and yellow skin when ripe.', 1.00, 100, 'static/images/banana.jpeg', 'Fruit');
+VALUES ('Cuban Link Chain', 'A stylish chain with tightly interlocking links, made of high-quality materials.', 10,000.00, 100, 'static/images/cuban_chain.jpeg', 'Fruit');
 
 INSERT into `inventory` (`item_name`, `info`, `price`, `stock`, `image_url`, `category`)
-VALUES ('Mangos', 'The best fruit on the planet.', 4.00, 100, 'static/images/mango.jpeg', 'Fruit');
+VALUES ('Diamond Earring', 'Elegant earrings featuring dazzling diamonds that catch the light beautifully.', 3,000.00, 100, 'static/images/diamond_earring.jpeg', 'Fruit');
 
 INSERT into `sales` (`transaction_id`, `username`, `item_id`, `quantity`, `sale_date`, `cost`)
 VALUES ('1', 'aturing', '1', 10, '2022-12-21 7:30:30', 5.50);
