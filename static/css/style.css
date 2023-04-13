@@ -67,7 +67,7 @@
 
 .product_card-text {
     /* Centered */
-    display: none;
+    display: block;
     position: absolute;
     text-align: center;
     font-size: 15px;
