@@ -47,7 +47,7 @@
     width: 302px;
     background-color: #cac2c2;
     border: 1px solid rgb(178, 178, 178);
-    height: 500px;
+    height: 302px;
 }
 
 .product_card-img {
@@ -90,7 +90,7 @@
     background-color: #09b6f0;
   }
 
-.product_card-img:hover .overlay {
+.product_card:hover .overlay {
     opacity: 1;
 }
 
