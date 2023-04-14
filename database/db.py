@@ -42,6 +42,16 @@ class Database:
         self.cursor.execute(
             "INSERT INTO inventory (item_name, price, info) VALUES (?, ?, ?)", (item_name, price, info))
         self.connection.commit()
+    # --------------------------------------------
+    # ----------------- MOVIES -------------------
+    # --------------------------------------------
+   
+  
+
+    def insert_new_movies(self, movies)->None:
+        self.cursor.execute("INSERT INTO movies (movie_title, genre, rating, summary, picture) VALUES (?, ?, ?, ?, ?)",
+                            (movies["title"],movies["genre"],movies["rating"],movies["summary"],movies["picture"]))
+        self.connection.commit()
 
     # ------ Getter methods ------
 
