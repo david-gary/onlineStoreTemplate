@@ -4,8 +4,10 @@ from authentication.authTools import login_pipeline, update_passwords, hash_pass
 from database.db import Database
 from flask import Flask, flash, jsonify, render_template, request
 from core.session import Sessions
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 app.secret_key = b'7Zwe3_34rteff'
 HOST, PORT = 'localhost', 8080
 global username, products, db, sessions
@@ -29,7 +31,9 @@ def index_page():
     """
     return render_template('index.html', username=username, products=products, sessions=sessions)
 
-
+@app.route('/movieHomepage')
+def home_page():
+    return render_template('moviewebsite.html')
 @app.route('/login')
 def login_page():
     """
