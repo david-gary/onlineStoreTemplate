@@ -94,6 +94,7 @@ ul {
 .picture-container>img {
     height: 100px;
     border-radius: 15%;
+    transition: .5s;
 }
 
 .scroll-section {
