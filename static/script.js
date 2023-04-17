@@ -4,17 +4,16 @@ const actionMoviesEndPoint = 'http://127.0.0.1:5000/movies/action';
 const horrorMoviesEndPoint = 'http://127.0.0.1:5000/movies/horror';
 const comedyMoviesEndPoint = 'http://127.0.0.1:5000/movies/comedy';
 const historyMoviesEndPoint = 'http://127.0.0.1:5000/movies/history';
-//BUTTONS FOR SCROLLING THROUGH MOVIES
-const leftScrollButton = document.getElementById('left-all-movies')
-const rightScrollButton = document.getElementById('right-all-movies')
-const horrorScrollLeft = document.getElementById('left-horror-movies')
-const horrorScrollRight = document.getElementById('right-horror-movies')
-const historyScrollLeft = document.getElementById('left-history-movies')
-const historyScrollRight = document.getElementById('right-history-movies')
-const comedyScrollLeft = document.getElementById('left-comedy-movies')
-const comedyScrollRight = document.getElementById('right-comedy-movies')
-const actionScrollLeft = document.getElementById('left-action-movies')
-const actionScrollRight = document.getElementById('right-action-movies')
+//
+function scrollHandler(idName) {
+    function leftButton() {
+        document.getElementById(idName).scrollLeft -= 1000
+    }
+    function rightButton() {
+        document.getElementById(idName).scrollLeft += 1000
+    }
+    return { leftButton, rightButton }
+}
 //GENERATES JSON DATA AND INPUTS THEM IN MOVIE GENERATOR
 const generateMovies = async (url, divID) => {
     const response = await fetch(url).
@@ -56,16 +55,17 @@ function movieGenerator(genre, title, picture, summary, rating, divID) {
     document.getElementById(divID).appendChild(movieDiv)
 }
 //Used to scroll left and right on the webpage
-leftScrollButton.onclick = () => { document.getElementById('scroll-bar').scrollLeft -= 1000 }
-rightScrollButton.onclick = () => { document.getElementById('scroll-bar').scrollLeft += 1000 };
-horrorScrollLeft.onclick = () => { document.getElementById('horror-bar').scrollLeft -= 1000 }
-horrorScrollRight.onclick = () => { document.getElementById('horror-bar').scrollLeft += 1000 }
-comedyScrollRight.onclick = () => { document.getElementById('comedy-bar').scrollLeft += 1000 }
-historyScrollRight.onclick = () => { document.getElementById('history-bar').scrollLeft += 1000 }
-actionScrollRight.onclick = () => { document.getElementById('action-bar').scrollLeft += 1000 }
-comedyScrollLeft.onclick = () => { document.getElementById('comedy-bar').scrollLeft -= 1000 }
-historyScrollLeft.onclick = () => { document.getElementById('history-bar').scrollLeft -= 1000 }
-actionScrollLeft.onclick = () => { document.getElementById('action-bar').scrollLeft -= 1000 }
+//Refatored buttons using closure to debloat the code and makes it easier to read
+document.getElementById('left-all-movies').onclick = () => scrollHandler('scroll-bar').leftButton()
+document.getElementById('right-all-movies').onclick = () => scrollHandler('scroll-bar').rightButton()
+document.getElementById('left-horror-movies').onclick = () => scrollHandler('horror-bar').leftButton()
+document.getElementById('right-horror-movies').onclick = () => scrollHandler('horror-bar').rightButton()
+document.getElementById('left-history-movies').onclick = () => scrollHandler('history-bar').leftButton()
+document.getElementById('right-history-movies').onclick = () => scrollHandler('history-bar').rightButton()
+document.getElementById('left-comedy-movies').onclick = () => scrollHandler('comedy-bar').leftButton()
+document.getElementById('right-comedy-movies').onclick = () => scrollHandler('comedy-bar').rightButton()
+document.getElementById('left-action-movies').onclick = () => scrollHandler('action-bar').leftButton()
+document.getElementById('right-action-movies').onclick = () => scrollHandler('action-bar').rightButton()
 //-------- USING SETTIMEOUT TO PREVENT THIS ERROR FROM THE BACKEND-----ProgrammingError: Recursive use of cursors not allowed.
 generateMovies(allMoviesEndPoint, 'scroll-bar')
 setTimeout(async () => await generateMovies(horrorMoviesEndPoint, 'horror-bar'), 500)
