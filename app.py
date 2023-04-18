@@ -29,6 +29,7 @@ def index_page():
     returns:
         - None
     """
+
     return render_template('index.html', username=username, products=products, sessions=sessions)
 
 @app.route('/movieHomepage')
@@ -67,7 +68,6 @@ def login():
     username = request.form['username']
     password = request.form['password']
     if login_pipeline(username, password):
-        print("login")
         sessions.add_new_session(username, db)
         return render_template('home.html', products=products, sessions=sessions)
     else:
@@ -111,9 +111,11 @@ def register():
     first_name = request.form['first_name']
     last_name = request.form['last_name']
     salt, key = hash_password(password)
+    if (not username or not password or not email or not first_name or not last_name):
+        return render_template('index.html', username=username, products=products, sessions=sessions)
     update_passwords(username, key, salt)
     db.insert_user(username, key, salt, email, first_name, last_name)
-    return render_template('index.html')
+    return render_template('index.html', username=username, products=products, sessions=sessions)
 
 
 @app.route('/checkout', methods=['POST'])
@@ -132,6 +134,7 @@ def checkout():
     """
     order = {}
     user_session = sessions.get_session(username)
+    
     for item in products:
         print(f"item ID: {item['id']}")
         if request.form[str(item['id'])] > '0':
@@ -139,7 +142,9 @@ def checkout():
             order[item['item_name']] = count
             user_session.add_new_item(
                 item['id'], item['item_name'], item['price'], count)
-
+    if user_session.is_cart_empty(): 
+        flash("You cannot checkout an empty cart.")
+        return render_template('home.html', username=username, products=products, sessions=sessions)
     user_session.submit_cart()
 
     return render_template('checkout.html', order=order, sessions=sessions, total_cost=user_session.total_cost)
