@@ -1,22 +1,22 @@
 # Group Members
-
 ## Blaise Thomas
 
-- **Github Username:** blaiseThomas20
+- **Github Username:** BlaiseThomas20
 - **Niner Net ID:** bthom108
-
-## Mercere Baker
-
-- **Github Username:** MercerBaker
-- **Niner Net ID:** mbaker89
-- **Role:** Developer
-
-## Akanimoh Joesph Umoren
-
-- **Github Username:** oneofthejoesephs
-- **Niner Net ID:** aumoren
 
 ## Sreyas Kodukulla
 
-- **Github Username:** SreyasKodukulla
+- **Github Username:** sreyaskodukulla
 - **Niner Net ID:** skodukul
+
+
+## Mercere Baker
+
+- **Github Username:** MercereBaker
+- **Niner Net ID:** mbaker89
+
+## Akaninoh Joseph Aumoren
+
+- **Github Username:** oneofthejosephs
+- **Niner Net ID:** aumoren
+

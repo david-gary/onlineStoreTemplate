@@ -1,0 +1,51 @@
+@startuml packages
+set namespaceSeparator none
+package "testing" as testing #aliceblue {
+}
+package "testing.filterSearch" as testing.filterSearch #aliceblue {
+class "Website" {
+  filterByMaterial(material: str) : void
+  filterByPrice(price: int) : void
+  filterByType(type: str) : void
+}
+class "Filter" {
+  material : str
+  price : int
+  type : str
+  setMaterial(material: str) : void
+  setPrice(price: int) : void
+  setType(type: str) : void
+  getMaterial() : str
+  getPrice() : int
+  getType() : str
+}
+class "SearchResult" {
+  material : str
+  price : int
+  type : str
+  display() : void
+}
+"Website" --> "Filter"
+"Filter" --> "SearchResult"
+}
+package "testing.shoppingCart" as testing.shoppingCart #aliceblue {
+class "CartItem" {
+  -itemId : String
+  -quantity : Integer
+  -price : Float
+  +getTotalPrice() : Float
+}
+class "Cart" {
+  -items : List<CartItem>
+  +addItem(item: CartItem) : void
+  +removeItem(itemId: String) : void
+  +getItems() : List<CartItem>
+  +getTotalPrice() : Float
+  +checkout() : void
+}
+"Cart" --> "CartItem"
+}
+@enduml
+
+
+ 
