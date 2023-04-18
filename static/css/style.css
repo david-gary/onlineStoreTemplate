@@ -67,14 +67,18 @@
 
 .product_card-text {
     /* Centered */
+    color: white;
     display: block;
     position: absolute;
     text-align: center;
-    font-size: 15px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-style: italic;
+    font-style: oblique;
+    font-size: large;
     height: 60px;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 .overlay {
