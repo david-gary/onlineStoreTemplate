@@ -2,10 +2,12 @@
 
 from authentication.authTools import login_pipeline, update_passwords, hash_password
 from database.db import Database
-from flask import Flask, flash, render_template, request
+from flask import Flask, flash, jsonify, render_template, request
 from core.session import Sessions
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 app.secret_key = b'7Zwe3_34rteff'
 HOST, PORT = 'localhost', 8080
 global username, products, db, sessions
@@ -30,7 +32,9 @@ def index_page():
 
     return render_template('index.html', username=username, products=products, sessions=sessions)
 
-
+@app.route('/movieHomepage')
+def home_page():
+    return render_template('moviewebsite.html')
 @app.route('/login')
 def login_page():
     """
@@ -144,6 +148,32 @@ def checkout():
     user_session.submit_cart()
 
     return render_template('checkout.html', order=order, sessions=sessions, total_cost=user_session.total_cost)
+
+@app.route('/movies', methods=['GET'])
+def get_movies():
+    movies = db.get_all_movies()
+    return jsonify(movies)
+
+@app.route('/movies/<genre>', methods=['GET'])
+def get_movies_by_genre(genre):
+    movies = db.select_by_genre(genre)
+    return jsonify(movies)
+
+@app.route('/movies/title/<title>',methods=['GET'])
+def get_movie_by_title(title):
+    movies = db.select_by_title(title)
+    return jsonify(movies)
+
+@app.route('/movies/rating/<order>',methods=['GET'])
+def get_movie_by_rating(order):
+    if order == 'ASC':
+        movies = db.select_by_rating_asc()
+        return jsonify(movies)
+    elif order == 'DESC':
+        movies = db.select_by_rating_desc()
+        return jsonify(movies)
+    else: 
+        return 'Wrong endpoint, use ASC or DESC'
 
 
 if __name__ == '__main__':
