@@ -14,7 +14,7 @@ INSERT into `inventory` (`item_name`, `info`, `price`, `stock`, `image_url`, `ca
 VALUES ('Diamond Ring', 'A luxurious ring with a sparkling diamond as the centerpiece.', 5000.00, 50, 'static/images/diamond_ring.jpeg', 'Jewelry');
 
 INSERT into `inventory` (`item_name`, `info`, `price`, `stock`, `image_url`, `category`)
-VALUES ('Cuban Link Chain', 'A stylish chain with tightly interlocking links, made of high-quality materials.', 10000.00, 100, 'static/images/cuban_chain.jpeg', 'Jewelry');
+VALUES ('Cuban Link Chain', 'A stylish chain with tightly interlocking links, made of high-quality materials.', 12000.00, 100, 'static/images/cuban_chain.jpeg', 'Jewelry');
 
 INSERT into `inventory` (`item_name`, `info`, `price`, `stock`, `image_url`, `category`)
 VALUES ('Diamond Earring', 'Elegant earrings featuring dazzling diamonds that catch the light beautifully.', 3000.00, 100, 'static/images/diamond_earring.jpeg', 'Jewelry');
