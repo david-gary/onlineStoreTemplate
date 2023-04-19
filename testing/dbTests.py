@@ -1,5 +1,6 @@
 from database.db import Database
 from core.utils import dict_factory
+import traceback
 
 
 def test_init_db(db: Database = None) -> tuple:
@@ -86,3 +87,16 @@ def test_check_connection_threaded(db: Database = None) -> tuple:
         return False, error
     else:
         return True, "Connection is not single threaded."
+
+def test_add_cart_movie(db: Database = None) -> tuple:
+    db = Database("database/storeRecords.db") if db is None else db
+    db.remove_from_cart(1, "aturing")
+
+    try:
+        hold = db.add_to_cart(1, "aturing", 1)
+    except:
+        traceback.print_exc()
+        error = f"An error occurred while attempting to add an item to cart"
+        return False, error
+    
+    return True, "Add to cart successful."

@@ -1,7 +1,6 @@
 from hashlib import sha512
-import app
+from database.db import Database
 import os
-
 
 def hash_password(password: str, salt: str = None) -> tuple:
     """
@@ -20,7 +19,7 @@ def hash_password(password: str, salt: str = None) -> tuple:
     return (salt, key)
 
 
-def username_exists(username: str) -> bool:
+def username_exists(username: str, data: Database) -> bool:
     """
     Checks if a username exists in the passwords.txt file.
 
@@ -30,12 +29,11 @@ def username_exists(username: str) -> bool:
     returns:
         - True if the username exists, False if not.
     """
-    data = app.db
 
     return data.does_user_exist(username)
 
 
-def update_passwords(username: str, key: str, salt: str):
+def update_passwords(username: str, key: str, salt: str, data: Database):
     """
     Updates the passwords.txt file with a new username and password combination.
     If the username is already in the file, the password will be updated.
@@ -51,8 +49,6 @@ def update_passwords(username: str, key: str, salt: str):
     modifies:
         - passwords.txt: Updates an existing or adds a new username and password combination to the file.
     """
-    data = app.db
-
     data.set_password_hash(username, key)
     data.set_password_salt(username, salt)
 
@@ -75,7 +71,7 @@ def check_password(password: str, salt: str, key: str) -> bool:
     return key == new_key
 
 
-def login_pipeline(username: str, password: str) -> bool:
+def login_pipeline(username: str, password: str, data: Database) -> bool:
     """
     Checks if a username and password combination is correct.
 
@@ -88,8 +84,6 @@ def login_pipeline(username: str, password: str) -> bool:
     """
     if not username_exists(username):
         return False
-
-    data = app.db
 
     p_hash = data.get_password_hash_by_username(username)
     p_salt = data.get_salt_by_username(username)

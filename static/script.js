@@ -1,9 +1,10 @@
 //END POINTS FOR GENRE FILTERING
-const allMoviesEndPoint = 'http://127.0.0.1:5000/movies';
-const actionMoviesEndPoint = 'http://127.0.0.1:5000/movies/action';
-const horrorMoviesEndPoint = 'http://127.0.0.1:5000/movies/horror';
-const comedyMoviesEndPoint = 'http://127.0.0.1:5000/movies/comedy';
-const historyMoviesEndPoint = 'http://127.0.0.1:5000/movies/history';
+const allMoviesEndPoint = '/movies';
+const actionMoviesEndPoint = '/movies/action';
+const horrorMoviesEndPoint = '/movies/horror';
+const comedyMoviesEndPoint = '/movies/comedy';
+const historyMoviesEndPoint = '/movies/history';
+
 //
 function scrollHandler(idName) {
     function leftButton() {
@@ -52,27 +53,32 @@ function movieGenerator(genre, title, picture, summary, rating, divID) {
     divButton.append(button)
     pictureDiv.append(movie_picture)
     movieDiv.append(pictureDiv, movie_title)
-    document.getElementById(divID).appendChild(movieDiv)
+
+    if (document.getElementById(divID) != null)
+        document.getElementById(divID).appendChild(movieDiv)
+    //Less iterations to do this, there is probably a better way though
+    document.getElementById('scroll-bar').appendChild(movieDiv.cloneNode(true))
 }
-//Used to scroll left and right on the webpage
-//Refatored buttons using closure to debloat the code and makes it easier to read
-document.getElementById('left-all-movies').onclick = () => scrollHandler('scroll-bar').leftButton()
-document.getElementById('right-all-movies').onclick = () => scrollHandler('scroll-bar').rightButton()
-document.getElementById('left-horror-movies').onclick = () => scrollHandler('horror-bar').leftButton()
-document.getElementById('right-horror-movies').onclick = () => scrollHandler('horror-bar').rightButton()
-document.getElementById('left-history-movies').onclick = () => scrollHandler('history-bar').leftButton()
-document.getElementById('right-history-movies').onclick = () => scrollHandler('history-bar').rightButton()
-document.getElementById('left-comedy-movies').onclick = () => scrollHandler('comedy-bar').leftButton()
-document.getElementById('right-comedy-movies').onclick = () => scrollHandler('comedy-bar').rightButton()
-document.getElementById('left-action-movies').onclick = () => scrollHandler('action-bar').leftButton()
-document.getElementById('right-action-movies').onclick = () => scrollHandler('action-bar').rightButton()
-//-------- USING SETTIMEOUT TO PREVENT THIS ERROR FROM THE BACKEND-----ProgrammingError: Recursive use of cursors not allowed.
-generateMovies(allMoviesEndPoint, 'scroll-bar')
-setTimeout(async () => await generateMovies(horrorMoviesEndPoint, 'horror-bar'), 500)
-setTimeout(async () => await generateMovies(comedyMoviesEndPoint, 'comedy-bar'), 1000)
-setTimeout(async () => await generateMovies(historyMoviesEndPoint, 'history-bar'), 1500)
-setTimeout(async () => await generateMovies(actionMoviesEndPoint, 'action-bar'), 2000)
 
+document.addEventListener('DOMContentLoaded', () => {
+    //Used to scroll left and right on the webpage
+    //Refactored buttons using closure to debloat the code and makes it easier to read
+    document.getElementById('left-all-movies').onclick = () => scrollHandler('scroll-bar').leftButton()
+    document.getElementById('right-all-movies').onclick = () => scrollHandler('scroll-bar').rightButton()
+    document.getElementById('left-horror-movies').onclick = () => scrollHandler('horror-bar').leftButton()
+    document.getElementById('right-horror-movies').onclick = () => scrollHandler('horror-bar').rightButton()
+    document.getElementById('left-history-movies').onclick = () => scrollHandler('history-bar').leftButton()
+    document.getElementById('right-history-movies').onclick = () => scrollHandler('history-bar').rightButton()
+    document.getElementById('left-comedy-movies').onclick = () => scrollHandler('comedy-bar').leftButton()
+    document.getElementById('right-comedy-movies').onclick = () => scrollHandler('comedy-bar').rightButton()
+    document.getElementById('left-action-movies').onclick = () => scrollHandler('action-bar').leftButton()
+    document.getElementById('right-action-movies').onclick = () => scrollHandler('action-bar').rightButton()
 
+    generateMovies(horrorMoviesEndPoint, 'horror-bar')
+    generateMovies(comedyMoviesEndPoint, 'comedy-bar')
+    generateMovies(historyMoviesEndPoint, 'history-bar')
+    generateMovies(actionMoviesEndPoint, 'action-bar')
+    //pullMovies();
+});
 
 

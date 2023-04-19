@@ -34,7 +34,7 @@ def index_page():
 
 @app.route('/movieHomepage')
 def home_page():
-    return render_template('moviewebsite.html')
+    return render_template('moviewebsite.html', fdata=db.get_all_movies())
 @app.route('/login')
 def login_page():
     """
@@ -67,13 +67,13 @@ def login():
     error = None
     username = request.form['username']
     password = request.form['password']
-    if login_pipeline(username, password):
+    if login_pipeline(username, password, db):
         sessions.add_new_session(username, db)
         return render_template('home.html', products=products, sessions=sessions)
     else:
         print(f"Incorrect username ({username}) or password ({password}).")
         flash("Incorrect username or password.", 'error')
-    return render_template('login.html', uname=username)
+    return render_template('login.html')
 
 
 @app.route('/register')
@@ -113,7 +113,7 @@ def register():
     salt, key = hash_password(password)
     if (not username or not password or not email or not first_name or not last_name):
         return render_template('index.html', username=username, products=products, sessions=sessions)
-    update_passwords(username, key, salt)
+    #update_passwords(username, key, salt, db)
     db.insert_user(username, key, salt, email, first_name, last_name)
     return render_template('index.html', username=username, products=products, sessions=sessions)
 
@@ -151,29 +151,41 @@ def checkout():
 
 @app.route('/movies', methods=['GET'])
 def get_movies():
+    db = Database('database/storeRecords.db')
     movies = db.get_all_movies()
+    db.connection.close()
+    del db
     return jsonify(movies)
 
 @app.route('/movies/<genre>', methods=['GET'])
 def get_movies_by_genre(genre):
+    db = Database('database/storeRecords.db')
     movies = db.select_by_genre(genre)
+    db.connection.close()
+    del db
     return jsonify(movies)
 
 @app.route('/movies/title/<title>',methods=['GET'])
 def get_movie_by_title(title):
+    db = Database('database/storeRecords.db')
     movies = db.select_by_title(title)
+    db.connection.close()
+    del db
     return jsonify(movies)
 
 @app.route('/movies/rating/<order>',methods=['GET'])
 def get_movie_by_rating(order):
+    db = Database('database/storeRecords.db')
+    
     if order == 'ASC':
         movies = db.select_by_rating_asc()
-        return jsonify(movies)
     elif order == 'DESC':
         movies = db.select_by_rating_desc()
-        return jsonify(movies)
     else: 
         return 'Wrong endpoint, use ASC or DESC'
+    db.connection.close()
+    del db
+    return jsonify(movies)
 
 
 if __name__ == '__main__':

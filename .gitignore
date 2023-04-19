@@ -2,3 +2,4 @@
 .DS_Store
 **.db
 __pycache__
+database/chromedriver/chromedriver.exe
