@@ -3,7 +3,7 @@ import os
 
 def get_chromedriver_path():
     """Returns the path to the chromedriver executable"""
-    return os.path.join(os.getcwd(), 'chromedriver/chromedriver')
+    return os.path.join(os.getcwd(), 'database/chromedriver/chromedriver')
 
 
 def create_driver(path_to_chromedriver: str = get_chromedriver_path()) -> webdriver.Chrome:

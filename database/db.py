@@ -788,3 +788,62 @@ class Database:
         self.cursor.execute(
             "UPDATE sales SET cost = ? WHERE id = ?", (new_cost, sale_id))
         self.connection.commit()
+
+    #Shopping cart methods
+
+    def get_user_cart(self, username: str):
+         """
+         Gets a shopping cart based on username
+         Adds one if it does not exist
+
+         args:
+            - username: the username to check
+
+         returns:
+            - The user's shopping cart
+         """
+         self.cursor.execute(
+            "INSERT OR IGNORE INTO cart (username) VALUES (?)", (username,))
+         self.connection.commit()
+         self.cursor.execute(
+             "SELECT * FROM cart WHERE username = ?", (username,))
+         return self.cursor.fetchone()
+    
+    def remove_from_cart(self, movie_id: int, username: str):
+        """
+        Removes an item from the table for a user
+
+        args:
+            - movie_id: the item to remove
+            - username: the username to check
+        
+        returns:
+            - None
+        """
+        cart = self.get_user_cart(username)
+        self.cursor.execute("DELETE FROM cart_item WHERE cart_id = ? AND movie_id = ?", (cart["cart_id"], movie_id,))
+        self.connection.commit()
+
+    def add_to_cart(self, movie_id: int, username: str, amount: int):
+        """
+        Adds an item to the specified user's cart
+        Creates a section for it if it does not exist
+        Adds amount to the stored amount if it does
+        Probably would be better to do this with NoSQL but oh well.
+
+        args:
+            - movie_id: the item id
+            - username: the username to check
+            - amount: amount of item to add
+        
+        returns:
+            - None
+        """
+        cart = self.get_user_cart(username)
+        self.cursor.execute("SELECT EXISTS(SELECT * FROM cart_item WHERE cart_id = ? AND movie_id = ?)", (cart["cart_id"], movie_id,))
+        hold = list(self.cursor.fetchone().values())[0]
+        if hold == 0:
+            self.cursor.execute("INSERT OR IGNORE INTO cart_item (cart_id, movie_id, amount) VALUES (?, ?, ?)", (cart["cart_id"], movie_id, amount,))
+        else:
+            self.cursor.execute("UPDATE cart_item SET amount = amount + ? WHERE cart_id = ? AND movie_id = ?", (amount, cart["cart_id"], movie_id,))
+        self.connection.commit()

@@ -28,6 +28,22 @@ CREATE TABLE sales (
     FOREIGN KEY (username) REFERENCES users(username),
     FOREIGN KEY (item_id) REFERENCES inventory(id)
 );
+
+CREATE TABLE cart (
+    cart_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username VARCHAR(255) NOT NULL UNIQUE,
+    FOREIGN KEY (username) REFERENCES  users(username)
+);
+
+CREATE TABLE cart_item (
+    cart_item_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    cart_id INTEGER,
+    movie_id INTEGER,
+    amount INTEGER,
+    FOREIGN KEY (cart_id) REFERENCES cart(cart_id),
+    FOREIGN KEY (movie_id) REFERENCES movies(movie_id)
+);
+
 CREATE TABLE movies(
     movies_id INTEGER PRIMARY KEY AUTOINCREMENT,
     movie_title VARCHAR(255) NOT NULL,
