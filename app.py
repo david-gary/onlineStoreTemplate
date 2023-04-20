@@ -30,11 +30,26 @@ def index_page():
         - None
     """
 
-    return render_template('index.html', username=username, products=products, sessions=sessions)
+    return render_template('index.html', username=username, products=products, session=sessions.get_session(username).get_uuid())
 
 @app.route('/movieHomepage')
 def home_page():
-    return render_template('moviewebsite.html', fdata=db.get_all_movies())
+    return render_template('moviewebsite.html', session=None)
+
+@app.route('/movieHomepage', methods=['POST'])
+def movie_home():
+    username = request.form['username']
+    password = request.form['password']
+
+    if login_pipeline(username, password, db):
+        sessions.add_new_session(username, db)
+        hold = sessions.get_session(username).get_uuid()
+        return render_template('moviewebsite.html', session=hold)
+    else:
+        print(f"Incorrect username ({username}) or password ({password}).")
+        flash("Incorrect username or password.", 'error')
+    return render_template('login.html')
+
 @app.route('/login')
 def login_page():
     """
@@ -69,7 +84,7 @@ def login():
     password = request.form['password']
     if login_pipeline(username, password, db):
         sessions.add_new_session(username, db)
-        return render_template('home.html', products=products, sessions=sessions)
+        return render_template('home.html', products=products, session=sessions.get_session(username).get_uuid())
     else:
         print(f"Incorrect username ({username}) or password ({password}).")
         flash("Incorrect username or password.", 'error')
@@ -112,9 +127,9 @@ def register():
     salt, key = hash_password(password)
     
     if (not username or not password or not email or not first_name or not last_name):
-        return render_template('index.html', username=username, products=products, sessions=sessions)
+        return render_template('register.html')
     db.insert_user(username, key, salt, email, first_name, last_name)
-    return render_template('index.html', username=username, products=products, sessions=sessions)
+    return render_template('moviewebsite.html', session=sessions.get_session(username).get_uuid())
 
 
 @app.route('/checkout', methods=['POST'])
@@ -143,10 +158,14 @@ def checkout():
                 item['id'], item['item_name'], item['price'], count)
     if user_session.is_cart_empty(): 
         flash("You cannot checkout an empty cart.")
-        return render_template('home.html', username=username, products=products, sessions=sessions)
+        return render_template('home.html', username=username, products=products, session=sessions.get_session(username).get_uuid())
     user_session.submit_cart()
 
-    return render_template('checkout.html', order=order, sessions=sessions, total_cost=user_session.total_cost)
+    return render_template('checkout.html', order=order, session=sessions.get_session(username).get_uuid(), total_cost=user_session.total_cost)
+
+@app.route('/logout')
+def return_home():
+    return home_page()
 
 @app.route('/movies', methods=['GET'])
 def get_movies():

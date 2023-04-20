@@ -4,7 +4,7 @@
 <div class="row" id="info_row">
     <h3>Welcome back!</h3>
     <div class="col-md-12" id="login_class">
-        <form action="/home" method="post" id="login_form">
+        <form action="/movieHomepage" method="post" id="login_form">
             {% with messages = get_flashed_messages(with_categories=true) %}
                 {%if messages%}
                 <ul class="flashes">
@@ -24,6 +24,7 @@
             </div>
             <button type="submit" class="btn btn-primary" id="login_button">Login</button>
         </form>
+        <li id="register-button">Don't have an account? Click <a href="/register">here!</a></li>
     </div>
 </div>
 {% endblock %}

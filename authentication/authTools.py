@@ -82,7 +82,7 @@ def login_pipeline(username: str, password: str, data: Database) -> bool:
     returns:
         - True if the username and password combination is correct, False if not.
     """
-    if not username_exists(username):
+    if not username_exists(username, data):
         return False
 
     p_hash = data.get_password_hash_by_username(username)

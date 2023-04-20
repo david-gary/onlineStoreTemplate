@@ -809,6 +809,11 @@ class Database:
              "SELECT * FROM cart WHERE username = ?", (username,))
          return self.cursor.fetchone()
     
+    def get_user_cart_items(self, username: str):
+        cart = self.get_user_cart(username)
+        self.cursor.execute("SELECT * FROM cart_item WHERE cart_id = ?", (cart["cart_id"],))
+        return self.cursor.fetchall()
+
     def remove_from_cart(self, movie_id: int, username: str):
         """
         Removes an item from the table for a user
