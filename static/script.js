@@ -29,40 +29,58 @@ const generateMovies = async (url, divID) => {
 function movieGenerator(genre, title, picture, summary, rating, divID) {
     // creating elements needed
     const movieDiv = document.createElement('div')
+    const purchaseDiv = document.createElement('div')
+    purchaseDiv.className = 'pop-up'
+    //**************purchase div contents***************
+    // needed so other elements wont get deleted
+    const closeButton = document.createElement('button')
+    const purchasePictureDiv = document.createElement('div')
+    const purchasePicture = document.createElement('img')
+    const purchaseSummary = document.createElement('a')
+    const purchaseButton = document.createElement('button')
+    //adding classes and other attributes to purchase div elements
+    closeButton.className = 'movie-button'
+    closeButton.textContent = 'O'
+    purchasePictureDiv.className = 'picture-container'
+    purchasePicture.src = picture
+    purchaseSummary.textContent = summary
+    purchaseButton.textContent = 'Buy'
+    purchaseButton.className = 'purchase-button'
+    purchaseDiv.append(purchaseSummary, purchaseButton)
+    //************************************************************** */
+    closeButton.addEventListener('click', () => {
+        console.log('i am being clicked')
+        if (purchaseDiv.style.display === 'block') {
+            movieDiv.style.flex = '0 0 0'
+            movieDiv.style.flexDirection = 'column'
+            purchaseDiv.style.display = 'none'
+            closeButton.textContent = 'O'
+        } else {
+            movieDiv.style.flex = '0 0 auto'
+            purchaseDiv.style.display = 'block'
+            movieDiv.style.flexDirection = 'column'
+            movieDiv.classList.toggle("visible");
+            closeButton.textContent = '<'
+        }
+    })
     movieDiv.className = 'movie-container'
+    purchaseDiv.className = 'purchase-container'
     movieDiv.setAttribute('id', title)
     const movie_title = document.createElement('h5')
     const movie_picture = document.createElement('img')
-    const description = document.createElement('div')
-    const movie_genre = document.createElement('h5')
-    const movie_rating = document.createElement('h2')
-    const divButton = document.createElement('div')
-    const button = document.createElement('button')
     const pictureDiv = document.createElement('div')
-    description.className = 'summary-container'
-    divButton.className = 'purchase-div'
     pictureDiv.className = 'picture-container'
     //appending the data to the elements
     movie_title.textContent = title
     movie_picture.src = picture
-    description.textContent = summary
-    movie_genre.textContent = genre
-    movie_rating.textContent = rating
-    button.textContent = 'Purchase'
     //appending elements to main div
-    divButton.append(button)
     pictureDiv.append(movie_picture)
-    movieDiv.append(pictureDiv, movie_title)
-
-    if (document.getElementById(divID) != null)
-        document.getElementById(divID).appendChild(movieDiv)
-    //Less iterations to do this, there is probably a better way though
-    document.getElementById('scroll-bar').appendChild(movieDiv.cloneNode(true))
+    //purchaseDiv.appendChild(movie_picture)
+    movieDiv.append(pictureDiv, movie_title, purchaseDiv, closeButton)
+    document.getElementById(divID).appendChild(movieDiv)
 }
-
 document.addEventListener('DOMContentLoaded', () => {
-    //Used to scroll left and right on the webpage
-    //Refactored buttons using closure to debloat the code and makes it easier to read
+    //Refatored buttons using closure to debloat the code and makes it easier to read
     document.getElementById('left-all-movies').onclick = () => scrollHandler('scroll-bar').leftButton()
     document.getElementById('right-all-movies').onclick = () => scrollHandler('scroll-bar').rightButton()
     document.getElementById('left-horror-movies').onclick = () => scrollHandler('horror-bar').leftButton()
@@ -73,12 +91,13 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('right-comedy-movies').onclick = () => scrollHandler('comedy-bar').rightButton()
     document.getElementById('left-action-movies').onclick = () => scrollHandler('action-bar').leftButton()
     document.getElementById('right-action-movies').onclick = () => scrollHandler('action-bar').rightButton()
-
+    generateMovies(allMoviesEndPoint, 'scroll-bar')
     generateMovies(horrorMoviesEndPoint, 'horror-bar')
     generateMovies(comedyMoviesEndPoint, 'comedy-bar')
     generateMovies(historyMoviesEndPoint, 'history-bar')
     generateMovies(actionMoviesEndPoint, 'action-bar')
+})
     //pullMovies();
-});
+
 
 
