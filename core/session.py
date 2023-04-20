@@ -1,6 +1,7 @@
 from core.utils import calculate_total_cost
 from datetime import datetime
 from database.db import Database
+import uuid
 
 
 class UserSession:
@@ -24,6 +25,7 @@ class UserSession:
         self.total_cost = 0
         self.date = None
         self.db = db
+        self.session_id = uuid.uuid4()
         self.cart = self.empty_cart()
 
     def empty_cart(self) -> dict:
@@ -128,6 +130,9 @@ class UserSession:
         """
         self.update_total_cost()
         self.date = datetime.now()
+    
+    def get_uuid(self) -> str:
+        return str(self.session_id)
 
 
 class Sessions:
