@@ -21,6 +21,11 @@ body,
     display: flex;
 }
 
+p {
+    text-decoration: none;
+    color: #ffffff;
+}
+
 .links {
     justify-content: space-around;
 }

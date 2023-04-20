@@ -36,13 +36,14 @@ function movieGenerator(genre, title, picture, summary, rating, divID) {
     const closeButton = document.createElement('button')
     const purchasePictureDiv = document.createElement('div')
     const purchasePicture = document.createElement('img')
-    const purchaseSummary = document.createElement('a')
+    const purchaseSummary = document.createElement('p')
     const purchaseButton = document.createElement('button')
     //adding classes and other attributes to purchase div elements
     closeButton.className = 'movie-button'
     closeButton.textContent = 'O'
     purchasePictureDiv.className = 'picture-container'
     purchasePicture.src = picture
+    purchaseSummary.className = 'desc-box'
     purchaseSummary.textContent = summary
     purchaseButton.textContent = 'Buy'
     purchaseButton.className = 'purchase-button'
@@ -77,6 +78,7 @@ function movieGenerator(genre, title, picture, summary, rating, divID) {
     pictureDiv.append(movie_picture)
     //purchaseDiv.appendChild(movie_picture)
     movieDiv.append(pictureDiv, movie_title, purchaseDiv, closeButton)
+
     document.getElementById(divID).appendChild(movieDiv)
 }
 document.addEventListener('DOMContentLoaded', () => {

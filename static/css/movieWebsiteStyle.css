@@ -34,7 +34,12 @@ body {
 
 a {
     text-decoration: none;
-    color: #666;
+    color: #aaaaaa;
+}
+
+p {
+    text-decoration: none;
+    color: #ffffff;
 }
 
 ul {
