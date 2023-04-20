@@ -32,6 +32,11 @@ def index_page():
 
     return render_template('index.html', username=username, products=products, session=sessions.get_session(username).get_uuid())
 
+
+@app.route('/landingPage')
+def land_page():
+    return render_template('homepage.html')
+
 @app.route('/movieHomepage')
 def home_page():
     return render_template('moviewebsite.html', session=None)
