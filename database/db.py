@@ -1,4 +1,5 @@
 from core.utils import dict_factory, calculate_cost
+import random
 import datetime as dt
 import sqlite3
 
@@ -46,8 +47,8 @@ class Database:
     # ----------------- MOVIES -------------------
     # --------------------------------------------
     def insert_new_movies(self, movies)->None:
-        self.cursor.execute("INSERT INTO movies (movie_title, genre, rating, summary, picture) VALUES (?, ?, ?, ?, ?)",
-                            (movies["title"],movies["genre"],movies["rating"],movies["summary"],movies["picture"]))
+        self.cursor.execute("INSERT INTO movies (movie_title, genre, rating, summary, picture, price) VALUES (?, ?, ?, ?, ?, ?)",
+                            (movies["title"],movies["genre"],movies["rating"],movies["summary"],movies["picture"], random.uniform(5, 20)))
         self.connection.commit()
 
     def select_by_genre(self,genre:str):

@@ -19,7 +19,7 @@ def scraping(chromedriver_path,genre:str):
     last_height = driver.execute_script("return window.pageYOffset + window.innerHeight;")
 
     while (page_height-1 >= last_height):
-        driver.execute_script('window.scrollBy(0, 500);')
+        driver.execute_script('window.scrollBy(0, 350);')
         last_height = driver.execute_script("return window.pageYOffset + window.innerHeight;")
         time.sleep(0.5)
     #wait until the images are loaded so it prevents the defualt image link

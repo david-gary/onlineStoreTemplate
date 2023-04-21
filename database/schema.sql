@@ -50,5 +50,6 @@ CREATE TABLE movies(
     genre VARCHAR(255) NOT NULL,
     rating VARCHAR(255) NOT NULL,
     summary VARCHAR(255) NOT NULL,
-    picture VARCHAR(255) NOT NULL
+    picture VARCHAR(255) NOT NULL,
+    price INTEGER NOT NULL
 );
