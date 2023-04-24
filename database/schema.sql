@@ -33,6 +33,7 @@ CREATE TABLE cart (
     cart_id INTEGER PRIMARY KEY AUTOINCREMENT,
     username VARCHAR(255) NOT NULL UNIQUE,
     FOREIGN KEY (username) REFERENCES  users(username)
+
 );
 
 CREATE TABLE cart_item (
@@ -51,5 +52,4 @@ CREATE TABLE movies(
     rating VARCHAR(255) NOT NULL,
     summary VARCHAR(255) NOT NULL,
     picture VARCHAR(255) NOT NULL,
-    price INTEGER NOT NULL
 );
