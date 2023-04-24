@@ -55,6 +55,10 @@ class Database:
         self.cursor.execute("SELECT * FROM movies WHERE genre=?",(genre,))    
         return self.cursor.fetchall()
     
+    def select_by_movies_id(self,id:str):
+        self.cursor.execute("SELECT * FROM movies WHERE movies_id=?",(id,))
+        return self.cursor.fetchall()
+
     def select_by_title(self,title:str):
         self.cursor.execute("SELECT * FROM movies WHERE movie_title LIKE?",('%'+title+'%',))
         return self.cursor.fetchall()
@@ -830,6 +834,11 @@ class Database:
         self.cursor.execute("DELETE FROM cart_item WHERE cart_id = ? AND movie_id = ?", (cart["cart_id"], movie_id,))
         self.connection.commit()
 
+    def remove_items(self,username: str):
+           cart = self.get_user_cart(username)
+           self.cursor.execute("DELETE FROM cart_item WHERE cart_id =?",(cart['cart_id'],))
+           self.connection.commit()
+
     def add_to_cart(self, movie_id: int, username: str, amount: int):
         """
         Adds an item to the specified user's cart
@@ -853,3 +862,4 @@ class Database:
         else:
             self.cursor.execute("UPDATE cart_item SET amount = amount + ? WHERE cart_id = ? AND movie_id = ?", (amount, cart["cart_id"], movie_id,))
         self.connection.commit()
+

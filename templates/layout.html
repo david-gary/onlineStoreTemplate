@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./static/css/movieWebsiteStyle.css">
     <link rel="stylesheet" href="./static/css/movieHomepageStyle.css">
-    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="./static/css/style.css">
     <title>Movie Store</title>
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', () => {
@@ -59,11 +59,23 @@
             <div class="col-md-12">
                 <h1 id="title">Niner Flix</h1>
                 <p class="first-header-subtext">We have over 200+ of the highest rated movies of all time!! What are you
-                waiting for? Sign up today!</p>
+                    waiting for? Sign up today!</p>
+                <h5>Welcome {{username}}!</h5>
                 <div id="header" class="header">
                     <ul id="header-left" class="left-links">
                         <li><a href="/">About</a></li>
                         <li><a href="/movieHomepage">Store</a></li>
+                        <div id="purchased-modal">
+                            <li><button id="cart-button">View Cart</button></li>
+                            <div id="modal-container">
+                                <h1>Amount Purchased</h1>
+                                <h1 id="amount-text"></h1>
+                                <button id="cart-purchase">purchase</button>
+                                <div id="purchased-movies">
+                                    <!--Generated Movie goes here-->
+                                </div>
+                            </div>
+                        </div>
                     </ul>
                     <ul id="header-right" class="right-links">
                     </ul>
