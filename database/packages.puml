@@ -1,0 +1,7 @@
+@startuml packages
+set namespaceSeparator none
+package "store.database" as database #aliceblue {
+}
+package "store.database.db" as database.db #aliceblue {
+}
+@enduml

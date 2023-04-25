@@ -1,0 +1,13 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+actor customer
+actor Database
+rectangle checkout {
+  customer -- (checkout)
+  (checkout) .> (payment) : include
+  (checkout) .> (Inventory -1)
+  (Database) .> (checkout) : extends
+  (checkout) -- Database
+}
+@enduml
