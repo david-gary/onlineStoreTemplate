@@ -2,6 +2,10 @@
 
 {% block content %}
 
+
+<a href="/" class="btn btn-primary ms-right" id="logout_button">Logout</a>
+
+
 <div class="row" id="products_page">
     <div class="col-md-12">
         <h3>Products</h3>
@@ -21,7 +25,7 @@
                                     </div>
                                     <p class="product_card-price">${{ product.price }}</p>
                                     <input type="number" class="quantity" id={{product.id}} name={{product.id}}
-                                        placeholder="0">
+                                        placeholder="0" min="0">
                                 </div>
                             </div>
                         </div>
@@ -31,7 +35,7 @@
                 <div class="row">
                     <div class="col-md-12" id="index_buttons">
                         <button type="submit" class="btn btn-primary" id="checkout_button" onclick="clicked()">Order</button>
-                    </div>
+                    </div> 
                 </div>
             </form>
         </div>

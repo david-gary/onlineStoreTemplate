@@ -62,7 +62,9 @@
     width: 100px;
     font-weight: bold;
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    margin-left: 37rem;
 }
 
 #index_buttons {
