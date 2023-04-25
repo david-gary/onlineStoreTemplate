@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=News+Cycle&family=Tilt+Prism&display=swap');
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -19,8 +23,6 @@ body {
     color: #ffffff;
     font-family: 'News Cycle', sans-serif;
 }
-
-
 #filter-header {
     align-self: center;
 }
@@ -64,8 +66,9 @@ and smoothens the scroll*/
 }
 
 .scroll-section {
+    z-index: 10;
     display: flex;
-    overflow: hidden;
+    scroll-behavior: smooth;
 }
 
 .scroll-section::after {
@@ -99,9 +102,11 @@ and smoothens the scroll*/
     flex-direction: column;
     border-radius: 20px;
     padding: 16px;
-    margin: 1px;
+    margin: 20px;
     width: 300px;
+    align-items: center;
     justify-content: flex-start;
+    text-align: center;
     transition: opacity 2s;
     border: 2px solid #ffffff;
     box-shadow: 2px 4px 16px rgba(0, 0, 0, .06);
@@ -112,6 +117,10 @@ and smoothens the scroll*/
 /*Prevents the summary to elongate the div*/
 .movie-container.visible {
     opacity: 1;
+    max-height: 100%;
+    margin-top: -0.1%;
+    top: 0.1%;
+    height: 100%;
 }
 
 /*Formatting contents within the movie cards*/
@@ -131,15 +140,18 @@ and smoothens the scroll*/
 
 
 
-.movie-container:hover {
-    transform: scale(1.015);
+.movie-container.hoverable:hover {    
+    max-height: 100%;
+    margin-top: -0.1%;
+    top: 0.1%;
+    height: 100%;
+
 }
 
 
 
 .purchase-container {
     display: none;
-
 }
 
 
@@ -209,19 +221,22 @@ and smoothens the scroll*/
 }
 
 #modal-container {
+    z-index: 999999;
     display: flex;
     position: fixed;
-    top: 25%;
-    left: 25%;
+    left: 50%;
+    top: 50%;
     height: 500px;
     width: 700px;
     flex-direction: column;
+    align-self: center;
     align-items: center;
     justify-content: center;
     background-color: #000000;
     border-radius: 15%;
     display: none;
     border: 2px solid #ffffff;
+    transform: translate(-50%, -50%);
     color: white;
 }
 
@@ -231,6 +246,7 @@ and smoothens the scroll*/
 
 #purchased-modal {
     display: flex;
+    align-self: center;
     /* overflow-x: scroll;
         overflow-y: hidden;
         scroll-behavior: smooth; */

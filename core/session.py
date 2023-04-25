@@ -172,6 +172,8 @@ class Sessions:
         returns:
             - The user session.
         """
+        if (username not in self.sessions):
+            return None
         return self.sessions[username]
 
     def remove_session(self, username: str) -> None:
