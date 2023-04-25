@@ -104,6 +104,7 @@ body {
 }
 
 .header {
+    z-index: 100;
     gap: 450px;
 }
 
@@ -207,6 +208,10 @@ body {
     margin-right: auto;
     height: 140px;
     width: 1000px;
+}
+
+.fourth-button-form {
+    align-self: center;
 }
 
 .fourth-button {

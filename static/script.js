@@ -8,13 +8,58 @@ const historyMoviesEndPoint = '/movies/history';
 //scroll function
 function scrollHandler(idName) {
     function leftButton() {
-        document.getElementById(idName).scrollLeft -= 1000
+        scrollBy(document.getElementById(idName), -1000, 0, 0.05);
     }
     function rightButton() {
-        document.getElementById(idName).scrollLeft += 1000
+        scrollBy(document.getElementById(idName), 1000, 0, 0.05);
     }
     return { leftButton, rightButton }
 }
+
+async function scrollBy(target, x, y, speed) {
+    if (target.classList.contains("scrolling"))
+        return;
+    target.classList.toggle("scrolling");
+    let holdX = target.scrollLeft;
+    let targetX = target.scrollLeft+x;
+    let holdY = target.scrollTop;
+    let targetY = target.scrollTop+y;
+    let dirX = (targetX >= holdX);
+    let dirY = (targetY >= holdY);
+    let maxX = target.scrollWidth-target.offsetWidth;
+    let maxY = target.scrollHeight-target.offsetHeight;
+    
+    let f = () => {
+        let dirs = 0;
+        target.scrollBy(speed*x, speed*y);
+
+        holdX = target.scrollLeft;
+        holdY = target.scrollTop;
+
+        if (dirX && (holdX >= targetX || holdX >= maxX)) {
+            dirs++;
+        } 
+        if (dirX == false && ((holdX <= targetX) || holdX <= 0)) {
+            dirs++;
+        }
+
+        if (dirY && holdY >= targetY || holdX >= maxY) {
+            dirs++;
+        } else if ((dirY == false && holdY <= targetY) || holdY <= 0) {
+            dirs++;
+        }
+        
+        if (dirs >= 2) {
+            target.classList.toggle("scrolling");
+            target.scrollTo(targetX, targetY);
+        } else {
+            window.requestAnimationFrame(f);
+        }
+    };
+    window.requestAnimationFrame(f);
+    
+}
+
 //gets the movie card for the movies purchased
 async function findMoviesPurchased() {
     var purchasedMovies = document.getElementById('purchased-movies');
@@ -24,7 +69,15 @@ async function findMoviesPurchased() {
         console.log("removing")
     }
     let movieIdArray = [];
-    const response = await fetch('/cart')
+    const response = await fetch('/cart', {
+        method: "POST",
+        body: JSON.stringify({
+            username: localStorage.getItem("username"),
+            session: localStorage.getItem("session")
+        }), headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    })
         .catch(err => console.log(err))
     const data = await response.json()
     for (let i = 0; i < data.length; i++) {
@@ -41,16 +94,24 @@ async function findMoviesPurchased() {
 }
 //updates the users amount purchased
 async function updateAmountPurchased() {
-    const modalInfo = document.getElementById('amount-text')
-    modalInfo.textContent = ''
-    const response = await fetch('/cart')
-        .catch(err => console.log(err))
-    const data = await response.json()
-    let totalAmount = 0
+    const modalInfo = document.getElementById('amount-text');
+    modalInfo.textContent = '';
+    const response = await fetch('/cart', {
+        method: "POST",
+        body: JSON.stringify({
+            username: localStorage.getItem("username"),
+            session: localStorage.getItem("session")
+        }), headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    })
+        .catch(err => console.log(err));
+    const data = await response.json();
+    let totalAmount = 0;
     for (let i = 0; i < data.length; i++) {
-        totalAmount += data[i].amount
+        totalAmount += data[i].amount;
     }
-    modalInfo.textContent = totalAmount
+    modalInfo.textContent = totalAmount;
 
 
 }
@@ -95,15 +156,19 @@ function movieGenerator(id, genre, title, picture, summary, rating, divID) {
             movieDiv.style.flexDirection = 'column'
             purchaseDiv.style.display = 'none'
             closeButton.textContent = 'O'
+            movieDiv.classList.toggle("visible");
+            movieDiv.classList.toggle("hoverable");
         } else {
             movieDiv.style.flex = '0 0 auto'
             purchaseDiv.style.display = 'block'
             movieDiv.style.flexDirection = 'column'
-            movieDiv.classList.toggle("visible");
             closeButton.textContent = '<'
+            movieDiv.classList.toggle("visible");
+            movieDiv.classList.toggle("hoverable")
         }
     })
     movieDiv.className = 'movie-container'
+    movieDiv.classList.add("hoverable")
     purchaseDiv.className = 'purchase-container'
     movieDiv.setAttribute('id', title)
     const movie_title = document.createElement('h5')
@@ -117,24 +182,26 @@ function movieGenerator(id, genre, title, picture, summary, rating, divID) {
     purchaseButton.addEventListener('click', async () => {
         // prevents inconsistencies with api calls
         // without timeout it shows a multithreading error with sqlite3
-        setTimeout(async () => await findMoviesPurchased(), 500)
+        findMoviesPurchased();
         console.log("im running")
         //this post method adds the movie container info to the db to the user currently logged in
         await fetch('/purchase',
             {
                 method: 'POST',
                 body: JSON.stringify({
+                    username: localStorage.getItem("username"),
+                    session: localStorage.getItem("session"),
                     id: id,
                     title: title,
                     picture: picture,
-                    price: 9.99
+                    amount: 1
                 }), headers: {
                     "Content-type": "application/json; charset=UTF-8"
                 }
             }
         ).then(response => response.json())
             .then(json => console.log(json))
-            .catch(err => console.log(err))
+            .catch(err => console.log(err));
     })
     //appending elements to main div
     pictureDiv.append(movie_picture)
@@ -160,6 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // shows the pop up div that has the information on your cart like amount purchased and the movies you bought
     document.getElementById('cart-button').onclick = () => {
         updateAmountPurchased();
+        findMoviesPurchased();
         const viewCartButton = document.getElementById('modal-container')
         if (viewCartButton.style.display === 'flex') {
             viewCartButton.style.display = 'none'
@@ -175,7 +243,13 @@ document.addEventListener('DOMContentLoaded', () => {
         priceTotal.textContent = '0'
         //this deletes all the items from the cart
         fetch('/delete', {
-            method: 'DELETE'
+            method: 'DELETE',
+            body: JSON.stringify({
+                username: localStorage.getItem("username"),
+                session: localStorage.getItem("session")
+            }), headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
         }).then().catch(err => console.log(err))
         var purchasedMovies = document.getElementById('purchased-movies');
         //deletes the movies from the purchased movies div, since you buy all the movies, they leave your cart

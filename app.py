@@ -30,9 +30,9 @@ def index_page():
     returns:
         - None
     """
-    render_template('layout.html',username=usernameGlobal)
-    return render_template('index.html', username=usernameGlobal, products=products)
- #session=sessions.get_session(username).get_uuid()
+    #render_template('layout.html',username=usernameGlobal)
+    return render_template('index.html', username=None)
+ #
 
 @app.route('/landingPage')
 def land_page():
@@ -94,7 +94,7 @@ def login():
         sessions.add_new_session(username, db)
         return render_template('home.html', products=products, session=sessions.get_session(username).get_uuid(),usernameData=username)
     else:
-        print(f"Incorrect username ({username}) or password ({password}).")
+        #print(f"Incorrect username ({username}) or password ({password}).")
         flash("Incorrect username or password.", 'error')
     return render_template('login.html')
 
@@ -127,20 +127,22 @@ def register():
     modifies:
         - database/storeRecords.db: adds a new user to the database
     """
-    global usernameGlobal
     username = request.form['username']
     password = request.form['password']
     email = request.form['email']
     first_name = request.form['first_name']
     last_name = request.form['last_name']
     salt, key = hash_password(password)
-    usernameGlobal = username
     
     if (not username or not password or not email or not first_name or not last_name):
+        flash("A required field is empty", "error")
+        return render_template('register.html')
+    if (db.does_user_exist(username)):
+        flash("Username already exists", "error")
         return render_template('register.html')
     db.insert_user(username, key, salt, email, first_name, last_name)
     sessions.add_new_session(username, db)
-    return render_template('moviewebsite.html', session=sessions.get_session(username).get_uuid(),username=usernameGlobal)
+    return render_template('moviewebsite.html', session=sessions.get_session(username).get_uuid(),username=username)
 
 
 @app.route('/checkout', methods=['POST'])
@@ -229,26 +231,59 @@ def get_movie_by_rating(order):
 
 @app.route('/purchase',methods=['POST'])
 def purchaseMovie():
-    global usernameGlobal
     # Find add to cart by user, then add the item
+    db = Database('database/storeRecords.db')
     data = request.json
-    usernameGlobal = usernameGlobal
-    db.add_to_cart(data['id'],usernameGlobal,data['price'])
+    session_id = data.get('session')
+    username = data.get('username')
+
+    check_id = sessions.get_session(username)
+    if (check_id == None or str(check_id.session_id) != session_id):
+        print("error")
+        return jsonify( {"status": "ERROR"})
+    
+    db.add_to_cart(data['id'],username,data['amount'])
     return data
-@app.route('/cart',methods=['GET'])   
+@app.route('/cart',methods=['POST'])   
 def getCartItem():
-    global usernameGlobal
-    items = db.get_user_cart_items(usernameGlobal)
+    db = Database('database/storeRecords.db')
+    session_id = request.json.get('session')
+    username = request.json.get('username')
+    
+    check_id = sessions.get_session(username)
+    if (check_id == None or str(check_id.session_id) != session_id):
+        print("error")
+        return jsonify( {"status": "ERROR"})
+
+    items = db.get_user_cart_items(username)
     return jsonify(items)
 
 @app.route('/delete',methods=['DELETE'])
 def deleteCart():
-    global usernameGlobal   
-    items = db.remove_items(usernameGlobal)
+    db = Database('database/storeRecords.db')
+    session_id = request.json.get('session')
+    username = request.json.get('username')
+    
+    check_id = sessions.get_session(username)
+    if (check_id == None or str(check_id.session_id) != session_id):
+        print("error")
+        return jsonify( {"status": "ERROR"})
+      
+    items = db.remove_items(username)
     return jsonify(items)
 
-
-
+@app.route('/validate', methods=['POST'])
+def validateSession():
+    db = Database('database/storeRecords.db')
+    session_id = request.json.get('session')
+    username = request.json.get('username')
+    
+    check_id = sessions.get_session(username)
+    if (check_id == None or str(check_id.session_id) != session_id):
+        print("error")
+        return jsonify( {"status": "ERROR"})
+    
+    return jsonify({ "status": "OK"})
 
 if __name__ == '__main__':
     app.run(debug=True, host=HOST, port=PORT)

@@ -33,6 +33,10 @@
     margin-bottom: 10px;
 }
 
+#welcomeHeader {
+    color: white;
+}
+
 #info_form_group {
     margin-top: 10px;
     width: 200px;

@@ -16,7 +16,16 @@
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', () => {
             let header = document.getElementById("header-right")
+            let username = "{{username}}";
             let session = "{{session}}".match('^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$');
+
+            if ((username == null || username == "None") && localStorage.getItem("username") != null) {
+                username = localStorage.getItem("username");
+            }
+            if ((username != null && username != "None") && username != localStorage.getItem("username")) {
+                localStorage.setItem("username", username);
+            }
+
             if (session == null && localStorage.getItem("session") != null) {
                 session = localStorage.getItem("session");
             }
@@ -25,29 +34,63 @@
             }
 
             if (session == null) {
-                let login = document.createElement("li");
-                let a = document.createElement("a")
-                login.id = "login-button";
-                a.href = "/login";
-                a.innerHTML = "Login/Register";
-
-                login.appendChild(a);
-                header.appendChild(login);
+                createLoginButton();
             } else {
-                let logout = document.createElement("li");
-                let a = document.createElement("a")
-                logout.id = "logout-button";
-                a.href = "/logout";
-                a.innerHTML = "Sign Out";
-
-                a.addEventListener('click', () => {
-                    localStorage.removeItem("session");
-                });
-
-                logout.appendChild(a);
-                header.appendChild(logout);
+                validateLogin();
             }
         })
+
+
+
+        async function validateLogin() {
+            const resp = await fetch('/validate',
+                {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        username: localStorage.getItem("username"),
+                        session: localStorage.getItem("session")
+                    }), headers: {
+                        "Content-type": "application/json; charset=UTF-8"
+                    }
+                }
+            ).catch(err => console.log(err));
+            let json = await resp.json();
+            if (json["status"] == "ERROR") {
+                localStorage.removeItem("username");
+                localStorage.removeItem("session");
+                createLoginButton();
+            } else {
+                document.getElementById("welcomeHeader").innerHTML = "Welcome " + localStorage.getItem("username") + "!";
+                createLogoutButton();
+            }
+        }
+
+        function createLogoutButton() {
+            let logout = document.createElement("li");
+            let a = document.createElement("a")
+            logout.id = "logout-button";
+            a.href = "/logout";
+            a.innerHTML = "Sign Out";
+
+            a.addEventListener('click', () => {
+                localStorage.removeItem("username");
+                localStorage.removeItem("session");
+            });
+
+            logout.appendChild(a);
+            header.appendChild(logout);
+        }
+
+        function createLoginButton() {
+            let login = document.createElement("li");
+            let a = document.createElement("a")
+            login.id = "login-button";
+            a.href = "/login";
+            a.innerHTML = "Login/Register";
+
+            login.appendChild(a);
+            header.appendChild(login);
+        }
 
     </script>
 </head>
@@ -60,7 +103,7 @@
                 <h1 id="title">Niner Flix</h1>
                 <p class="first-header-subtext">We have over 200+ of the highest rated movies of all time!! What are you
                     waiting for? Sign up today!</p>
-                <h5>Welcome {{username}}!</h5>
+                <h5 id="welcomeHeader">Welcome!</h5>
                 <div id="header" class="header">
                     <ul id="header-left" class="left-links">
                         <li><a href="/">About</a></li>
@@ -85,6 +128,10 @@
                     <!-- This is where the content will be rendered -->
                     {% block content %}{% endblock %}
 
+                </div>
+
+                <div class="footer">
+                    <p> Copyright © ITSC 3155 </p>
                 </div>
             </div>
         </div>
