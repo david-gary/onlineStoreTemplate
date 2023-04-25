@@ -28,6 +28,9 @@ def index_page():
     """
     return render_template('index.html', username=username, products=products, sessions=sessions)
 
+@app.route('/')
+def index_page2():
+    return render_template('indexItem.html')
 
 @app.route('/login')
 def login_page():

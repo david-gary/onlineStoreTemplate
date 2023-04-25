@@ -27,4 +27,3 @@ CREATE TABLE sales (
     FOREIGN KEY (username) REFERENCES users(username),
     FOREIGN KEY (item_id) REFERENCES inventory(id)
 );
-
