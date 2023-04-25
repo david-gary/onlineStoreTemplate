@@ -1,4 +1,5 @@
 # Software Requirements Specification Document
+
 Version 2
 This serves as a template for each projects' Software Requirements Specification (SRS) document. When filling this out, you will be required to create user stories, use cases, requirements, and a glossary of terms relevant to your project. Each group member must contribute to every section, so it is crucial that your group's GitHub repository shows a commit history that reflects the work of each group member. It is highly recommended that you create separate branches for each member, but since this is one single document, you will need to manually merge the branches together. It is also advisable to have multiple working versions of this document (named separately) so that one person can compile the final SRS document from the multiple working versions. Ultimately, how you go about managing this is up to you, but consistent formatting, clear commit messages, and a thorough commit history with contributions from each group member are required.
 
@@ -6,10 +7,12 @@ Fill the document out following the guidelines listed in each section. Maintain 
 
 ## Group Members
 
+
 * [Sreyas Kodukulla](mailto:skodukul.edu)
 * [Akanimoh Joseph Umoren](mailto:aumoren@uncc.edu)
 * [Blaise Thomas](mailto:bthom108@uncc.edu)
 * [Mercere Baker](mailto:mbaker89@uncc.edu)
+
 
 ## Revisions
 
@@ -29,6 +32,7 @@ When a change is made to the document, a new revision should be created. The rev
 6. [Glossary](#glossary)
 
 ## Introduction
+
 
 The idea for our project is to create a hands on jewlery store. We will build a system that has features to be able to search for jewlery based on the type and the material. The software system will allow users to perform filtered searches, create a wishlist or shopping cart for any items, and it will also display every item and give a brief description of it. Our stakeholders are the individual customers that are interested in buying products from our store. Their needs are the products we offer and we will give them the ability to browse through to find the right item to fit their needs.
 the filter search is when a user can input certain things that they are looking for and not looking for (based on price, material, type) and will find items that match the conditions they have set in the search.
@@ -226,6 +230,7 @@ Contstraint 7: The project has to be finished by the end of UNCC's 2023 spring s
   * **Description:** The customer has a question about the website or has problems purchasing their items. They can send their issues to the provided email to have it checked out.
 
 
+
 ## Use Cases
 
 In this section, you should list use cases for the project. Use cases are a thorough description of how the system will be used. Each group member must supply at least two use cases. Each use case should be written in the following format:
@@ -277,6 +282,7 @@ In this section, you should list use cases for the project. Use cases are a thor
   * **Preconditions:** The customer can connect to the website, the shopping cart is functional, the customer has put items in the shopping cart.
   * **Postconditions:** The customer's shopping cart no longer has the item in the shopping cart. If the shopping cart only has that item, it should be empty and unable to proceed to checkout.
   
+
 ## User Stories
 
 In this section, you should list user stories for the project. User stories are a short description of how a user will be interacting with the system. Each group member must supply at least two user stories. Each user story should be written in the following format:
@@ -337,3 +343,4 @@ In this section, you should list user stories for the project. User stories are 
 
 * **Term:** Navigation bar
   * **Definition:** The webpage element that helps users navigate through the use of hyperlinks.
+

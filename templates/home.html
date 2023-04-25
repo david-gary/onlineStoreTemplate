@@ -30,7 +30,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12" id="index_buttons">
-                        <button type="submit" class="btn btn-primary" id="checkout_button">Order</button>
+                        <button type="submit" class="btn btn-primary" id="checkout_button" onclick="clicked()">Order</button>
                     </div>
                 </div>
             </form>
@@ -38,5 +38,15 @@
     </div>
 </div>
 
+<script type="text/javascript">
+    function clicked() {
+       if (confirm('Do you want to submit?')) {
+           yourformelement.submit();
+       } else {
+           return false;
+       }
+    }
+
+</script>
 
 {% endblock %}

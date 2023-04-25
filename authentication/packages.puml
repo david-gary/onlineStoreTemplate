@@ -1,0 +1,30 @@
+@startuml packages
+set namespaceSeparator none
+package "authentication" as authentication #aliceblue {
+}
+package "authentication.authTools" as authentication.authTools #aliceblue {
+}
+package "authentication.login" as authentication.login #aliceblue {
+class "Sessions" {
+    username : str 
+    db : Database
+    add_new_session(self, username: str, db: Database) -> None
+    get_session(self, username: str) -> UserSession
+    remove_session(self, username: str) -> None
+    get_all_sessions(self) -> dict
+}
+
+class "AuthTools" {
+    username : str
+    password : str
+    key : str
+    salt : str
+    hash_password(password: str, salt: str = None) -> tuple
+    username_exists(username: str) -> bool
+    update_passwords(username: str, key: str, salt: str)
+    check_password(password: str, salt: str, key: str) -> bool
+    login_pipeline(username: str, password: str) -> bool
+    
+}
+}
+@enduml
