@@ -8,14 +8,14 @@ const historyMoviesEndPoint = '/movies/history';
 //scroll function
 function scrollHandler(idName) {
     function leftButton() {
-        scrollBy(document.getElementById(idName), -1000, 0, 0.05);
+        document.getElementById(idName).scrollLeft -= 300
     }
     function rightButton() {
-        scrollBy(document.getElementById(idName), 1000, 0, 0.05);
+        document.getElementById(idName).scrollLeft += 300
     }
     return { leftButton, rightButton }
 }
-
+// doesnt work on chrome or edge
 async function scrollBy(target, x, y, speed) {
     if (target.classList.contains("scrolling"))
         return;

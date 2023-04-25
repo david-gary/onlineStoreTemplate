@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=News+Cycle&family=Tilt+Prism&display=swap');
 
+*,
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth !important;
 }
 
 body {
@@ -23,6 +24,7 @@ body {
     color: #ffffff;
     font-family: 'News Cycle', sans-serif;
 }
+
 #filter-header {
     align-self: center;
 }
@@ -62,13 +64,13 @@ and smoothens the scroll*/
     display: flex;
     overflow-x: scroll;
     overflow-y: hidden;
-    scroll-behavior: smooth;
+    /* scroll-behavior: smooth; */
 }
 
 .scroll-section {
     z-index: 10;
     display: flex;
-    scroll-behavior: smooth;
+    /* scroll-behavior: smooth; */
 }
 
 .scroll-section::after {
@@ -140,7 +142,7 @@ and smoothens the scroll*/
 
 
 
-.movie-container.hoverable:hover {    
+.movie-container.hoverable:hover {
     max-height: 100%;
     margin-top: -0.1%;
     top: 0.1%;
