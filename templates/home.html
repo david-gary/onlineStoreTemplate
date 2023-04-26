@@ -8,7 +8,7 @@
         <h3>Products</h3>
         <hr>
         <div class="row">
-            <form action="/checkout" method="post" onsubmit="return validateForm()">
+            <form action="/checkout" method="post" onsubmit="return validateform()">
                 <div class="form-group">
                     <div class="row">
                         {% for product in products %}
@@ -40,22 +40,19 @@
 </div>
 
 <script type="text/javascript">
-    var response;
+    var RESPONSE;
     function clicked() {
-      response = confirm("Do you confirm your order?");
-      if (response){
+      RESPONSE = confirm("Do you confirm your order?");
+      if (REPONSE){
         yourformelement.submit();
       }
     }
 
-    function validateForm() {
+    function validateform() {
         var inputs = document.getElementsByClassName("quantity");
         for (var i = 0; i < inputs.length; i++) {
-            if (inputs[i].value > 0 && response == true) {
+            if (inputs[i].value > 0 && REPONSE == true) {
                 return true;
-            }
-            else{
-              
             }
         }
         alert("Cancelled");
