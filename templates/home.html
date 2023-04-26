@@ -11,7 +11,7 @@
         <h3>Products</h3>
         <hr>
         <div class="row">
-            <form action="/checkout" method="post">
+            <form action="/checkout" method="post" onsubmit="return validateForm()">
                 <div class="form-group">
                     <div class="row">
                         {% for product in products %}
@@ -44,11 +44,24 @@
 
 <script type="text/javascript">
     function clicked() {
-       if (confirm('Do you want to submit?')) {
-           yourformelement.submit();
-       } else {
-           return false;
-       }
+      const response = confirm("Do you confirm your order?");
+      if (response){
+        yourformelement.submit();
+      }
+      else {
+        alert("Cancelled.")
+      }
+    }
+
+    function validateForm() {
+        var inputs = document.getElementsByClassName("quantity");
+        for (var i = 0; i < inputs.length; i++) {
+            if (inputs[i].value > 0) {
+                return true;
+            }
+        }
+        alert("Please select at least one item.");
+        return false;
     }
 
 </script>
