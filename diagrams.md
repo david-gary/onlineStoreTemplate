@@ -25,7 +25,7 @@ This activity will require you to generate Class, Package, Use Case, and Sequenc
 All of the above diagrams must be generated, so split this work evenly and push and pull code often. To generate a class diagram for a subdirectory or file, you must first generate the `plantuml` files using `pyreverse`. Then, you must use `plantuml` to generate the diagram from the `plantuml` file. Here's an example of how to do this for the package diagram in the `testing` subdirectory.
 
 ```bash
-pyreverse --output puml --colorized -A --output-directory testing testin # generates testing/package.puml
+pyreverse --output puml --colorized -A --output-directory testing testing # generates testing/package.puml
 python3.10 -m plantuml testing/package.puml # generates testing/package.png
 ```
 

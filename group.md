@@ -1,22 +1,24 @@
 # Group Members
 
-## Jane Doe
+## Blaise Thomas
 
-- **Github Username:** jdoe
-- **Niner Net ID:** jdoe
+- **Github Username:** BlaiseThomas20
+- **Niner Net ID:** bthom108
 
-## John Doe
+## Sreyas Kodukulla
 
-- **Github Username:** jdoe1
-- **Niner Net ID:** jdoe1
-- **Role:** Developer
+- **Github Username:** sreyaskodukulla
+- **Niner Net ID:** skodukul
 
-## Tim H
 
-- **Github Username:** electric-sun-20
-- **Niner Net ID:** theideck
+## Mercere Baker
 
-## Greg T
+- **Github Username:** MercereBaker
+- **Niner Net ID:** mbaker89
 
-- **Github Username:** vvile-film-archives
-- **Niner Net ID:** gturk
+## Akaninoh Joseph Aumoren
+
+- **Github Username:** oneofthejosephs
+- **Niner Net ID:** aumoren
+
+
