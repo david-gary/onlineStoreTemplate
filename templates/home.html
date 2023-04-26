@@ -43,7 +43,7 @@
     var RESPONSE;
     function clicked() {
       RESPONSE = confirm("Do you confirm your order?");
-      if (REPONSE){
+      if (RESPONSE){
         yourformelement.submit();
       }
     }
@@ -51,7 +51,7 @@
     function validateform() {
         var inputs = document.getElementsByClassName("quantity");
         for (var i = 0; i < inputs.length; i++) {
-            if (inputs[i].value > 0 && REPONSE == true) {
+            if (inputs[i].value > 0 && RESPONSE == true) {
                 return true;
             }
         }
