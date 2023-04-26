@@ -40,24 +40,25 @@
 </div>
 
 <script type="text/javascript">
+    var response;
     function clicked() {
-      const response = confirm("Do you confirm your order?");
+      response = confirm("Do you confirm your order?");
       if (response){
         yourformelement.submit();
-      }
-      else {
-        alert("Cancelled.")
       }
     }
 
     function validateForm() {
         var inputs = document.getElementsByClassName("quantity");
         for (var i = 0; i < inputs.length; i++) {
-            if (inputs[i].value > 0) {
+            if (inputs[i].value > 0 && response == true) {
                 return true;
             }
+            else{
+              
+            }
         }
-        alert("Please select at least one item.");
+        alert("Cancelled");
         return false;
         }
 </script>
