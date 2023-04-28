@@ -1,0 +1,28 @@
+@startuml customer
+left to right direction
+actor Student
+rectangle "System" as student{
+(Login)
+(Register)
+(Update Profile)
+(Update Password)
+(Update Email)
+(Logout)
+(Delete Account)
+(Add Lab)
+(Delete Lab)
+(View  Saved Labs)
+(View profile)
+}
+Student --> (Login)
+Student --> (Register)
+Student --> (Update Profile)
+Student --> (Update Password)
+Student --> (Update Email)
+Student --> (Logout)
+Student --> (Delete Account)
+Student --> (Add Lab)
+Student --> (Delete Lab)
+Student --> (View  Saved Labs)
+Student --> (View profile)
+@enduml
