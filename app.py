@@ -4,6 +4,9 @@ from authentication.authTools import login_pipeline, update_passwords, hash_pass
 from database.db import Database
 from flask import Flask, render_template, request
 from core.session import Sessions
+from flask import send_from_directory
+import os
+from flask import send_from_directory, abort
 
 app = Flask(__name__)
 HOST, PORT = 'localhost', 8080
@@ -157,6 +160,23 @@ def view_page():
             order[item['item_name']] = count
 
     return render_template('view.html', order=order, sessions=sessions, total_cost=user_session.total_cost)
+
+
+@app.route('/download')
+def download_file():
+    """
+    Handle file download when user navigates to the '/download' route.
+    
+    This function attempts to send a file from a specified directory as a download.
+    
+    :return: A response that triggers the download of the specified file,
+             or a 404 error if the file is not found.
+    """
+    try:
+        directory = os.path.join(os.getcwd(), 'files')
+        return send_from_directory(directory='path_to_your_directory', filename=f'{filename}.zip', as_attachment=True)
+    except FileNotFoundError:
+        abort(404)
         
 
 
