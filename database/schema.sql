@@ -3,7 +3,8 @@ CREATE TABLE inventory (
     item_name VARCHAR(255) NOT NULL,
     info VARCHAR(255) NOT NULL,
     image_url VARCHAR(255) NOT NULL,
-    category VARCHAR(255) NOT NULL
+    category VARCHAR(255) NOT NULL,
+    item_file VARCHAR(255) NOT NULL,
 );
 
 CREATE TABLE users (
