@@ -174,7 +174,7 @@ def download_file():
     """
     try:
         directory = os.path.join(os.getcwd(), 'files')
-        return send_from_directory(directory='path_to_your_directory', filename=f'{filename}.zip', as_attachment=True)
+        return send_from_directory(directory=directory, filename=f'{filename}.zip', as_attachment=True)
     except FileNotFoundError:
         abort(404)
         
