@@ -13,7 +13,7 @@
         <h3>Products</h3>
         <hr>
         <div class="row">
-            <form action="/checkout" method="post">
+            <form action="/view" method="post">
                 <div class="form-group">
                     <div class="row">
                         {% for product in products %}
@@ -25,6 +25,8 @@
                                         <h5 class="product_card-title">{{ product.item_name }}</h5>
                                         <p class="product_card-text">{{ product.info }}</p>
                                         <p class="product_card-price">${{ product.price }}</p>
+                                        <button class="btn btn-primary" id="product_button">View
+                                            Product</button>
                                     </div>
                                 </div>
                             </div>

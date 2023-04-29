@@ -136,6 +136,29 @@ def checkout():
 
     return render_template('checkout.html', order=order, sessions=sessions, total_cost=user_session.total_cost)
 
+@app.route('/view' , methods=['POST'])
+
+def view_page():
+    """
+    Renders the view page when the user is at the `/view` endpoint with a POST request.
+
+    args:
+        - None
+
+    returns:
+        - None
+    """
+    order = {}
+    user_session = sessions.get_session(username)
+    for item in products:
+        print(f"item ID: {item['id']}")
+        if request.form[str(item['id'])] > '0':
+            count = request.form[str(item['id'])]
+            order[item['item_name']] = count
+
+    return render_template('view.html', order=order, sessions=sessions, total_cost=user_session.total_cost)
+        
+
 
 if __name__ == '__main__':
     app.run(debug=True, host=HOST, port=PORT)
