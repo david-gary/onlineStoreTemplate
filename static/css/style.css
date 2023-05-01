@@ -81,6 +81,7 @@
     font-weight: bold;
     font-style: italic;
 }
+
 .product_button {
     background-color: #a1a77f;
     border-color: rgb(171, 130, 59);
@@ -93,6 +94,59 @@
     /* centered on the page */
     text-align: center;
 }
+
+.download_button{
+    background-color: #a1a77f;
+    border-color: rgb(171, 130, 59);
+    color: rgb(32, 30, 30);
+    width: 220px;
+    font-weight: bold;
+    margin-left: 535px;
+    margin-top: 15px;
+    /* centered on the page */
+    text-align: center;
+}
+
+.product_view {
+    margin: auto; 
+    width: 1300px; 
+    height: 240px; 
+    background:rgb(178, 178, 178) 20px; 
+    background-color: #37352b; 
+    border: 1px solid #862209;
+}
+
+.product_view-img {
+    width: 300px;
+    height: 300px;
+    margin-left: 300px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.product_view-title {
+    /* Centered */
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color:rgb(171, 130, 59)
+}
+
+.product_view-text {
+    /* Centered */
+    text-align: center;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-style: italic;
+    height: 15px;
+    color:rgb(171, 130, 59)
+}
+
+
+
 
 #add_to_cart_button {
     background-color: #49f4d8;

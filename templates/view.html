@@ -1,30 +1,38 @@
 {% extends "layout.html" %}
 
 {% block content %}
-
+<script type="module" src="https://md-block.verou.me/md-block.js"></script>
 <div class="row" id = "view_page">
     <div class="col-md-12">
         <h3>{{product.item_name}}</h3>
         <hr>
-        <div class="row">
             <div class="col-md-4">
                 <div id={{product.id}}>
-                    <div class="product_card" id="product_card">
-                        <img src="{{ product.image_url }}" class="product_card-img" alt="...">
-                        <div class="product_card-body">
-                            <h5 class="product_card-title">{{ product.item_name }}</h5>
-                            <p class="product_card-text">{{ product.info }}</p>
-                            <p class="product_card-price">${{ product.price }}</p>
-                            <form action="/checkout" method="post">
-                                <input type="hidden" name="product_id" value={{product.id}}>
-                                <button class="btn btn-primary" id="product_button">Add to Cart</button>
-                            </form>
+                    <div class="product_view" id="product_view">
+                        <div class="product_view_body">
+                            <h5 class="product_view-title">{{ product.item_name }}</h5>
+                            <p class="product_view-text">{{ product.info }}</p>
+                            <p class = "product_view-text"> Difficulty: {{product.difficulty}}</p>
+                            <p class = "product_view-text"> Due Date: {{product.due_date}}</p>
+                            <p class = "product_view-text"> Topics: {{product.topics}}</p>
+                            <a href= "{{product.item_file}}" download="{{product.item_file}}">
+                            <button type ="submit" name ="{{product.id}}" class ="download_button" id="product_button">Download Lab</button>
+                            </a>
+                            <a href= "{{product.markdown_file}}" download="{{product.markdown_file}}">
+                            <button type ="submit" name ="{{product.id}}" class ="download_button" id="product_button">Download Markdown</button>
+                            </a>
+
+                            <md-block src = {{product.markdown_file}}>
+                            </md-block>
+
+                        </div>
+                    </div>
+                        <div class = "col-md-4">
+                        </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-
 </div>
 </div>
 
