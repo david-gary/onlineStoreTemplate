@@ -4,7 +4,11 @@ CREATE TABLE inventory (
     info VARCHAR(255) NOT NULL,
     image_url VARCHAR(255) NOT NULL,
     category VARCHAR(255) NOT NULL,
-    item_file VARCHAR(255) NOT NULL
+    item_file VARCHAR(255) NOT NULL,
+    markdown_file VARCHAR(255) NOT NULL,
+    due_date VARCHAR(255) NOT NULL,
+    topics VARCHAR(255) NOT NULL,
+    difficulty VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE users (
