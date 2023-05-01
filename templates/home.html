@@ -12,13 +12,15 @@
                     <div class="row">
                         {% for product in products %}
                         <div class="col-md-4">
-                            <div class="product_card" id="product_card">
-                                <img src="{{ product.image_url }}" class="product_card-img" alt="..." >
-                                <div class="product_card-body">
-                                    <h5 class="product_card-title">{{ product.item_name }}</h5>
-                                    <p class="product_card-text">{{ product.info }}</p>
-                                    <p class="product_card-price">${{ product.price }}</p>
-                                    <button class="btn btn-primary" id="product_button">View Product</button>
+                            <div id={{product.id}}>
+                                <div class="product_card" id="product_card">
+                                    <img src="{{ product.image_url }}" class="product_card-img" alt="..." >
+                                    <div class="product_card-body">
+                                        <h5 class="product_card-title">{{ product.item_name }}</h5>
+                                        <p class="product_card-text">{{ product.info }}</p>
+                                        <p class="product_card-price">${{ product.price }}</p>
+                                        <button class="btn btn-primary" id="product_button">View Product</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>

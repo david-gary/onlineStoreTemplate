@@ -153,6 +153,20 @@ class Database:
         self.cursor.execute(
             "SELECT category FROM inventory WHERE id = ?", (item_id,))
         return self.cursor.fetchone()
+    
+    def get_file_from_item_id(self, item_id: int):
+        """
+        Gets the file of an item from the database.
+
+        args:
+            - item_id: The id of the item to get.
+
+        returns:
+            - The file of the item with the given id.
+        """
+        self.cursor.execute(
+            "SELECT item_file FROM inventory WHERE id = ?", (item_id,))
+        return self.cursor.fetchone()
 
     # ------ Setter methods ------
 

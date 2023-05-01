@@ -81,6 +81,18 @@
     font-weight: bold;
     font-style: italic;
 }
+.product_button {
+    background-color: #a1a77f;
+    border-color: rgb(171, 130, 59);
+    color: rgb(32, 30, 30);
+    width: 220px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 40px;
+    /* centered on the page */
+    text-align: center;
+}
 
 #add_to_cart_button {
     background-color: #49f4d8;

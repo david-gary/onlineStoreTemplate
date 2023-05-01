@@ -1,26 +1,31 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<div class = "row" id = "individual_product">
-    {% for product in products %}
-    <div class = "col-md-12">
-        <h3>{{ product.item_name }}</h3>
+
+<div class="row" id = "view_page">
+    <div class="col-md-12">
+        <h3>{{product.item_name}}</h3>
         <hr>
-        <div class = "row">
-            <div class = "col-md-6">
-                <h5 class = "product_card-text">{{ product.item_name }}</h5>
-                <img src = "{{ product.image_url }}" class = "product_card-img" alt = "...">
-            </div>
-            <div class = "col-md-6">
-                <p>{{pr</p>
-                <p>{{ product.info }}</p>
-                <p>${{ product.price }}</p>
-                <form action = "/add_to_cart" method = "POST">
-                    <input type = "hidden" name = "product_id" value = "{{ product.id }}">
-                    <button type = "submit" class = "btn btn-primary" id = "add_to_cart_button">Add to Cart</button>
-                </form>
+        <div class="row">
+            <div class="col-md-4">
+                <div id={{product.id}}>
+                    <div class="product_card" id="product_card">
+                        <img src="{{ product.image_url }}" class="product_card-img" alt="...">
+                        <div class="product_card-body">
+                            <h5 class="product_card-title">{{ product.item_name }}</h5>
+                            <p class="product_card-text">{{ product.info }}</p>
+                            <p class="product_card-price">${{ product.price }}</p>
+                            <form action="/checkout" method="post">
+                                <input type="hidden" name="product_id" value={{product.id}}>
+                                <button class="btn btn-primary" id="product_button">Add to Cart</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    {% endfor %}
-    {% endblock %}
+
+</div>
+</div>
+
+{% endblock %}

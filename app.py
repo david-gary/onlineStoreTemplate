@@ -139,9 +139,8 @@ def checkout():
 
     return render_template('checkout.html', order=order, sessions=sessions, total_cost=user_session.total_cost)
 
-@app.route('/view' , methods=['POST'])
-
-def view_page():
+@app.route('/view', methods=['POST'])
+def view():
     """
     Renders the view page when the user is at the `/view` endpoint with a POST request.
 
@@ -150,17 +149,24 @@ def view_page():
 
     returns:
         - None
+
+    modifies:
+        - sessions: adds items to the user's cart
     """
-    order = {}
+    product = None
+    print(request.form)
+    productDict = request.form.to_dict()
+    i=0
+    while(product == None):
+        product = productDict.get(str(i))
+        i+=1
+    productId = i-1
+    product = db.get_item_name_by_id(productId)
+
     user_session = sessions.get_session(username)
-    for item in products:
-        print(f"item ID: {item['id']}")
-        if request.form[str(item['id'])] > '0':
-            count = request.form[str(item['id'])]
-            order[item['item_name']] = count
 
-    return render_template('view.html', order=order, sessions=sessions, total_cost=user_session.total_cost)
-
+    print(product)
+    return render_template('view.html', product=product, sessions=user_session)
 
 @app.route('/download')
 def download_file():
@@ -181,4 +187,4 @@ def download_file():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host=HOST, port=PORT)
+    app.run(host=HOST, port=PORT, debug=True)

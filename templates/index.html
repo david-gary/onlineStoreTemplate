@@ -13,28 +13,32 @@
         <h3>Products</h3>
         <hr>
         <div class="row">
-            <form action="/view" method="post">
+            <div>
                 <div class="form-group">
-                    <div class="row">
-                        {% for product in products %}
-                        <div class="col-md-4">
-                            <div id={{product.id}}>
-                                <div class="product_card" id="product_card">
-                                    <img src="{{ product.image_url }}" class="product_card-img" alt="...">
-                                    <div class="product_card-body">
-                                        <h5 class="product_card-title">{{ product.item_name }}</h5>
-                                        <p class="product_card-text">{{ product.info }}</p>
-                                        <p class="product_card-price">${{ product.price }}</p>
-                                        <button class="btn btn-primary" id="product_button">View
-                                            Product</button>
+                        <div class="row">
+                            {% for product in products %}
+                            <div class="col-md-4">
+                                <div id={{product.id}}>
+                                    <div class="product_card" id="product_card">
+                                        <img src="{{ product.image_url }}" class="product_card-img" alt="...">
+                                        <div class="product_card-body">
+                                            <form action="/view" method ="post">
+                                            <a href= "{{product.item_file}}" download="{{product.item_file}}">
+                                            <h5 class="product_card-title">{{ product.item_name }}</h5>
+                                            </a>
+                                            <p class="product_card-text">{{ product.info }}</p>
+                                            <button type ="submit" name ="{{product.id}}" class ="product_button" id="product_button">View Product</button>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            {% endfor %}
                         </div>
-                        {% endfor %}
-                    </div>
                 </div>
             </form>
         </div>
     </div>
+
+</div>
     {% endblock %}
