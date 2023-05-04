@@ -1,0 +1,17 @@
+@startuml
+participant Participant as Sequence
+actor       Customer    as Sequence1
+boundary    CartReview  as Sequence2
+control     Payment     as Sequence3
+entity      InventoryReduction      as Sequence4
+database    DatabaseInventoryUpdate as Sequence5
+collections NewInventory            as Sequence6
+queue       ConfirmationRestart     as Sequence7
+Sequence -> Sequence1 : to actor 
+Sequence -> Sequence2 : To boundary
+Sequence -> Sequence3 : To control
+Sequence -> Sequence4 : To entity
+Sequence -> Sequence5 : To database
+Sequence -> Sequence6 : To collections
+Sequence -> Sequence7 : To queue
+@enduml
