@@ -1,0 +1,20 @@
+@startuml register
+actor Customer
+boundary "System" as system
+control "Sessions" as sessions
+control "Authentication" as auth
+control "Database" as db
+Customer -> system: Register
+activate system
+activate auth
+system -> db: register_user(id,username,password)
+activate db
+db --> system: Added User to Database
+deactivate db
+deactivate auth
+system -> sessions: add_new_session(username, db)
+activate sessions
+sessions --> system: Session Added
+system -> system: redirect to home page
+deactivate system
+@enduml

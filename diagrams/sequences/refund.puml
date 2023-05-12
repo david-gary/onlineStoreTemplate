@@ -1,0 +1,21 @@
+@startuml refund
+actor Customer
+boundary "System" as system
+control "User Profile" as profile
+control "Confirmation" as confirm
+control "Database" as db
+Customer -> system: Refund
+activate system
+activate confirm
+system -> confirm: Are you sure you want to refund
+confirm->system:Yes
+activate db
+system-->db: Add money to users amount
+db-->system:Added money to users amount
+activate profile
+db-->profile:add money to users account
+deactivate profile
+deactivate db
+system -> system: redirect to home page
+deactivate system
+@enduml

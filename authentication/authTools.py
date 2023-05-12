@@ -107,6 +107,7 @@ def login_pipeline(username: str, password: str) -> bool:
         if line.split(":")[0] == username:
             salt = line.split(":")[1]
             key = line.split(":")[2]
+            
             return check_password(password, salt, key)
     return False
 

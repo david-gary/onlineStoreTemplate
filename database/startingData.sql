@@ -10,20 +10,11 @@ VALUES ('llamport', '9171d14954eeda4e70777c23d98e349818125cdaeb884ff97ebf8cc0a9c
 INSERT into `users` (`username`, `password_hash`, `email`, `first_name`, `last_name`)
 VALUES ('bliskov', '1e4b9ae956cad1385cfa6fffd8323dd16c3fe18c54e6447e49bddef2138d042e84e1505a541c6ef19a5026e684b2559efd366145870a0a8d4d4173c0877f6cd2', 'barbara@thor.com', 'Barbara', 'Liskov');
 
-INSERT into `inventory` (`item_name`, `info`, `price`, `stock`, `image_url`, `category`)
-VALUES ('Apples', 'An edible cultivation of the Malus genus.', 2.00, 100, 'static/images/apple.jpeg', 'Fruit');
+INSERT INTO games (title, description, release_date, rating, price, genre) 
+VALUES ('Super Mario Odyssey', 'Join Mario on a massive, globe-trotting 3D adventure!', '2017-10-27', 4.7, 59.99, 'Action, Adventure'),
 
-INSERT into `inventory` (`item_name`, `info`, `price`, `stock`, `image_url`, `category`)
-VALUES ('Bananas', 'A long curved fruit which grows in clusters and has soft pulpy flesh and yellow skin when ripe.', 1.00, 100, 'static/images/banana.jpeg', 'Fruit');
+INSERT INTO games (title, description, release_date, rating, price, genre) 
+VALUES ('The Legend of Zelda: Breath of the Wild', 'Climb cliffs to scope out a destination', '2017-03-03', 4.9, 59.99, 'Action, Adventure'),
 
-INSERT into `inventory` (`item_name`, `info`, `price`, `stock`, `image_url`, `category`)
-VALUES ('Mangos', 'The best fruit on the planet.', 4.00, 100, 'static/images/mango.jpeg', 'Fruit');
-
-INSERT into `sales` (`transaction_id`, `username`, `item_id`, `quantity`, `sale_date`, `cost`)
-VALUES ('1', 'aturing', '1', 10, '2022-12-21 7:30:30', 5.50);
-
-INSERT into `sales` (`transaction_id`, `username`, `item_id`, `quantity`, `sale_date`, `cost`)
-VALUES ('2', 'dritchie', '2', 10, '2022-12-21 7:30:30', 5.50);
-
-INSERT into `sales` (`transaction_id`, `username`, `item_id`, `quantity`, `sale_date`, `cost`)
-VALUES ('3', 'llamport', '3', 10, '2022-12-21 7:30:30', 5.50);
+INSERT INTO games (title, description, release_date, rating, price, genre) 
+VALUES ('Animal Crossing: New Horizons', 'Build your community from scratch on a deserted island brimming with possibility', '2020-03-20', 4.8, 59.99, 'Simulation');

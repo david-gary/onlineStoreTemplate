@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Game Store</title>
+	<style>
+		body {
+		  font-family: Arial, sans-serif;
+		  background-image: url('https://static1.squarespace.com/static/5fe4caeadae61a2f19719512/5fe5c3a9d85eb525301180ed/5ff083620e058f15c9709e2a/1610530766112/noman.jpg?format=1500w');
+		  background-repeat: no-repeat;
+		  background-size: cover;
+		  color: #fff;
+		  margin: 0;
+		  padding: 0;
+		}
+
+	nav {
+	  position: fixed;
+	  top: 0;
+	  left: 0;
+	  right: 0;
+	  z-index: 100;
+	  background-color: #000000;
+	  padding: 10px;
+	}
+
+	nav ul {
+	  list-style-type: none;
+	  margin: 0;
+	  padding: 0;
+	}
+
+	nav ul li {
+	  display: inline;
+	  margin-right: 10px;
+	}
+
+	nav ul li a {
+	  display: inline-block;
+	  padding: 10px;
+	  text-decoration: none;
+	  color: #fff;
+	  font-weight: bold;
+	  letter-spacing: 2px;
+	  transition: all 0.3s ease;
+	}
+
+	nav ul li a:hover {
+	  background-color: #0000ff;
+	  color: #fff;
+	}
+
+	h2 {
+	  font-size: 36px;
+	  font-weight: bold;
+	  margin-bottom: 30px;
+	}
+
+	ul {
+	  list-style: none;
+	  padding: 0;
+	  margin: 0;
+	}
+
+	li {
+	  margin-bottom: 40px;
+	}
+
+	img {
+	  width: 100%;
+	  height: auto;
+	}
+
+	.add-to-cart-btn {
+	  background-color: #0000ff;
+	  color: #fff;
+	  border: none;
+	  padding: 10px 20px;
+	  border-radius: 5px;
+	  font-weight: bold;
+	  cursor: pointer;
+	  transition: all 0.3s ease;
+	}
+
+	.add-to-cart-btn:hover {
+	  background-color: #fff;
+	  color: #0000ff;
+	}
+
+	#review {
+	  margin-top: 50px;
+	}
+
+	form label {
+	  font-size: 18px;
+	  font-weight: bold;
+	  margin-right: 10px;
+	}
+
+	form input[type=number], form textarea {
+	  font-size: 16px;
+	  padding: 10px;
+	  border-radius: 5px;
+	  border: none;
+	  width: 100%;
+	  margin-bottom: 20px;
+	}
+
+	form input[type=submit] {
+	  background-color: #0000ff;
+	  color: #fff;
+	  border: none;
+	  padding: 10px 20px;
+	  border-radius: 5px;
+	  font-weight: bold;
+	  cursor: pointer;
+	  transition: all 0.3s ease;
+	}
+
+	form input[type=submit]:hover {
+	  background-color: #fff;
+	  color: #0000ff;
+	}
+</style>
+</head>
+<body>
+	<!-- Header section -->
+	<header>
+		<style>
+			body {
+			margin: 0;
+			padding: 0;
+			background-image: url('https://static1.squarespace.com/static/5fe4caeadae61a2f19719512/5fe5c3a9d85eb525301180ed/5ff083620e058f15c9709e2a/1610530766112/noman.jpg?format=1500w');
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center center;
+			font-family: Arial, sans-serif;
+			color: #ffffff;
+		}
+		
+		header {
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			z-index: 100;
+			background-color: rgba(0, 0, 0, 0.8);
+			padding: 10px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			height: 70px;
+			box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+		}
+
+		nav ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+			flex-grow: 1;
+		}
+
+		nav ul li {
+			margin-left: 20px;
+		}
+
+		nav ul li:first-child {
+			margin-left: 0;
+		}
+
+		nav ul li a {
+			display: inline-block;
+			padding: 10px;
+			text-decoration: none;
+			color: #ffffff;
+			transition: background-color 0.3s ease;
+		}
+
+		nav ul li a:hover {
+			background-color: #4e4e4e;
+		}
+
+		h1 {
+			margin-top: 100px;
+			font-size: 50px;
+			text-align: center;
+			text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+		}
+
+		p {
+			margin: 30px 0;
+			line-height: 1.5;
+			font-size: 18px;
+			max-width: 700px;
+			text-align: center;
+			text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+		}
+
+		button {
+			display: inline-block;
+			background-color: #ffffff;
+			color: #000000;
+			border: none;
+			padding: 10px 20px;
+			font-size: 16px;
+			border-radius: 5px;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+		}
+
+		button:hover {
+			background-color: #4e4e4e;
+			color: #ffffff;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<nav>
+			<ul>
+				<li><a href="#home">Home</a></li>
+				<li><a href="#games">Games</a></li>
+				<li><a href="#about">About Us</a></li>
+				<li><a href="Contact.html">Contact Us</a></li>
+			</ul>
+			<button>Sign In</button>
+			  </nav>
+			<div class="hero">
+				<h1>Welcome to My Game Store</h1>
+				<p>Discover and play the latest video games</p>
+				<button>Shop Now</button>
+			</div>
+	</header>
+
+	<!-- Home section -->
+	<section id="home">
+		<div class="container">
+			<h2>Featured Games</h2>
+			<div class="games">
+				<div class="game">
+					<img src="https://cdn.wccftech.com/wp-content/uploads/2020/06/Ghost-of-Tsushima-Sucker-Punch-Productions-PC-1080P-Wallpaper-1-1024x576.jpg" alt="Ghost of Tsushima">
+					<h3>Ghost of Tsushima</h3>
+					<p>Price: $59.99</p>
+					<button>Add to Cart</button>
+				</div>
+				<div class="game">
+					<img src="https://cdn.mos.cms.futurecdn.net/3FtZBwzsGJnHCTpKjNzdCJ.jpg" alt="Assassin's Creed Valhalla">
+					<h3>Assassin's Creed Valhalla</h3>
+					<p>Price: $49.99</p>
+					<button>Add to Cart</button>
+				</div>
+				<div class="game">
+					<img src="https://www.fenixbazaar.com/wp-content/uploads/2020/06/cyberpunk-2077-wallpaper-1-1024x576.jpg" alt="Cyberpunk 2077">
+					<h3>Cyberpunk 2077</h3>
+					<p>Price: $39.99</p>
+					<button>Add to Cart</button>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Games section -->
+	<section id="games">
+		<h2>Our Games</h2>
+		<div class="games">
+			<div class="game">
+				<img src="https://image.api.playstation.com/vulcan/ap/rnd/202207/1210/aqZdSwWyy9JcQ66BxHDKrky6.jpg" style="width:250px;height:150px;">
+				<h3>God of war</h3>
+				<p>Price: $19.99</p>
+				<button>Add to Cart</button>
+				</div>
+				<section id="review">
+					<h2>Rate and Review Game</h2>
+					<form>
+						<label for="rating">Rating:</label>
+						<input type="number" id="rating" name="rating" min="1" max="5" required>
+						<br>
+						<label for="review">Review:</label>
+						<textarea id="review" name="review" required></textarea>
+						<br>
+						<input type="submit" value="Submit">
+					</form>
+				</section>
+				<div class="game">
+					<img src="https://gameluster.com/wp-content/uploads/2022/10/FIFA-23-logo.png" alt="FIFA 23">
+					<h3>FIFA 23</h3>
+					<p>Price: $22.99</p>
+					<button>Add to Cart</button>
+				</div>
+				<section id="review">
+					<h2>Rate and Review Game</h2>
+					<form>
+						<label for="rating">Rating:</label>
+						<input type="number" id="rating" name="rating" min="1" max="5" required>
+						<br>
+						<label for="review">Review:</label>
+						<textarea id="review" name="review" required></textarea>
+						<br>
+						<input type="submit" value="Submit">
+					</form>
+				</section>
+			<!-- more games here -->
+		</ul>
+	</section>
+	<div>
+	<button onclick="location.href='cart.html'">Go to Cart</button>
+</div>
+	<!-- About Us section -->
+	<section id="about">
+		<h2>About Us</h2>
+		<p>We are a team of gamers who love to share our passion with others. Our goal is to provide a great selection of games at affordable prices, and to offer the best customer service possible.</p>
+	</section>
+
+	<script>
+		// Get the Add to Cart button element
+		const addToCartBtn = document.querySelector(".add-to-cart-btn");
+	  
+		// Add a click event listener to the button
+		addToCartBtn.addEventListener("click", function() {
+		  // Get the game information
+		  const gameTitle = document.querySelector("h3").textContent;
+		  const gameDescription = document.querySelector("p").textContent;
+	  
+		  // Create a game object
+		  const game = {
+			title: gameTitle,
+			description: gameDescription
+		  };
+	  
+		  // Get the current cart items from local storage
+		  let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+	  
+		  // Add the new game to the cart
+		  cartItems.push(game);
+	  
+		  // Store the updated cart items in local storage
+		  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+		});
+	  </script>
+
+
+	<!-- Footer section -->
+	<footer>
+		<div class="container">
+			<div class="footer-top">
+				<h3>Stay Connected</h3>
+				<p>Follow us on social media for updates and special offers:</p>
+				<ul>
+					<li><a href="#">Facebook</a></li>
+					<li><a href="#">Twitter</a></li>
+					<li><a href="#">Instagram</a></li>
+				</ul>
+			</div>
+			<div class="footer-bottom">
+				<p>&copy; 2023 My Game Store. All rights reserved.</p>
+			</div>
+		</div>
+	</footer>	
+</body>
+</html>
+                
+				        

@@ -1,0 +1,34 @@
+@startuml rectangle 
+left to right direction    
+actor Managament
+rectangle "Users" as User{
+(Login)
+  (Register)
+  (View Cart)
+  (View Items)
+  (View Orders)
+  (View Profile)
+  (Filter by Preference)
+  (Logout)
+}
+User -> (Login)
+User --> (Register)
+User --> (View Cart)
+User --> (View Online Games)
+User --> (View Genres)
+User --> (View Profile)
+User --> (Filter by Preference)
+User --> (Logout)
+User --> (Refund)
+User --> (Purchase)
+Admin -->(Register):Will add user to the database and save credentials
+Admin -->(Purchase):Will complete purchase and recieve the game data accordingly
+Admin -->(Refund):Will give money back to the user
+rectangle "Checkout" as checkout{
+User--(checkout)
+(checkout) .> (purchase) : include
+(paymentinfo) .> : allows purchase
+}
+
+@enduml
+@enduml

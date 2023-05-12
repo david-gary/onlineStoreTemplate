@@ -1,0 +1,19 @@
+@startuml purchase
+actor Customer
+boundary "System" as system
+control "Authentication" as auth
+control "Database" as db
+Customer -> system: Add to cart
+activate system
+system -> auth: purchase_videogame
+activate auth
+system --> auth: Add payment info
+auth--> system: Verified credentials
+deactivate auth
+activate db
+system --> db : parse JSON into db
+db --> system : Added information
+deactivate db
+system -> system: redirect to home page
+deactivate system
+@enduml

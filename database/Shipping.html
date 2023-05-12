@@ -1,0 +1,82 @@
+<html>
+    <main></main>
+    <h2>Enter Shipping Information</h2>
+    <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+        
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" rows="4" cols="30" required></textarea><br>
+        
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" required><br>
+        
+        <label for="state">State:</label>
+        <input type="text" id="state" name="state" required><br>
+        
+        <label for="zipcode">Zip Code:</label>
+        <input type="text" id="zipcode" name="zipcode" required><br>
+        
+        <button type="submit">Submit</button>
+    </main>
+    </form>
+</html>
+<style>
+body {
+  background-image: url('https://wallpapercave.com/wp/wp8371665.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: Arial, sans-serif;
+  color: black;
+}
+
+h2 {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 48px;
+}
+
+form {
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 40px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+input[type="text"],
+textarea {
+  padding: 15px;
+  font-size: 18px;
+  border-radius: 5px;
+  border: none;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 30px;
+}
+
+button[type="submit"] {
+  background-color: #ff4500;
+  color: #fff;
+  padding: 15px 30px;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+button[type="submit"]:hover {
+  background-color: #e63e00;
+}
+
+    </style>   
