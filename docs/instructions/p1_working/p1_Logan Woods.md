@@ -30,53 +30,62 @@ When a change is made to the document, a new revision should be created. The rev
 
 ## Introduction
 
-In this section, you should give a brief overview of what your project will be. Describe the software system you are building and what problems it solves. You should also give a short description of the stakeholders (users of the system) and what their needs are. There is no set formatting requirement, but you should maintain a consistent structure across future sections. Not all members must contribute to this section.
+For this group project, we will be developing and implementing an online cafe that meets the functional and non-functional requirements outlined in the following sections. Our shareholders will primarily be members of the under-thirty crowd who are comfortable with technology and e-commerce.
 
 ## Requirements
 
 Each group member must supply at least three functional requirements for the project. Each requirement should be written in the following format:
 
-- **ID:** A unique identifier for the requirement. This should be a number that is unique across the entire document (something like REQ-1, REQ-2, etc. but be sure to replace the word `ID` with the unique identifier).
-  - **Description:** A short description of the requirement. This should be a single sentence that describes the requirement. Do not replace the word `Description` with the actual description. Put the description in the space where these instructions are written. Maintain that practice for all future sections.
-  - **Type:** The type of requirement. Should be either `Functional` or `Non-Functional`.
-  - **Priority:** The priority of the requirement. This should be a number between 1 and 5, with 1 being the highest priority and 5 being the lowest priority.
-  - **Rationale:** A short description of why the requirement is important. This should be a single sentence that describes why the requirement is important.
-  - **Testing:** A short description of how the requirement can be tested. This should be a single sentence that describes how the requirement can be tested.
-- **ID:** A unique identifier for the requirement. This should be a number that is unique across the entire document (something like REQ-1, REQ-2, etc. but be sure to replace the word `ID` with the unique identifier).
-  - **Description:** A short description of the requirement. This should be a single sentence that describes the requirement.
-  - **Type:** The type of requirement. Should be either `Functional` or `Non-Functional`.
-  - **Priority:** The priority of the requirement. This should be a number between 1 and 5, with 1 being the highest priority and 5 being the lowest priority.
-  - **Rationale:** A short description of why the requirement is important. This should be a single sentence that describes why the requirement is important.
-  - **Testing:** A short description of how the requirement can be tested. This should be a single sentence that describes how the requirement can be tested.
+- **ID:** REQ-1
+  - **Description:** The web application will have a secure and smooth login functionality.
+  - **Type:** Functional
+  - **Priority:** 2
+  - **Rationale:** Login and logout functionality allows users to have the product securely accessed without outside interference.
+  - **Testing:** Automated tests can be used to ensure that users can successfully login and logout.
+- **ID:** REQ-2
+  - **Description:** The application will successfully utilize a SQL database to store product information.
+  - **Type:** Functional
+  - **Priority:** 4
+  - **Rationale:** SQL databases are an efficient way to store information about numerous and diverse products.
+  - **Testing:** The database can be tested by inserting and deleting items, as well as testing edge cases.
 
 ## Constraints
 
-In this section, you should list any constraints that you have for the project. Each group member must supply at least two constraints. These can be constraints on the project itself, the software system, or the stakeholders. Constraints can be anything that limits the scope of the project. For example, that this project's template code is written using Flask and Python constitutes a constraint on the backend of the project. Constraints can also be things like the required timeline of the project. Be creative.
+- **Constraint:** There is a limited amount of computational power available, so computationally intensive actions will not be available.
+- **Constraint:** The platform will be constrained to a web applicaition, multi-platform functionality is not possible.
 
 ## Use Cases
 
 In this section, you should list use cases for the project. Use cases are a thorough description of how the system will be used. Each group member must supply at least two use cases. Each use case should be written in the following format:
 
-- **ID:** A unique identifier for the use case. This should be a number that is unique across the entire document (something like UC-1, UC-2, etc. but be sure to replace the word `ID` with the unique identifier).
-  - **Description:** A description of the use case that gives the user a high-level overview of how the system is interacted with.
-  - **Actors:** A list of the actors that are involved in the use case. Only include the actors that are directly involved. Actors are the people or things that interact with the system. For example, when ordering at a fast food restaurant, one might have the following actors: the customer, the cashier, and the cook. But only the customer and the cashier are directly involved in the use case of ordering food. The cook is not directly involved in the use case of ordering food.
-  - **Preconditions:** A list of the preconditions for the use case. This should be a list of the preconditions for the use case, which are the conditions that must be met before the use case can be executed. Continuing with the restaurant example, the customer must have money in their wallet and the cashier must be logged in to the system before the use case of ordering food can be executed.
-  - **Postconditions:** A list of the postconditions for the use case. This should be a list of the postconditions for the use case, which are the conditions that must be met after the use case has been executed. Continuing with the restaurant example, the customer must have their food and the cashier must have the customer's money after the use case of ordering food has been executed.
+- **ID:** UC-1
+  - **Description:** An administrator logging in to modify the price for a product.
+  - **Actors:** An administrator.
+  - **Preconditions:** The administrator must posess an account with admin privilages on the web server.
+  - **Postconditions:** The admin must be able to modify the product data stored in a SQL database.
+  - **ID:** UC-2
+    - **Description:** A user ordering a product from the web application.
+    - **Actors:** A logged-in user.
+    - **Preconditions:** The user must possess the necessary amount of money in their account, and the user must posess a valid account.
+    - **Postconditions:** The user should receive a notification confirming that their purchase was a success.
 
 ## User Stories
 
 In this section, you should list user stories for the project. User stories are a short description of how a user will be interacting with the system. Each group member must supply at least two user stories. Each user story should be written in the following format:
 
-- **ID:** A unique identifier for the user story. This should be a number that is unique across the entire document (something like US-1, US-2, etc. but be sure to replace the word `ID` with the unique identifier).
-  - **Type of User:** The type of user that the user story is for. This should be a single word that describes the type of user. For example, a user story for a customer might be `Customer` and a user story for an administrator might be `Admin`.
-  - **Description:** A description of the user story that gives a narrative from that user's perspective. This can be any length, but it must paint the picture of what the user wants to do, how they intend to do it, why they want to, and what they expect to happen.
+- **ID:** US-1
+  - **Type of User:** New Customer
+  - **Description:** The user is a customer who has not yet created an account. They proceed to register using their name, email address, and password. After registering, they are able to log into their account for all future sessions.
+  - **ID:** US-2
+    - **Type of User:** Terminating Customer
+    - **Description:** The user is a customer who wishes to delete their account and all data associated with it. The user clicks the "Delete Account" button and is asked to confirm their choice. After confirming, their account is securely terminated.
 
 ## Glossary
 
 In this section, you should list any terms that are used in the document that may not be immediately obvious to a naive reader. Each group member must supply at least one term. Each term should be written in the following format:
 
-- **Term:** The term that is being defined. This should be a single word or phrase that is being defined.
-  - **Definition:** A definition of the term. This should be a short description of the term that is being defined. This should be a single sentence that describes the term.
+- **Term:** Administrator/Admin
+  - **Definition:** A maintainer of a system with privelages higher than what is reserved for a typical user.
 
 Try to only list terms that a naive user would not understand.
 
