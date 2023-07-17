@@ -63,6 +63,7 @@ In this section, you should list use cases for the project. Use cases are a thor
   - **Actors:** An administrator.
   - **Preconditions:** The administrator must posess an account with admin privilages on the web server.
   - **Postconditions:** The admin must be able to modify the product data stored in a SQL database.
+  
   - **ID:** UC-2
     - **Description:** A user ordering a product from the web application.
     - **Actors:** A logged-in user.
@@ -76,6 +77,7 @@ In this section, you should list user stories for the project. User stories are 
 - **ID:** US-1
   - **Type of User:** New Customer
   - **Description:** The user is a customer who has not yet created an account. They proceed to register using their name, email address, and password. After registering, they are able to log into their account for all future sessions.
+  
   - **ID:** US-2
     - **Type of User:** Terminating Customer
     - **Description:** The user is a customer who wishes to delete their account and all data associated with it. The user clicks the "Delete Account" button and is asked to confirm their choice. After confirming, their account is securely terminated.
