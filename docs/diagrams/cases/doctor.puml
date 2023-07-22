@@ -1,4 +1,4 @@
-@startuml customer
+@startuml doctor
 skinparam actorStyle Hollow 
 skinparam usecase {
 BackgroundColor DarkSeaGreen
@@ -14,7 +14,7 @@ ActorFontName Courier
 ActorBackgroundColor<< Human >> Black
 }
 left to right direction
-actor Customer
+actor Doctor
 rectangle CalorieTracker {
   (Login)
   (Register)
@@ -30,16 +30,12 @@ rectangle CalorieTracker {
   (Save Diet)
   (Logout)
 }
-Customer --> (Login)
-Customer --> (Register)
-Customer --> (View Saved Diet from Professionals) : As a customer, "professionals" refers to Personal Training, Nutrionist, etc.
-Customer --> (View Main Menu Where Foods Can be Added to Daily Intake)
-Customer --> (View and Add Foods to Tracker by Search Criteria) : Allergens, Vegetarian, etc.
-Customer --> (View Daily Food Intake)
-Customer --> (View Total Daily Calories)
-Customer --> (View Total Daily Protein)
-Customer --> (View Total Daily Carbohydrates)
-Customer --> (View Total Daily Fats)
-Customer --> (Exit Back to Main Menu)
-Customer --> (Logout)
+Doctor --> (View Main Menu Where Foods Can be Added to Daily Intake) : The doctor would use this to add their patients' foods and see what macronutrient is either lacking or excessive 
+Doctor --> (View and Add Foods to Tracker by Search Criteria) : In case the patient has special diet requirements, this would save lots of time
+Doctor --> (View Daily Food Intake)
+Doctor --> (View Total Daily Calories)
+Doctor --> (View Total Daily Protein)
+Doctor --> (View Total Daily Carbohydrates)
+Doctor --> (View Total Daily Fats)
+Doctor --> (Exit Back to Main Menu)
 @enduml

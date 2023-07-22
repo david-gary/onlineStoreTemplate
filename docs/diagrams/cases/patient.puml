@@ -1,4 +1,4 @@
-@startuml customer
+@startuml patient
 skinparam actorStyle Hollow 
 skinparam usecase {
 BackgroundColor DarkSeaGreen
@@ -14,7 +14,7 @@ ActorFontName Courier
 ActorBackgroundColor<< Human >> Black
 }
 left to right direction
-actor Customer
+actor Patient
 rectangle CalorieTracker {
   (Login)
   (Register)
@@ -30,16 +30,17 @@ rectangle CalorieTracker {
   (Save Diet)
   (Logout)
 }
-Customer --> (Login)
-Customer --> (Register)
-Customer --> (View Saved Diet from Professionals) : As a customer, "professionals" refers to Personal Training, Nutrionist, etc.
-Customer --> (View Main Menu Where Foods Can be Added to Daily Intake)
-Customer --> (View and Add Foods to Tracker by Search Criteria) : Allergens, Vegetarian, etc.
-Customer --> (View Daily Food Intake)
-Customer --> (View Total Daily Calories)
-Customer --> (View Total Daily Protein)
-Customer --> (View Total Daily Carbohydrates)
-Customer --> (View Total Daily Fats)
-Customer --> (Exit Back to Main Menu)
-Customer --> (Logout)
+Patient --> (Login)
+Patient --> (Register)
+Patient --> (View Saved Diet from Professionals) : As a patient, "professionals" refers to Doctors, Nurses, etc.
+Patient --> (View Main Menu Where Foods Can be Added to Daily Intake)
+Patient --> (View and Add Foods to Tracker by Search Criteria) : Allergens, Vegetarian, etc.
+Patient --> (View Daily Food Intake)
+Patient --> (View Total Daily Calories)
+Patient --> (View Total Daily Protein)
+Patient --> (View Total Daily Carbohydrates)
+Patient --> (View Total Daily Fats)
+Patient --> (Exit Back to Main Menu)
+Patient --> (Save Diet)
+Patient --> (Logout)
 @enduml
