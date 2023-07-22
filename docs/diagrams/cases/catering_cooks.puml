@@ -1,4 +1,4 @@
-@startuml customer
+@startuml catering_cooks
 skinparam actorStyle Hollow 
 skinparam usecase {
 BackgroundColor DarkSeaGreen
@@ -14,7 +14,7 @@ ActorFontName Courier
 ActorBackgroundColor<< Human >> Black
 }
 left to right direction
-actor Customer
+actor Cook
 rectangle CalorieTracker {
   (Login)
   (Register)
@@ -30,16 +30,11 @@ rectangle CalorieTracker {
   (Save Diet)
   (Logout)
 }
-Customer --> (Login)
-Customer --> (Register)
-Customer --> (View Saved Diet from Professionals) : As a customer, "professionals" refers to Personal Training, Nutrionist, etc.
-Customer --> (View Main Menu Where Foods Can be Added to Daily Intake)
-Customer --> (View and Add Foods to Tracker by Search Criteria) : Allergens, Vegetarian, etc.
-Customer --> (View Daily Food Intake)
-Customer --> (View Total Daily Calories)
-Customer --> (View Total Daily Protein)
-Customer --> (View Total Daily Carbohydrates)
-Customer --> (View Total Daily Fats)
-Customer --> (Exit Back to Main Menu)
-Customer --> (Logout)
+Cook --> (Login)
+Cook --> (Register)
+Cook --> (View Saved Diet from Professionals) : As a Cook, "professionals" refers to Guests, the Hosts that you are cooking for, etc.
+Cook --> (View Main Menu Where Foods Can be Added to Daily Intake)
+Cook --> (View and Add Foods to Tracker by Search Criteria) : In case guests have certain requirements or allergies
+Cook --> (Exit Back to Main Menu)
+Cook --> (Logout)
 @enduml
