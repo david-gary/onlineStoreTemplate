@@ -22,24 +22,26 @@ rectangle CalorieTracker {
   (View Main Menu Where Foods Can be Added to Daily Intake)
   (View and Add Foods to Tracker by Search Criteria)
   (View Daily Food Intake)
-  (View Total Daily Calories)
-  (View Total Daily Protein)
-  (View Total Daily Carbohydrates)
-  (View Total Daily Fats)
+  (Add New Item to Daily Intake)
+  (Empty Daily Intake)
+  (Remove Item from Daily Intake)
+  (Update Item Quantity in Daily Intake)
   (Exit Back to Main Menu)
   (Save Diet)
+  (Send Diet)
   (Logout)
 }
 Users --> (Login)
 Users --> (Register)
+Users --> (View Saved Diet from Professionals) : Professionals may refer to Doctors, Personal Trainers, Nutrionists, etc.
 Users --> (View Main Menu Where Foods Can be Added to Daily Intake)
-Users --> (View and Add Foods to Tracker by Search Criteria) : In case users have special diet requirements
-Users --> (View Daily Food Intake)
-Users -->  (View Total Daily Calories)
-Users --> (View Total Daily Protein)
-Users --> (View Total Daily Carbohydrates)
-Users --> (View Total Daily Fats)
+Users --> (View and Add Foods to Tracker by Search Criteria) : In case of allergies, diseases, diet choices, etc.
+Users --> (View Daily Food Intake) : All foods consumed that day will be able to be viewed here including all macronutrients
+Users --> (Add New Item to Daily Intake)
+Users --> (Empty Daily Intake) : Empty it so you can start fresh the next day
+Users --> (Remove Item from Daily Intake) : In case of misclicks or something of the sort
+Users --> (Update Item Quantity in Daily Intake)
 Users --> (Exit Back to Main Menu)
-Users --> (Save Diet) : If a user really enjoyed a lot of their meals on a specific day, there a able to save all that they ate in order to refer back to it in the future
+Users --> (Save Diet) : If one really enjoyed what they ate that day, they may save it for future reference
 Users --> (Logout)
 @enduml

@@ -1,0 +1,15 @@
+@startuml packages
+set namespaceSeparator none
+package "core" as core #aliceblue {
+}
+package "UserSession" as core.session.UserSession #aliceblue {
+}
+package "ProfessionalSession" as core.session.ProfessionalSession #aliceblue {
+}
+package "UserUtils" as core.utils.UserUtils #aliceblue {
+}
+package "ProfessionalUtils" as core.utils.ProfessionalUtils #aliceblue {
+}
+core.session.UserSession --> core.utils.UserUtils
+core.session.ProfessionalSession --> core.utils.ProfessionalUtils
+@enduml
