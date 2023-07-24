@@ -1,0 +1,51 @@
+@startuml classes
+set namespaceSeparator none
+class "Sessions" as core.session.Sessions #aliceblue {
+  sessions : dict
+  add_new_session(username: str, db: Database) -> None
+  get_all_sessions() -> dict
+  get_session(username: str) -> UserSession
+  remove_session(username: str) -> None
+}
+
+class "UserSession" as core.session.UserSession #aliceblue {
+  Login(username: str, password: str) -> dict
+  Register(username: str, password: str) -> None
+  diets_from_professionals : dict
+  main_menu(image: image, name: str, quantity: int, calories: int, protein: float, carbohydrates: float, fats: float) -> dict
+  search_bar(name: str) -> dict 
+  daily_intake : dict
+  total_calories : int
+  total_protein: float
+  total_carbohydrates: float
+  total_fats: float
+  add_new_item(id: str, name: str, price: int, quantity: int) -> None
+  empty_dailyIntake() -> dict
+  remove_item(id: str) -> None
+  update_item_quantity(id: str, change_to_quantity: int) -> None
+  update_dailyIntake() -> None
+  back_main_menu() -> None
+  save_diet(username: str, password: string) -> None
+  Logout() -> None
+}
+
+class "Professionals" as core.session.ProfessionalSession #aliceblue {
+  Login(username: str, password: str) -> dict
+  Register(username: str, password: str) -> None
+  main_menu(image: image, name: str, quantity: int, calories: int, protein: float, carbohydrates: float, fats: float) -> dict
+  search_bar(name: str) -> dict 
+  daily_intake : dict
+  total_calories : int
+  total_protein: float
+  total_carbohydrates: float
+  total_fats: float
+  add_new_item(id: str, name: str, price: int, quantity: int) -> None
+  empty_dailyIntake() -> dict
+  remove_item(id: str) -> None
+  update_item_quantity(id: str, change_to_quantity: int) -> None
+  update_dailyIntake() -> None
+  back_main_menu() -> None
+  send_diet(email: str) -> None
+  Logout() -> None
+}
+@enduml
