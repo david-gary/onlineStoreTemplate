@@ -1,10 +1,18 @@
 @startuml User_Account_Creation
 
-!define ActorBorderColor Black
+actor User
+boundary "Database" as db
+control "User Controller" as user_controller
 
-actor User as user #lightblue
-rectangle "User Account Creation" as creation {
-  user -- (Create Account)
-}
+User -> user_controller: Create Account
+activate user_controller
+user_controller -> db: save_user_info(username, password)
+activate db
+db --> user_controller
+deactivate db
+user_controller -> user_controller: Generate Confirmation
+deactivate user_controller
+User -> User: Show Confirmation Page
 
 @enduml
+
