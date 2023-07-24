@@ -1,7 +1,7 @@
 @startuml packages
 left to right direction
 set namespaceSeparator none
-Actor User as u
+Actor "Returning User" as u
 package "authentication" as authentication #aliceblue {
 }
 package "authentication.auth_tools" as authentication.auth_tools #aliceblue {
@@ -9,8 +9,9 @@ package "authentication.auth_tools" as authentication.auth_tools #aliceblue {
     usecase "Check if Username Exists"
     usecase "Update Passwords"
     usecase "Check if Password is Correct"
-    usecase "Login User"
+    usecase "Login User" as LGN
 }
-u --> authentication
+u --> authentication : User logs in
 authentication --> authentication.auth_tools
+authentication --> (LGN) : Authentication checks for\nusername password pair
 @enduml

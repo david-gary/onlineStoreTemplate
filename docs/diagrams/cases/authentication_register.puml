@@ -1,16 +1,18 @@
 @startuml packages
 left to right direction
 set namespaceSeparator none
-Actor User as u
+Actor "New User" as u
 package "authentication" as authentication #aliceblue {
 }
 package "authentication.auth_tools" as authentication.auth_tools #aliceblue {
-    usecase "Hash Password"
+    usecase "Hash Password" as HSH
     usecase "Check if Username Exists"
-    usecase "Update Passwords"
+    usecase "Update Passwords" as UPD
     usecase "Check if Password is Correct"
     usecase "Login User"
 }
-u --> authentication
+u --> authentication : User registers account
 authentication --> authentication.auth_tools
+authentication --> HSH : The password\ngets hashed
+authentication --> UPD : The password\ngets stored
 @enduml
