@@ -1,0 +1,35 @@
+@startuml Product_Purchase
+
+actor User
+boundary "Database" as db
+control "Cart Controller" as cart_controller
+control "Payment Controller" as payment_controller
+
+User -> cart_controller: Add Product to Cart
+activate cart_controller
+cart_controller -> db: update_cart(user_id, product_id)
+activate db
+db --> cart_controller
+deactivate db
+cart_controller --> User
+deactivate cart_controller
+
+User -> cart_controller: Proceed to Checkout
+activate cart_controller
+cart_controller -> payment_controller: initiate_payment(user_id, total_amount)
+activate payment_controller
+payment_controller -> payment_gateway: process_payment(user_id, total_amount)
+activate payment_gateway
+payment_gateway --> payment_controller: Order Confirmation
+deactivate payment_gateway
+payment_controller -> payment_controller: Generate Order Confirmation
+payment_controller -> db: save_payment_info(user_id, payment_details)
+activate db
+db --> payment_controller
+deactivate db
+payment_controller -> payment_controller: Send Confirmation Email
+deactivate payment_controller
+cart_controller --> User: Order Confirmed
+deactivate cart_controller
+
+@enduml
