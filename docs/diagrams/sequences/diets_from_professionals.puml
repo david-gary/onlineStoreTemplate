@@ -13,6 +13,6 @@ system -> sessions: add_new_session(username, db)
 activate sessions
 sessions --> system: None
 deactivate sessions
-system -> system: redirect to home page
+system -> system: redirect to diets sent from professionals page
 deactivate system
 @enduml
