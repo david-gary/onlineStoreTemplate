@@ -1,4 +1,5 @@
 @startuml register
+<<<<<<< HEAD
 actor Customer
 boundary "System" as system
 control "Sessions" as sessions
@@ -13,6 +14,22 @@ system -> sessions: add_new_session(username, db)
 activate sessions
 sessions --> system: None
 deactivate sessions
+=======
+actor "Register User"
+boundary "System" as system
+control "Databse" as database
+control "Authentication" as auth
+Customer -> system: Register
+activate system
+system -> auth: hash_password(password)
+activate auth
+auth --> system: Password Tuple
+deactivate auth
+system -> database: db.insert_user(username, key, email, first_name, last_name)
+activate database
+database --> system: None
+deactivate database
+>>>>>>> dfcdb268c1aa8b179e097f4c861caf4cbedede2c
 system -> system: redirect to home page
 deactivate system
 @enduml

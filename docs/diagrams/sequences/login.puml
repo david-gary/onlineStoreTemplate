@@ -1,5 +1,5 @@
 @startuml login
-actor Customer
+actor "Login User"
 boundary "System" as system
 control "Sessions" as sessions
 control "Authentication" as auth
