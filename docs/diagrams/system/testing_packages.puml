@@ -1,11 +1,29 @@
 @startuml packages
 set namespaceSeparator none
 package "testing" as testing #aliceblue {
+    note "This serves as the test directory holing all of the \ntest files to make sure the progam work correctly" as N
 }
 package "testing.auth_tests" as testing.auth_tests #aliceblue {
+    usecase "test_hash_password_generates_salt" as t1
+    usecase "test_salt_length" as t2
+    usecase "test_hash_password_returns_given_salt" as t3
+    usecase "test_hash_password_uses_given_salt" as t4
 }
 package "testing.core_tests" as testing.core_tests #aliceblue {
+    usecase "test_init_sessions" as t5
+    usecase "test_add_new_session" as t6
+    usecase "test_get_session" as t7
+    usecase "test_get_session_username" as t8
+    usecase "test_get_session_db" as t9
 }
 package "testing.db_tests" as testing.db_tests #aliceblue {
+    usecase "test_init_db" as t10
+    usecase "test_get_inventory_exists" as t11
+    usecase "test_dict_factory_link" as t12
+    usecase "test_check_connection_threaded" as t13
 }
+testing --> testing.auth_tests
+testing --> testing.core_tests
+testing --> testing.db_tests
+
 @enduml
