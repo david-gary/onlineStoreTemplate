@@ -1,9 +1,9 @@
 @startuml login
-actor Customer
+actor Professional
 boundary "System" as system
 control "Sessions" as sessions
 control "Authentication" as auth
-Customer -> system: Login
+Professional -> system: Login
 activate system
 system -> auth: login_pipeline(username, password)
 activate auth
@@ -13,6 +13,10 @@ system -> sessions: add_new_session(username, db)
 activate sessions
 sessions --> system: None
 deactivate sessions
+system -> auth: send_diet(username, password)
+activate auth
+auth --> system: True 
+deactivate auth
 system -> system: redirect to home page
 deactivate system
 @enduml
