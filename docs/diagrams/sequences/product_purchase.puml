@@ -1,0 +1,15 @@
+@startuml Product_Purchase
+
+!define ActorBorderColor Black
+
+actor User as user #lightblue
+actor "Payment Gateway" as payment_gateway #lightblue
+
+rectangle "Product Purchase" as purchase {
+  user -- (Add Product to Cart)
+  user -- (Proceed to Checkout)
+  payment_gateway -- (Process Payment)
+  (Process Payment) .> (Receive Order Confirmation) : include
+}
+
+@enduml

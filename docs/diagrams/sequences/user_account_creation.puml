@@ -1,0 +1,10 @@
+@startuml User_Account_Creation
+
+!define ActorBorderColor Black
+
+actor User as user #lightblue
+rectangle "User Account Creation" as creation {
+  user -- (Create Account)
+}
+
+@enduml
