@@ -1,0 +1,25 @@
+@startuml cancel
+actor Customer order 10
+boundary "System" as system order 30
+database "Products" as products order 40
+control "Wallet Manager" as wallet order 50
+control "Sessions" as sessions order 20
+Customer -> sessions : Cancel requests
+activate sessions
+sessions -> system : Forward cancel
+activate system
+system -> system : Check status (security)
+system -> wallet : Increase balance
+activate wallet
+wallet -> wallet : Internal increment
+wallet -> system : Balance confirmation
+deactivate wallet
+system -> products : Quantity increment
+activate products
+products -> products : Quantity increment
+deactivate products
+system -> sessions : Confirmation
+deactivate system
+sessions -> Customer : Confirmation forward
+deactivate sessions
+@enduml

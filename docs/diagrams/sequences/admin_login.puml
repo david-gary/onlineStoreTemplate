@@ -1,0 +1,29 @@
+@startuml admin_login
+actor Admin order 10
+boundary "System" as system order 20
+database "Products" as products order 50
+control "Wallet Manager" as wallet order 60
+control "Sessions" as sessions order 40
+control "Authentication" as auth order 30
+Admin -> system : Login request
+activate system
+system -> auth : admin_login_pipeline(username, password)
+activate auth
+auth --> system : True
+system -> sessions : admin_add_new_session(username, db)
+sessions --> system: None
+sessions -> products : Grant Admin access
+activate products
+sessions -> wallet : Grant Admin access
+activate wallet
+wallet --> system : Access Granted
+products --> system : Access Granted
+deactivate wallet
+deactivate products
+deactivate sessions
+system -> Admin : Display information
+deactivate system
+
+
+@enduml
+

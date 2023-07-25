@@ -1,0 +1,32 @@
+@startuml edit
+actor Customer order 10
+boundary "System" as system order 30
+database "Products" as products order 40
+control "Wallet Manager" as wallet order 50
+control "Sessions" as sessions order 20
+Customer -> sessions : Edit Order
+activate sessions
+sessions -> system : Forward Edit
+activate system
+system -> products : Retrieve order information
+activate products
+products --> system: Order info
+deactivate products
+system --> sessions : Order info
+sessions --> Customer : Order info
+Customer -> sessions : Perform Edits
+sessions -> system : Forward Perform Edits
+system -> products : Change order and product information
+activate products
+products -> products : Enact change
+deactivate products
+system -> wallet : Enact monetary changes
+activate wallet
+wallet -> wallet : Enact changes
+wallet --> system : Change confirmation
+deactivate wallet
+system --> sessions : Edit confirmation
+deactivate system
+sessions --> Customer : Edit confirmation
+deactivate sessions
+@enduml

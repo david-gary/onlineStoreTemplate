@@ -3,6 +3,9 @@ left to right direction
 actor Customer
 rectangle "System" as system {
   (Login)
+  (Place Order)
+  (Cancel Order)
+  (Edit Order)
   (Register)
   (View Cart)
   (View Items)
@@ -17,4 +20,7 @@ Customer --> (View Items)
 Customer --> (View Orders)
 Customer --> (View Profile)
 Customer --> (Logout)
+Customer --> (Place Order)
+Customer --> (Edit Order)
+Customer --> (Cancel Order)
 @enduml

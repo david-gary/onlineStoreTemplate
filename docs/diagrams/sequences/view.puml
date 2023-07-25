@@ -1,0 +1,20 @@
+@startuml view
+actor Customer order 10
+boundary "System" as system order 30
+database "Products" as products order 40
+control "Wallet Manager" as wallet order 50
+control "Sessions" as sessions order 20
+Customer -> sessions : View Order
+activate sessions
+sessions -> system : Forward View
+activate system
+system -> products : Retrieve order information
+activate products
+products --> system: Order info
+deactivate products
+system --> sessions : Order info
+deactivate system
+sessions --> Customer : Order info
+deactivate sessions
+@enduml
+
