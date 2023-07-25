@@ -1,0 +1,34 @@
+@startuml packages
+set namespaceSeparator none
+package "database" as database #aliceblue {
+}
+package "database.db" as database.db #aliceblue {
+}
+package "database.reset_database" as database.reset_database #aliceblue {
+}
+
+package "database.models" as database.models #aliceblue {
+}
+
+package "database.queries" as database.queries #aliceblue {
+}
+
+package "database.utils" as database.utils #aliceblue {
+}
+
+package "database.connectors" as database.connectors #aliceblue {
+}
+
+package "database.tests" as database.tests #aliceblue {
+}
+
+database --> database.db
+database.db --> database.reset_database
+database.db --> database.models
+database.db --> database.queries
+database.db --> database.utils
+database.db --> database.migrations
+database.db --> database.connectors
+database.db --> database.seeders
+database.db --> database.tests
+@enduml
