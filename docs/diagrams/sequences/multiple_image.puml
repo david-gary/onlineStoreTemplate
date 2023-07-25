@@ -1,0 +1,10 @@
+@startuml multiple_image
+
+User -> Database: get_item_image_url_by_id(id[i])
+Database --> User: set_item_image_url_by_id(id[i], new_image_url[str])
+
+User -> Database: get_item_image_url_by_id(id[i])
+User <-- Database: set_item_image_url_by_id(id[i], new_image_url[str])
+
+@enduml
+
