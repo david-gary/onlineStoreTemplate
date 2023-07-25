@@ -1,0 +1,12 @@
+@startuml Admin_Product_Management
+
+!define ActorBorderColor Black
+
+actor Admin as admin #lightblue
+rectangle "System" as system {
+  (Manage Products)
+}
+
+admin --> (Manage Products)
+
+@enduml

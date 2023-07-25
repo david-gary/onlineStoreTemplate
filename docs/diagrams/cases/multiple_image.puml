@@ -1,0 +1,5 @@
+@startuml multiple_image
+skinparam actorStyle awesome
+:User: --> (Use)
+"Clicks arrow on image to change to next/previous image" as (Use)
+@enduml

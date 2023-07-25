@@ -1,0 +1,21 @@
+@startuml Return_Product
+
+actor User
+
+boundary "Database" as db
+control "Order History" as order
+control "Returns" as returns
+
+User -> order: Click previous orders
+order --> db: Get previous orders
+activate db
+db -> order: Return previous orders
+deactivate db
+order -> User: Show order history
+User -> order: Choose product to return
+order -> returns: Request return
+activate returns
+returns -> User: Request submitted
+deactivate returns
+
+@enduml
