@@ -1,7 +1,7 @@
 @startuml inventory
 left to right direction
 actor inventory
-rectangle "System" as system {
+rectangle "Inventory" as Inventory {
   (Deserts)
   (Coffee Beans)
   (Tea)
