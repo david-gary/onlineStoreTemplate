@@ -1,7 +1,8 @@
-@startuml packages
+@startuml Authentication
 set namespaceSeparator none
-package "authentication" as authentication #aliceblue {
+package "Authentication" as authentication #aliceblue {
 }
+
 package "authentication.auth_tools" as authentication.auth_tools #aliceblue {
 }
 @enduml
