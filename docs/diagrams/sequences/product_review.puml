@@ -1,0 +1,21 @@
+@startuml Product_Review
+
+actor User
+
+boundary "Database" as db
+boundary "Product Page" as prod_page
+control "Review Controller" as review
+
+User -> prod_page: Navigate to product webpage
+prod_page -> review: Click to leave review
+activate review
+review -> db: Verify previous purchase
+activate db
+db --> review: Authenticate
+deactivate db
+review --> User: Allow post
+User -> review: Leave review
+review -> User: Review Posted
+deactivate review
+
+@enduml
