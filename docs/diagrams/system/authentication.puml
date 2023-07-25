@@ -1,0 +1,12 @@
+@startuml authenticaion
+left to right direction
+entity Authentication
+rectangle "Authentication" as auth {
+  (Validate login)
+  (Change User Passcode)
+  (View Profile)
+}
+auth --> (Validate login)
+auth --> (Change User Passcode)
+auth --> (View Profile)
+@enduml
