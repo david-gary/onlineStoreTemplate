@@ -1,0 +1,53 @@
+@startuml classes
+set namespaceSeparator none
+class "Database" as database.db.Database #aliceblue {
+  connection
+  cursor
+  database_path : str
+  get_all_item_ids()
+  get_all_user_information()
+  get_email_by_username(username: str)
+  get_first_name_by_username(username: str)
+  get_full_inventory()
+  get_full_log_by_id(log_id: int)
+  get_full_logs_information()
+  get_item_allergies_by_id(item_id: int)
+  get_item_id_by_log_id(log_id: int)
+  get_item_image_url_by_id(item_id: int)
+  get_item_info_by_id(item_id: int)
+  get_item_name_by_id(item_id: int)
+  get_item_calorie_by_id(item_id: int)
+  get_item_protein_by_id(item_id: int)
+  get_item_carbs_by_id(item_id: int)
+  get_last_name_by_username(username: str)
+  get_password_hash_by_username(username: str)
+  get_quantity_by_log_id(log_id: int)
+  get_log_date_by_log_id(log_id: int)
+  get_logs_by_date_range(start_date: dt.date, end_date: dt.date)
+  get_logs_by_item_id(item_id: int)
+  get_logs_by_quantity_range(start_quantity: int, end_quantity: int)
+  get_logs_by_username(username: str)
+  get_username_by_log_id(log_id: int)
+  insert_new_item(item_name: str, info: str, calorie: int, protein: int, carbs: int) -> None
+  insert_new_log(username: str, item_id: int, quantity: int, log_date: dt.date, total_cal: int, total_protein: int, total_carbs: int)
+  insert_user(username: str, password_hash: str, email: str, first_name: str, last_name: str) -> None
+  set_email(username: str, new_email: str)
+  set_first_name(username: str, new_first_name: str)
+  set_item_category(item_id: int, new_category: str)
+  set_item_image_url(item_id: int, new_image_url: str)
+  set_item_info(item_id: int, new_info: str)
+  set_item_name(item_id: int, new_name: str)
+  set_item_calories(item_id: int, new_cal: int)
+  set_item_protein(item_id: int, new_pro: int)
+  set_item_carbs(item_id: int, new_carbs: int)
+  set_item_allergies(item_id: int, new_allergies: str)
+  set_last_name(username: str, new_last_name: str)
+  set_password_hash(username: str, new_password_hash: str)
+  set_sale_cost(sale_id: int, discount: float, tax: float)
+  set_sale_date(sale_id: int, new_sale_date: dt.date)
+  set_sale_item_id(sale_id: int, new_item_id: int)
+  set_sale_quantity(sale_id: int, new_quantity: int)
+  set_sale_transaction_id(sale_id: int, new_transaction_id: int)
+  set_sale_username(sale_id: int, new_username: str)
+}
+@enduml
