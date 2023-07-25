@@ -1,0 +1,53 @@
+@startuml System
+left to right direction
+allow_mixing
+
+actor Customer
+actor Barista
+
+class ProductRequest
+{
+    "Please choose an item."
+    Product productRequested
+    user input = productRequested
+    "That will be $" + productRequested.price + "."
+    Transaction(productRequested)
+}
+ProductRequest -> Transaction
+class Transaction
+{
+Pass in the productRequested and the customer's balance
+
+bool amountOK
+
+if yourBalance >= productRequested.price then
+- amountOK is true
+-WalletBalanceChange
+else
+- CancelTransaction
+}
+Transaction -> CancelTransaction
+Transaction -> WalletBalanceChange
+class WalletBalanceChange
+{
+    pass in the products price and the customers balance
+    newBalance = custBalance - productPrice
+    return newBalance
+}
+class CancelTransaction
+{
+    "We're sorry, your card was declined."
+    end
+}
+class FulfillOrder
+{
+    productRequested
+    if theres inventory, make the item
+    if not cancel the Transaction
+    return item to customer
+}
+Customer --> ProductRequest
+ProductRequest --> Barista
+Barista --> FulfillOrder
+FulfillOrder --> Customer
+@enduml
