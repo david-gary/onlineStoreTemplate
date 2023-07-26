@@ -1,18 +1,24 @@
+.fonts { font-family: Georgia, 'Times New Roman', Times, serif;}
+
 #index_buttons {
     padding-top: 15px;
-    margin: 0 auto;
+    margin: -20px;
     width: 250px;
     height: 125px;
 }
 
 #login_button {
-    background-color: #4963f4;
+    background-color: #85bc4d;
     border-color: #ccc;
     color: rgb(236, 236, 236);
-    width: 100px;
+    width: 90px;
+    height: 40px;
     font-weight: bold;
     margin-top: 10px;
-    margin-bottom: 10px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 130px;
 }
 
 #info_row {
@@ -24,13 +30,17 @@
 }
 
 #register_button {
-    background-color: #444654;
+    background-color: #85bc4d;
     border-color: #ccc;
     color: rgb(236, 236, 236);
-    width: 100px;
+    width: 90px;
+    height: 40px;
     font-weight: bold;
     margin-top: 10px;
-    margin-bottom: 10px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 20px;
 }
 
 #info_form_group {
@@ -45,6 +55,7 @@
     width: 302px;
     background-color: #cac2c2;
     border: 1px solid rgb(178, 178, 178);
+    border-color: #f5f5f5;
     height: 500px;
 }
 
@@ -62,7 +73,7 @@
     margin-bottom: 10px;
 }
 
-.product_card-text {
+.product_card-calories {
     text-align: center;
     font-size: 15px;
     margin-top: 10px;
@@ -71,7 +82,25 @@
     height: 60px;
 }
 
-.product_card-price {
+.product_card-protein {
+    text-align: center;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.product_card-carbohydrates {
+    text-align: center;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.product_card-fats {
     text-align: center;
     font-size: 15px;
     margin-top: 10px;
@@ -81,7 +110,7 @@
 }
 
 #add_to_cart_button {
-    background-color: #49f4d8;
+    background-color: #85bc4d;
     border-color: #ccc;
     color: rgb(32, 30, 30);
     width: 60px;
@@ -119,4 +148,18 @@
     margin-top: 10px;
     margin-bottom: 10px;
     text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+body {
+    background-color: #37373b;
+}
+
+.title {
+    color: #e9d475;
+    font: Arial;
+    font-weight: 500;
+    
 }
