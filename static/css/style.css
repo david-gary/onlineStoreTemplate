@@ -1,4 +1,10 @@
-.fonts { font-family: Georgia, 'Times New Roman', Times, serif;}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
 #index_buttons {
     padding-top: 15px;
@@ -8,7 +14,7 @@
 }
 
 #login_button {
-    background-color: #85bc4d;
+    background-color: #adac6c;
     border-color: #ccc;
     color: rgb(236, 236, 236);
     width: 90px;
@@ -30,7 +36,7 @@
 }
 
 #register_button {
-    background-color: #85bc4d;
+    background-color: #adac6c;
     border-color: #ccc;
     color: rgb(236, 236, 236);
     width: 90px;
@@ -154,12 +160,78 @@
 }
 
 body {
-    background-color: #37373b;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.title {
-    color: #e9d475;
-    font: Arial;
-    font-weight: 500;
-    
+.content_box {
+    background-color: #cac2c2;
+    padding: 15px;
+    box-shadow: 0 2px 16px rgba(0,0,0,.1);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.content_box .content {
+    display: none;
+    animation: moving .5s ease;
+}
+@keyframes moving {
+    from{transform: translateX(50px); opacity: 0;}
+    to{transform: translateX(0px); opacity: 1;}
+}
+
+.content_box .content.active {
+    display: block;
+}
+
+.content_box .content h2{
+    margin-bottom: 10 px;
+}
+
+.tab_box {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 2px solid rgba(229,229,229);
+}
+
+.tab_box .tab_btn {
+    font-size: 18px;
+    font-weight: 600;
+    color: #8a8686;
+    background: none;
+    border: none;
+    padding: 18px;
+    cursor: pointer;
+}
+
+.tab_box .tab_btn.active {
+    color: #5c9354;
+}
+
+.line {
+    position: absolute;
+    top: 150px;
+    left: 305px;
+    width: 90px;
+    height: 3px;
+    background-color: #adac6c;
+    border-radius: 10px;
+    transition: all .3s ease-in-out;
+}
+
+.content {
+    color: #000000;
+    font-weight: 200;
+}
+
+h1 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 80px;
+    font-weight: bold;
+    color: #5c9354;
 }
