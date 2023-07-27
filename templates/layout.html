@@ -14,13 +14,68 @@
         <div class="row">
             <div class="col-md-12">
                 <h1 class="title">NutriTracker</h1>
-                <hr>
-                <div class="content">
-                    <!-- This is where the content will be rendered -->
-                    {% block content %}{% endblock %}
-
+                <div class="tab_box">
+                    <button class="tab_btn active">Home</button>
+                    <button class="tab_btn">About</button>
+                    <button class="tab_btn">Products</button>
+                    <button class="tab_btn">Intake</button>
+                    <div class="line"></div>
                 </div>
+                <div class="content_box">
+                    <div class="content active">
+                        <h2>Home</h2>
+                        <p>
+                            No subscriptions. No worries. 
+                            Take your diet into your own hands. 
+                    
+                        </p>
+                    </div>
+
+                    <div class="content">
+                        <h2>About</h2>
+                        <p>
+                            We are group 7.
+                          
+                        </p>
+                    </div>
+
+                    <div class="content">
+                        <h2>Products</h2>
+                        <p>
+                            {% block content %}{% endblock %}
+                        </p>
+                    </div>
+
+                    <div class="content">
+                        <h2>Intake</h2>
+                        <p>
+                            Show intake for user.
+                           
+                        </p>
+                    </div>
+                </div>
+                <hr>
             </div>
         </div>
     </div>
+    <script>
+        const tabs = document.querySelectorAll('.tab_btn');
+        const all_content = document.querySelectorAll('.content');
+
+        tabs.forEach((tab, index) => {
+            tab.addEventListener('click', (e) => {
+                tabs.forEach(tab => (tab.classList.remove('active')));
+                tab.classList.add('active');
+
+                var line = document.querySelector('.line');
+                line.style.width = e.target.offsetWidth + "px";
+                line.style.left = e.target.offsetLeft + "px";
+
+                all_content.forEach(content => {
+                    content.classList.remove('active');
+                });
+                all_content[index].classList.add('active');
+            });
+        });
+    </script>
 </body>
