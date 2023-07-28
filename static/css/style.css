@@ -265,6 +265,14 @@ h1 {
     display: block;
 }
 
+.content {
+    font: Poppins;
+    font-size:larger;
+    font-style: bold;
+    font-weight: 400;
+    color: #000000;
+}
+
 /* Control the left side */
 .half {
     width:50%;
@@ -272,7 +280,6 @@ h1 {
    
     
 }
-
 
 /* If you want the content centered horizontally and vertically */
 .centered{
@@ -282,4 +289,3 @@ h1 {
     left: 70%;
     transform: translate(-50%, -50%);
     text-align: center;
-}
