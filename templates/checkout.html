@@ -4,10 +4,15 @@
 
 <div class="row" id="products_page">
     <div class="col-md-12">
-        <h3>Your Order</h3>
+        <h3>Your Daily Intake</h3>
         <hr>
         <div class="row">
-            <p>{{ total_cost }} </p>
+            <p><!-- All of the "total_cost" methods will be replaced by their respective methods in future -->
+                Calories: {{ total_cost }}<br>
+                Protein: {{ total_cost }} g<br>
+                Carbohydrates: {{ total_cost }} g<br>
+                Fats: {{ total_cost }} g
+            </p>
         </div>
     </div>
 </div>
