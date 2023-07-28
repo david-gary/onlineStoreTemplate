@@ -272,3 +272,20 @@ h1 {
     font-weight: 400;
     color: #000000;
 }
+
+/* Control the left side */
+.half {
+    width:50%;
+    display: table-cell;
+   
+    
+}
+
+/* If you want the content centered horizontally and vertically */
+.centered{
+
+    position: absolute;
+    top: 60%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    text-align: center;
