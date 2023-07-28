@@ -14,14 +14,20 @@ class UserSession:
     attributes:
         - username: The username of the user.
         - cart: A dictionary of dictionaries representing the items in the user's cart.
-        - total_cost: The total cost of the user's cart.
+        - total_calories: The total calories of the user's cart.
+        - total_protein: The total protein of the user's cart.
+        - total_carbohydrates: The total carbohydrates of the user's cart.
+        - total_fats: The total fats of the user's cart.
         - date: The date of the user's session.
         - db: The database to use.
     """
 
     def __init__(self, username: str, db: Database):
         self.username = username
-        self.total_cost = 0
+        self.total_calories = 0
+        self.total_protein = 0
+        self.total_carbohydrates = 0
+        self.total_fats = 0
         self.date = None
         self.db = db
         self.cart = self.empty_cart()
