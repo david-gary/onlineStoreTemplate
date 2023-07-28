@@ -264,3 +264,22 @@ h1 {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
+/* Control the left side */
+.half {
+    width:50%;
+    display: table-cell;
+   
+    
+}
+
+
+/* If you want the content centered horizontally and vertically */
+.centered{
+
+    position: absolute;
+    top: 60%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
