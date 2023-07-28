@@ -82,6 +82,23 @@ def register_page():
     return render_template('register.html')
 
 
+@app.route('/admin')
+def admin():
+    """
+    Renders the admin page when the user is at the `/admin` endpoint.
+
+    args:
+        - None
+
+    returns:
+        - None
+    """
+    auth_level = sessions.get_session(username).auth_level
+    if auth_level == 0: #The user does not have admin privelages
+        return render_template('admin.html', message = "Access Denied. Not authorized to access this page.", username=username, products=[], sessions=sessions, auth_level=auth_level)
+    elif auth_level == 1:
+        return render_template("admin.html", message = "Product Management", username=username, products=products, sessions=sessions, auth_level=auth_level)
+
 @app.route('/register', methods=['POST'])
 def register():
     """

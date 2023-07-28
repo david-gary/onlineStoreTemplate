@@ -19,12 +19,13 @@ class UserSession:
         - db: The database to use.
     """
 
-    def __init__(self, username: str, db: Database):
+    def __init__(self, username: str, db: Database, auth_level = 0):
         self.username = username
         self.total_cost = 0
         self.date = None
         self.db = db
         self.cart = self.empty_cart()
+        self.auth_level = auth_level
 
     def empty_cart(self) -> dict:
         """
