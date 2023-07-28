@@ -3,7 +3,7 @@
 {% block content %}
 <div class="row">
     <div class="col-md-12" id="index_buttons">
-        <a href="/home" class="btn btn-primary" id="home_button">Home</a>
+        <a href="/" class="btn btn-primary" id="home_button">Home</a>
     </div>
 </div>
 
@@ -12,7 +12,7 @@
         <h3>{{ message }}</h3>
         <hr>
         <div class="row">
-            <form action="/checkout" method="post">
+            <form action="/admin" method="post">
                 <div class="form-group">
                     <div class="row">
                         {% for product in products %}
@@ -23,12 +23,21 @@
                                     <div class="product_card-body">
                                         <h5 class="product_card-title">{{ product.item_name }}</h5>
                                         <p class="product_card-text">{{ product.info }}</p>
-                                        <p class="product_card-price">${{ product.price }}</p>
+                                        <p class="product_card-price">Current Price: ${{ product.price }}</p>
+                                        <p class="product-new-price">
+                                            Set New Price: $<input type="number" class="new_price" id={{product.id}} name={{product.id}}
+                                                                   placeholder="0">
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         {% endfor %}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12" id="index_buttons">
+                        <button type="submit" class="btn btn-primary" id="checkout_button">Submit</button>
                     </div>
                 </div>
             </form>
