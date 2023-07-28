@@ -264,3 +264,11 @@ h1 {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
+.content {
+    font: Poppins;
+    font-size:larger;
+    font-style: bold;
+    font-weight: 400;
+    color: #000000;
+}

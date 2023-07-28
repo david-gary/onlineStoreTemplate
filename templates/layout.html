@@ -17,8 +17,9 @@
                 <div class="tab_box">
                     <button class="tab_btn active">Home</button>
                     <button class="tab_btn">About</button>
+                    <button class="tab_btn">Intake</button>
+                    <button class="tab_btn">Products</button>
                     <div class="dropdown">
-                        <button class="tab_btn">Products</button>
                         <div class="dropdown-content">
                             <a href="#" id="meats">Meats</a>
                             <a href="#" id="vegetables">Vegetables</a>
@@ -27,14 +28,14 @@
                             <a href="#" id="dairy">Dairy</a>
                         </div>
                     </div>
-                    <button class="tab_btn">Intake</button>
                     <div class="line"></div>
                 </div>
                 <div class="content_box">
                     <div class="content active">
                         <h2>Home</h2>
                         <p>
-                            No subscriptions. No worries. 
+                            Nutrition Made Simple. <br>
+                            No subscriptions. No worries. <br>
                             Take your diet into your own hands. 
                     
                         </p>
@@ -49,17 +50,16 @@
                     </div>
 
                     <div class="content">
-                        <h2>Products</h2>
+                        <h2>Intake</h2>
                         <p>
-                            {% block content %}{% endblock %}
+                            Show intake for user.
                         </p>
                     </div>
 
                     <div class="content">
-                        <h2>Intake</h2>
+                        <h2>Products</h2>
                         <p>
-                            Show intake for user.
-                           
+                            {% block content %}{% endblock %}
                         </p>
                     </div>
                 </div>
