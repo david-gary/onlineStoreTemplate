@@ -27,7 +27,7 @@ class Database:
     # ----------------- INVENTORY ----------------
     # --------------------------------------------
 
-    def insert_new_item(self, item_name: str, price: int, info: str) -> None:
+    def insert_new_item(self, item_name: str, price: int, info: str, stock=100, image_url="static/images/banana.jpeg", category="Food") -> None:
         """
         Inserts a new item_item into the database.
 
@@ -40,7 +40,7 @@ class Database:
             - None
         """
         self.cursor.execute(
-            "INSERT INTO inventory (item_name, price, info) VALUES (?, ?, ?)", (item_name, price, info))
+            "INSERT INTO inventory (item_name, price, info, stock, image_url, category) VALUES (?, ?, ?, ?, ?, ?)", (item_name, price, info, stock, image_url, category))
         self.connection.commit()
 
     # ------ Getter methods ------
@@ -246,6 +246,17 @@ class Database:
             "UPDATE inventory SET category = ? WHERE id = ?", (new_category, item_id))
         self.connection.commit()
 
+    # ------ Deleter methods -----
+    def delete_item_id(self, item_id: int):
+        """
+        Deletes an item from the inventory based on its id.
+        """
+        
+        self.cursor.execute(
+            "DELETE FROM inventory WHERE id = ?", (item_id, )
+        )
+        self.connection.commit()
+
     # --------------------------------------------
     # ------------------ Users -------------------
     # --------------------------------------------
@@ -399,6 +410,7 @@ class Database:
         self.cursor.execute(
             "UPDATE users SET last_name = ? WHERE username = ?", (new_last_name, username))
         self.connection.commit()
+        
 
     # --------------------------------------------
     # ------------------ Sales -------------------
@@ -623,6 +635,8 @@ class Database:
         self.cursor.execute(
             "SELECT * FROM sales WHERE cost BETWEEN ? AND ?", (start_cost, end_cost))
         return self.cursor.fetchall()
+
+   
 
     # ------ Setter methods ------
 
