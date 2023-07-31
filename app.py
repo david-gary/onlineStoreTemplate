@@ -175,7 +175,7 @@ def checkout():
                 item['id'], item['item_name'], item['price'], count)
 
     user_session.submit_cart()
-
+    db.increment_wallet_by_username(username, user_session.total_cost)
     return render_template('checkout.html', order=order, sessions=sessions, total_cost=user_session.total_cost)
 
 @app.route("/wallet", methods=['GET'])
