@@ -42,5 +42,6 @@ def main():
             done = True
 
 if __name__ == "__main__":
+    print(database.get_all_wallets())
     main()
         
