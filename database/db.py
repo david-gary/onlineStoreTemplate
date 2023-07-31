@@ -804,39 +804,116 @@ class Item:
     def set_info(self, new_info: str) -> None:
         self.info = new_info
 
+class Sale:
+    def __init__(self, transaction_id: int, username: str, item_id: int, quantity: int, sale_date: dt.date, cost: float):
+        self.transaction_id = transaction_id
+        self.username = username
+        self.item_id = item_id
+        self.quantity = quantity
+        self.sale_date = sale_date
+        self.cost = cost
+
+    def __str__(self):
+        return f"Sale ID: {self.transaction_id}, Username: {self.username}, Item ID: {self.item_id}, Quantity: {self.quantity}, Sale Date: {self.sale_date}, Cost: {self.cost}"
+
 class ShoppingCart:
-    def __init__(self, cart_id, user_id):
+    def __init__(self, cart_id: int, user_id: int):
         self.cart_id = cart_id
         self.user_id = user_id
-        self.items = []
+        self.items = []  # List to store the items in the cart
 
-    def add_item(self, item, quantity):
-        if isinstance(quantity, int) and quantity > 0:
-            self.items.append((item, quantity))
+    def add_item(self, item: Item, quantity: int) -> None:
+        """
+        Adds an item with a specified quantity to the shopping cart.
 
-    def remove_item(self, item):
-        self.items = [(item, quantity) for item, quantity in self.items if item != item]
+        args:
+            - item: The item to add to the cart.
+            - quantity: The quantity of the item to add.
 
-    def update_item_quantity(self, item, new_quantity):
-        for i, (cart_item, quantity) in enumerate(self.items):
-            if cart_item == item:
-                self.items[i] = (item, new_quantity)
-                break
+        returns:
+            - None
+        """
+        self.items.append((item, quantity))
 
-    def get_total_cost(self):
-        total_cost = 0.0
+    def remove_item(self, item: Item) -> None:
+        """
+        Removes an item from the shopping cart.
+
+        args:
+            - item: The item to remove from the cart.
+
+        returns:
+            - None
+        """
+        self.items = [(i, q) for i, q in self.items if i != item]
+
+    def update_item_quantity(self, item: Item, new_quantity: int) -> None:
+        """
+        Updates the quantity of a specific item in the shopping cart.
+
+        args:
+            - item: The item to update the quantity for.
+            - new_quantity: The new quantity of the item.
+
+        returns:
+            - None
+        """
+        for i, q in self.items:
+            if i == item:
+                q = new_quantity
+
+    def get_total_cost(self, discount: float = 0, tax: float = 0.05) -> float:
+        """
+        Calculates the total cost of the items in the shopping cart.
+
+        args:
+            - discount: The discount percentage (default is 0).
+            - tax: The tax percentage (default is 0.05).
+
+        returns:
+            - The total cost of the items in the cart after applying discount and tax.
+        """
+        total_cost = 0
         for item, quantity in self.items:
-            total_cost += item.get_price() * quantity
+            item_price = item.get_price()
+            total_cost += item_price * quantity
+
+        total_cost -= total_cost * discount
+        total_cost *= (1 + tax)
         return total_cost
 
-    def clear_cart(self):
+    def clear_cart(self) -> None:
+        """
+        Clears the shopping cart, removing all items from it.
+
+        returns:
+            - None
+        """
         self.items = []
 
-    def checkout(self):
-        from datetime import datetime
-        # Assume a Sale class exists and returns a new Sale object with cart details
-        sale = Sale(datetime.now(), self.user_id, self.items, self.get_total_cost())
-        self.clear_cart()
+    def checkout(self, database: Database) -> Sale:
+        """
+        Completes the checkout process and creates a new Sale record in the database.
+
+        args:
+            - database: An instance of the Database class.
+
+        returns:
+            - The Sale object representing the completed sale.
+        """
+        # Calculate the total cost of the items in the cart
+        total_cost = self.get_total_cost()
+
+        # Assuming the database has methods to insert new sales (as shown in the provided class)
+        # Let's insert a new sale into the database with the current user_id and the calculated total_cost.
+        transaction_id = self.user_id  # You may need to define how to generate unique transaction IDs
+        sale_date = dt.date.today()  # Assuming the sale date is the current date
+
+        # Insert the new sale into the database using the provided database object
+        database.insert_new_sale(transaction_id, self.user_id, self.cart_id, len(self.items), sale_date, total_cost)
+
+        # Create and return the Sale object representing the completed sale
+        sale = Sale(transaction_id, self.user_id, self.cart_id, len(self.items), sale_date, total_cost)
         return sale
 
 class Payment:
