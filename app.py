@@ -63,9 +63,11 @@ def login():
     password = request.form['password']
     if login_pipeline(username, password):
         sessions.add_new_session(username, db)
+        db.create_wallet(username, 0)
         return render_template('home.html', products=products, sessions=sessions, username=username)
     else:
         print(f"Incorrect username ({username}) or password ({password}).")
+        username = 'default'
         return render_template('index.html', products=products, sessions=sessions, username=username)
 
 @app.route('/home', methods=['GET'])
