@@ -1,0 +1,12 @@
+wallets = db.get_all_wallets().
+
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="row" id="info_row">
+    <h3>Your Wallet</h3>
+    <p>Balance: $<span id="balance">0</span></p>
+    <button id="add_funds">Add Funds</button>
+    <button id="subtract_funds">Subtract Funds</button>
+</div>
+{% endblock %}

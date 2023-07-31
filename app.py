@@ -136,6 +136,25 @@ def register():
     db.insert_user(username, key, email, first_name, last_name)
     return render_template('index.html')
 
+@app.route('/wallet', methods=['GET'])
+def wallet():
+    """
+    Renders the wallet page when the user is at the `/wallet` endpoint with a GET request.
+
+    args:
+        - None
+
+    returns:
+        - None
+
+    modifies:
+        - None
+
+    """
+    # Add wallet logic here
+
+    # Render wallet.html
+    return render_template('wallet.html',)
 
 @app.route('/checkout', methods=['POST'])
 def checkout():
