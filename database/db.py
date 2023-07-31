@@ -733,3 +733,33 @@ class Database:
         self.cursor.execute(
             "UPDATE sales SET cost = ? WHERE id = ?", (new_cost, sale_id))
         self.connection.commit()
+
+    # --------------------------------------------
+    # ------------------ Wallet ------------------
+    # --------------------------------------------
+    def create_wallet(self, username, amount: int):
+        if self.get_wallet_amount_username == []:
+            self.cursor.execute(
+                "INSERT INTO wallets (username, amount) VALUES (?, ?)", (username, amount))
+            self.connection.commit()
+
+    def get_wallet_amount_id(self, wallet_id):
+        self.cursor.execute(
+            "SELECT * FROM wallets WHERE wallet_id = ?", (wallet_id,))
+        return self.cursor.fetchall()
+
+    def get_wallet_amount_username(self, username):
+        self.cursor.execute(
+            "SELECT * FROM wallets WHERE username = ?", (username,))
+        return self.cursor.fetchall()
+
+    def get_all_wallets(self):
+        self.cursor.execute(
+            "SELECT * FROM wallets")
+        return self.cursor.fetchall()
+
+    def increment_wallet_by_username(self, username, change_amount):
+        current_amount = self.get_wallet_amount_username(username)[0]['amount']
+        self.cursor.execute(
+            "UPDATE wallets SET amount = ? WHERE username = ?", (current_amount + change_amount, username))
+        self.connection.commit()
