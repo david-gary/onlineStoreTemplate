@@ -7,7 +7,9 @@
     <h3>Your Wallet</h3>
     <p>Username: {{ username }}</p>
     <p>Balance: $<span id="balance">{{ balance }}</span></p>
-    <button id="add_funds">Add Funds</button>
-    <button id="subtract_funds">Subtract Funds</button>
+    <form action="/wallet" method="post" id="wallet_form">
+        <button id="add_funds" type="submit">Add Funds</button>
+        <button id="subtract_funds">Subtract Funds</button>
+    </form>
 </div>
 {% endblock %}

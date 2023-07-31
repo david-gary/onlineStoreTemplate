@@ -202,5 +202,10 @@ def wallet():
     # Render wallet.html
     return render_template('wallet.html',balance=wallet_amount, username=username)
 
+@app.route("/wallet", methods=['POST'])
+def wallet_increment():
+    db.increment_wallet_by_username(username, 10)
+    return render_template('wallet.html',balance=wallet_amount, username=username)
+
 if __name__ == '__main__':
     app.run(debug=True, host=HOST, port=PORT)
