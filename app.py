@@ -13,7 +13,7 @@ db = Database('database/store_records.db')
 products = db.get_full_inventory()
 sessions = Sessions()
 sessions.add_new_session(username, db)
-
+wallets = db.get_all_wallets()
 
 @app.route('/')
 def index_page():
@@ -136,25 +136,6 @@ def register():
     db.insert_user(username, key, email, first_name, last_name)
     return render_template('index.html')
 
-@app.route('/wallet', methods=['GET'])
-def wallet():
-    """
-    Renders the wallet page when the user is at the `/wallet` endpoint with a GET request.
-
-    args:
-        - None
-
-    returns:
-        - None
-
-    modifies:
-        - None
-
-    """
-    # Add wallet logic here
-
-    # Render wallet.html
-    return render_template('wallet.html',)
 
 @app.route('/checkout', methods=['POST'])
 def checkout():
@@ -184,6 +165,25 @@ def checkout():
 
     return render_template('checkout.html', order=order, sessions=sessions, total_cost=user_session.total_cost)
 
+@app.route("/wallet", methods=['GET'])
+def wallet():
+    """
+    Renders the wallet page when the user is at the `/wallet` endpoint with a GET request.
+
+    args:
+        - None
+
+    returns:
+        - None
+
+    modifies:
+        - None
+
+    """
+    # Add wallet logic here
+
+    # Render wallet.html
+    return render_template('wallet.html',)
 
 if __name__ == '__main__':
     app.run(debug=True, host=HOST, port=PORT)
