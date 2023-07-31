@@ -1,4 +1,4 @@
-CREATE TABLE inventory (
+CREATE TABLE IF NOT EXISTS inventory (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     item_name VARCHAR(255) NOT NULL,
     info VARCHAR(255) NOT NULL,
@@ -8,7 +8,7 @@ CREATE TABLE inventory (
     category VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE users (
+CREATE TABLE IF NOT EXISTS users (
     username VARCHAR(255) PRIMARY KEY NOT NULL,
     password_hash VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
@@ -16,7 +16,7 @@ CREATE TABLE users (
     last_name VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE sales (
+CREATE TABLE IF NOT EXISTS sales (
     sale_id INTEGER PRIMARY KEY AUTOINCREMENT,
     transaction_id VARCHAR(255) NOT NULL,
     username VARCHAR(255) NOT NULL,
@@ -28,7 +28,7 @@ CREATE TABLE sales (
     FOREIGN KEY (item_id) REFERENCES inventory(id)
 );
 
-CREATE TABLE payments (
+CREATE TABLE IF NOT EXISTS payments (
     payment_id INTEGER PRIMARY KEY,
     sale_id INTEGER NOT NULL,
     payment_status TEXT NOT NULL,
