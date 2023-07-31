@@ -28,3 +28,12 @@ CREATE TABLE sales (
     FOREIGN KEY (item_id) REFERENCES inventory(id)
 );
 
+CREATE TABLE payments (
+    payment_id INTEGER PRIMARY KEY,
+    sale_id INTEGER NOT NULL,
+    payment_status TEXT NOT NULL,
+    amount REAL NOT NULL,
+    payment_date DATE NOT NULL,
+    FOREIGN KEY (sale_id) REFERENCES sales (sale_id)
+);
+
