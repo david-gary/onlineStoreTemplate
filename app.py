@@ -205,6 +205,8 @@ def wallet():
 @app.route("/wallet", methods=['POST'])
 def wallet_increment():
     db.increment_wallet_by_username(username, 10)
+    wallet_amount_json = db.get_wallet_amount_username(username)
+    wallet_amount = wallet_amount_json[0]['amount']
     return render_template('wallet.html',balance=wallet_amount, username=username)
 
 if __name__ == '__main__':
