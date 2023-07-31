@@ -67,7 +67,6 @@ class "User" as User #lightyellow {
   get_full_name()
   get_username()
   set_password_hash(new_password_hash: str)
-
 }
 
 class "Item" as Item #lightyellow {
