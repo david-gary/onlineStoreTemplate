@@ -1,6 +1,8 @@
 from core.utils import dict_factory, calculate_cost
+from typing import List
 import datetime as dt
 import sqlite3
+
 
 
 class Database:
@@ -719,3 +721,179 @@ class Database:
         self.cursor.execute(
             "UPDATE sales SET cost = ? WHERE id = ?", (new_cost, sale_id))
         self.connection.commit()
+
+class User:
+    # Initializer
+    def __init__(self, username, password_hash, email, first_name, last_name):
+        self.username = username
+        self.password_hash = password_hash
+        self.email = email
+        self.first_name = first_name
+        self.last_name = last_name
+
+    # Getters
+    def get_email(self):
+        return self.email
+
+    def get_first_name(self):
+        return self.first_name
+
+    def get_last_name(self):
+        return self.last_name
+
+    # Setters
+    def set_email(self, new_email):
+        self.email = new_email
+
+    def set_first_name(self, new_first_name):
+        self.first_name = new_first_name
+
+    def set_last_name(self, new_last_name):
+        self.last_name = new_last_name
+
+    # Getters (Information)
+    def get_full_name(self):
+        return f"{self.first_name} {self.last_name}"
+
+    def get_username(self):
+        return self.username
+
+    # Setter for pasword hasher
+    def set_password_hash(self, new_password_hash):
+        self.password_hash = new_password_hash
+
+class Item:
+    def __init__(self, item_id, name, price, stock, category, info):
+        self.item_id = item_id
+        self.name = name
+        self.price = price
+        self.stock = stock
+        self.category = category
+        self.info = info
+
+    def get_item_id(self) -> int:
+        return self.item_id
+
+    def get_name(self) -> str:
+        return self.name
+
+    def get_price(self) -> int:
+        return self.price
+
+    def get_stock(self) -> int:
+        return self.stock
+
+    def get_category(self) -> str:
+        return self.category
+
+    def get_info(self) -> str:
+        return self.info
+
+    def set_name(self, new_name: str) -> None:
+        self.name = new_name
+
+    def set_price(self, new_price: int) -> None:
+        self.price = new_price
+
+    def set_stock(self, new_stock: int) -> None:
+        self.stock = new_stock
+
+    def set_category(self, new_category: str) -> None:
+        self.category = new_category
+
+    def set_info(self, new_info: str) -> None:
+        self.info = new_info
+
+class ShoppingCart:
+    def __init__(self, cart_id, user_id):
+        self.cart_id = cart_id
+        self.user_id = user_id
+        self.items = []
+
+    def add_item(self, item, quantity):
+        if isinstance(quantity, int) and quantity > 0:
+            self.items.append((item, quantity))
+
+    def remove_item(self, item):
+        self.items = [(item, quantity) for item, quantity in self.items if item != item]
+
+    def update_item_quantity(self, item, new_quantity):
+        for i, (cart_item, quantity) in enumerate(self.items):
+            if cart_item == item:
+                self.items[i] = (item, new_quantity)
+                break
+
+    def get_total_cost(self):
+        total_cost = 0.0
+        for item, quantity in self.items:
+            total_cost += item.get_price() * quantity
+        return total_cost
+
+    def clear_cart(self):
+        self.items = []
+
+    def checkout(self):
+        from datetime import datetime
+        # Assume a Sale class exists and returns a new Sale object with cart details
+        sale = Sale(datetime.now(), self.user_id, self.items, self.get_total_cost())
+        self.clear_cart()
+        return sale
+
+class Payment:
+    def __init__(self, payment_id, sale_id, payment_status, amount, payment_date):
+        self.payment_id = payment_id
+        self.sale_id = sale_id
+        self.payment_status = payment_status
+        self.amount = amount
+        self.payment_date = payment_date
+
+    def get_payment_id(self) -> int:
+        return self.payment_id
+
+    def get_sale_id(self) -> int:
+        return self.sale_id
+
+    def get_payment_status(self) -> str:
+        return self.payment_status
+
+    def get_amount(self) -> float:
+        return self.amount
+
+    def get_payment_date(self) -> dt.date:
+        return self.payment_date
+
+    def process_payment(self) -> bool:
+        # Placeholder implementation for processing payment, can be expanded based on your requirements.
+        # Return True if payment was successfully processed, False otherwise.
+        # You may interact with payment gateways or any other payment processing logic here.
+        return True
+
+    def set_sale_id(self, new_sale_id: int) -> None:
+        self.sale_id = new_sale_id
+
+    def set_payment_status(self, new_payment_status: str) -> None:
+        self.payment_status = new_payment_status
+
+    def set_amount(self, new_amount: float) -> None:
+        self.amount = new_amount
+
+    def set_payment_date(self, new_payment_date: dt.date) -> None:
+        self.payment_date = new_payment_date
+
+class SearchEngine:
+    def __init__(self):
+        # In this simple example, we assume the items are stored in a list.
+        # In a real-world scenario, you might use a database or some other storage mechanism.
+        self.items = []
+
+    def search_item_by_name(self, name: str) -> List[Item]:
+        return [item for item in self.items if item.get_name() == name]
+
+    def search_item_by_category(self, category: str) -> List[Item]:
+        return [item for item in self.items if item.get_category() == category]
+
+    def search_item_by_price_range(self, min_price: float, max_price: float) -> List[Item]:
+        return [item for item in self.items if min_price <= item.get_price() <= max_price]
+
+    def search_item_by_stock_availability(self, min_stock: int) -> List[Item]:
+        return [item for item in self.items if item.get_stock() >= min_stock]
