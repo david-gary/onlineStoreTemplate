@@ -68,6 +68,9 @@ def login():
         print(f"Incorrect username ({username}) or password ({password}).")
         return render_template('index.html', products=products, sessions=sessions, username=username)
 
+@app.route('/home')
+def home():
+    return render_template("home.html",products=products, sessions=sessions, username=username)
 
 @app.route('/register')
 def register_page():
