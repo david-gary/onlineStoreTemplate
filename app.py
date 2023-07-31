@@ -43,7 +43,7 @@ def login_page():
     return render_template('login.html')
 
 
-@app.route('/home', methods=['POST', 'GET'])
+@app.route('/home', methods=['POST'])
 def login():
     """
     Renders the home page when the user is at the `/home` endpoint with a POST request.
@@ -68,7 +68,7 @@ def login():
         print(f"Incorrect username ({username}) or password ({password}).")
         return render_template('index.html', products=products, sessions=sessions, username=username)
 
-@app.route('/home')
+@app.route('/home', methods=['GET'])
 def home():
     return render_template("home.html",products=products, sessions=sessions, username=username)
 
