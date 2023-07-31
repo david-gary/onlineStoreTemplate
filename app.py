@@ -68,6 +68,9 @@ def login():
         print(f"Incorrect username ({username}) or password ({password}).")
         return render_template('index.html', products=products, sessions=sessions, username=username)
 
+@app.route('/home')
+def home():
+    return render_template("home.html",products=products, sessions=sessions, username=username)
 
 @app.route('/register')
 def register_page():
@@ -197,6 +200,13 @@ def wallet():
     else:
         wallet_amount=0
     # Render wallet.html
+    return render_template('wallet.html',balance=wallet_amount, username=username)
+
+@app.route("/wallet", methods=['POST'])
+def wallet_increment():
+    db.increment_wallet_by_username(username, 10)
+    wallet_amount_json = db.get_wallet_amount_username(username)
+    wallet_amount = wallet_amount_json[0]['amount']
     return render_template('wallet.html',balance=wallet_amount, username=username)
 
 if __name__ == '__main__':
