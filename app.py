@@ -43,7 +43,7 @@ def login_page():
     return render_template('login.html')
 
 
-@app.route('/home', methods=['POST'])
+@app.route('/home', methods=['POST', 'GET'])
 def login():
     """
     Renders the home page when the user is at the `/home` endpoint with a POST request.
