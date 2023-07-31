@@ -880,6 +880,7 @@ class Payment:
     def set_payment_date(self, new_payment_date: dt.date) -> None:
         self.payment_date = new_payment_date
 
+## ALTER SEARCH ENGINE TO WORK W DATABASE
 class SearchEngine:
     def __init__(self):
         # In this simple example, we assume the items are stored in a list.
