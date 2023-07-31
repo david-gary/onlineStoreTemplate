@@ -3,7 +3,9 @@
 {% block content %}
 <div class="row">
     <div class="col-md-12" id="index_buttons">
+        {% if username != 'default' %}
         <a href="/wallet" class="btn btn-primary" id="wallet_button">Wallet</a>
+        {% endif %}
         <a href="/login" class="btn btn-primary" id="login_button">Login</a>
         <a href="/register" class="btn btn-primary" id="register_button">Register</a>
     </div>
