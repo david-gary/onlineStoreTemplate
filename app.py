@@ -58,14 +58,15 @@ def login():
         - sessions: adds a new session to the sessions object
 
     """
+    global username
     username = request.form['username']
     password = request.form['password']
     if login_pipeline(username, password):
         sessions.add_new_session(username, db)
-        return render_template('home.html', products=products, sessions=sessions)
+        return render_template('home.html', products=products, sessions=sessions, username=username)
     else:
         print(f"Incorrect username ({username}) or password ({password}).")
-        return render_template('index.html')
+        return render_template('index.html', products=products, sessions=sessions, username=username)
 
 
 @app.route('/register')
@@ -94,7 +95,7 @@ def admin_page():
         - None
     """
     auth_level = sessions.get_session(username).auth_level
-    auth_level = 1 # REMOVE THIS!
+    auth_level = 1 # Not good security
     if auth_level == 0: #The user does not have admin privelages
         return render_template('admin.html', message = "Access Denied. Not authorized to access this page.", username=username, products=[], sessions=sessions, auth_level=auth_level)
     elif auth_level == 1:
@@ -102,11 +103,20 @@ def admin_page():
 
 @app.route('/admin',methods=['POST'])
 def admin():
+    """
+    Sets the price of the products after price selection
+    """
+    
     global products
+    
     for product in products:
         price_string = request.form[str(product['id'])]
-        new_price = float(price_string)
-        db.set_item_price(product['id'], new_price)
+        try:
+            new_price = float(price_string)
+            db.set_item_price(product['id'], new_price)
+        except ValueError: #No new value was passed
+            pass
+        
     products = db.get_full_inventory()
     return render_template('admin.html', message='Your changes have been saved.')
         
@@ -181,9 +191,13 @@ def wallet():
 
     """
     # Add wallet logic here
-
+    wallet_amount_json = db.get_wallet_amount_username(username)
+    if len(wallet_amount_json) > 0:
+        wallet_amount = wallet_amount_json[0]['amount']
+    else:
+        wallet_amount=0
     # Render wallet.html
-    return render_template('wallet.html',)
+    return render_template('wallet.html',balance=wallet_amount, username=username)
 
 if __name__ == '__main__':
     app.run(debug=True, host=HOST, port=PORT)
