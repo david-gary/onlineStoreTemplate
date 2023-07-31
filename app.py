@@ -176,9 +176,12 @@ def checkout():
             user_session.add_new_item(
                 item['id'], item['item_name'], item['price'], count)
 
-    user_session.submit_cart()
-    db.increment_wallet_by_username(username, user_session.total_cost)
-    return render_template('checkout.html', order=order, sessions=sessions, total_cost=user_session.total_cost)
+    if db.get_wallet_amount_username(username)[0]['amount'] > user_session.total_cost:
+        user_session.submit_cart()
+        db.increment_wallet_by_username(username, -1 * user_session.total_cost)
+        return render_template('checkout.html', order=order, sessions=sessions, total_cost=user_session.total_cost)
+    else:
+        return render_template('checkout.html', order=order, sessions=sessions, total_cost="Purchase failed due to not enough funds.") 
 
 @app.route("/wallet", methods=['GET'])
 def wallet():
