@@ -19,12 +19,12 @@ CREATE TABLE users (
 );
 
 CREATE TABLE logs (
-    log_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    transaction_id VARCHAR(255) NOT NULL,
+    entry_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    log_id VARCHAR(255) NOT NULL,
     username VARCHAR(255) NOT NULL,
     item_id INTEGER NOT NULL,
     quantity INTEGER NOT NULL,
-    log_date DATETIME NOT NULL,
+    entry_date DATETIME NOT NULL,
     total_calorie INTEGER NOT NULL,
     total_protein INTEGER NOT NULL,
     total_carbs INTEGER NOT NULL,

@@ -19,11 +19,11 @@ VALUES ('Bananas', 'A long curved fruit which grows in clusters and has soft pul
 INSERT into `food` (`item_name`, `info`, `calorie`, `protein`, `carbs`, `image_url`, `category`, `allergy`)
 VALUES ('Mangos', 'The best fruit on the planet.', 201, 3, 50, 'static/images/mango.jpeg', 'Fruit', 'No known allergies.');
 
-INSERT into `logs` (`transaction_id`, `username`, `item_id`, `quantity`, `log_date`, `total_calorie`, `total_protein`, `total_carbs`)
+INSERT into `logs` (`log_id`, `username`, `item_id`, `quantity`, `entry_date`, `total_calorie`, `total_protein`, `total_carbs`)
 VALUES ('1', 'aturing', '1', 10, '2022-12-21 7:30:30', 950, 0, 250);
 
-INSERT into `logs` (`transaction_id`, `username`, `item_id`, `quantity`, `log_date`, `total_calorie`, `total_protein`, `total_carbs`)
+INSERT into `logs` (`log_id`, `username`, `item_id`, `quantity`, `entry_date`, `total_calorie`, `total_protein`, `total_carbs`)
 VALUES ('2', 'dritchie', '2', 10, '2022-12-21 7:30:30', 1050, 10, 270);
 
-INSERT into `logs` (`transaction_id`, `username`, `item_id`, `quantity`, `log_date`, `total_calorie`, `total_protein`, `total_carbs`)
+INSERT into `logs` (`log_id`, `username`, `item_id`, `quantity`, `entry_date`, `total_calorie`, `total_protein`, `total_carbs`)
 VALUES ('3', 'llamport', '3', 10, '2022-12-21 7:30:30', 2010, 30, 500);
