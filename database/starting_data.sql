@@ -10,20 +10,20 @@ VALUES ('llamport', '9171d14954eeda4e70777c23d98e349818125cdaeb884ff97ebf8cc0a9c
 INSERT into `users` (`username`, `password_hash`, `email`, `first_name`, `last_name`)
 VALUES ('bliskov', '1e4b9ae956cad1385cfa6fffd8323dd16c3fe18c54e6447e49bddef2138d042e84e1505a541c6ef19a5026e684b2559efd366145870a0a8d4d4173c0877f6cd2', 'barbara@thor.com', 'Barbara', 'Liskov');
 
-INSERT into `inventory` (`item_name`, `info`, `price`, `stock`, `image_url`, `category`)
-VALUES ('Apples', 'An edible cultivation of the Malus genus.', 2.00, 100, 'static/images/apple.jpeg', 'Fruit');
+INSERT into `food` (`item_name`, `info`, `calorie`, `protein`, `carbs`, `image_url`, `category`, `allergy`)
+VALUES ('Apples', 'An edible cultivation of the Malus genus.', 95, 0, 25, 'static/images/apple.jpeg', 'Fruit', 'No known allergies.');
 
-INSERT into `inventory` (`item_name`, `info`, `price`, `stock`, `image_url`, `category`)
-VALUES ('Bananas', 'A long curved fruit which grows in clusters and has soft pulpy flesh and yellow skin when ripe.', 1.00, 100, 'static/images/banana.jpeg', 'Fruit');
+INSERT into `food` (`item_name`, `info`, `calorie`, `protein`, `carbs`, `image_url`, `category`, `allergy`)
+VALUES ('Bananas', 'A long curved fruit which grows in clusters and has soft pulpy flesh and yellow skin when ripe.', 105, 1, 27, 'static/images/banana.jpeg', 'Fruit', 'No known allergies.');
 
-INSERT into `inventory` (`item_name`, `info`, `price`, `stock`, `image_url`, `category`)
-VALUES ('Mangos', 'The best fruit on the planet.', 4.00, 100, 'static/images/mango.jpeg', 'Fruit');
+INSERT into `food` (`item_name`, `info`, `calorie`, `protein`, `carbs`, `image_url`, `category`, `allergy`)
+VALUES ('Mangos', 'The best fruit on the planet.', 201, 3, 50, 'static/images/mango.jpeg', 'Fruit', 'No known allergies.');
 
-INSERT into `sales` (`transaction_id`, `username`, `item_id`, `quantity`, `sale_date`, `cost`)
-VALUES ('1', 'aturing', '1', 10, '2022-12-21 7:30:30', 5.50);
+INSERT into `logs` (`log_id`, `username`, `item_id`, `quantity`, `entry_date`, `total_calorie`, `total_protein`, `total_carbs`)
+VALUES ('1', 'aturing', '1', 10, '2022-12-21 7:30:30', 950, 0, 250);
 
-INSERT into `sales` (`transaction_id`, `username`, `item_id`, `quantity`, `sale_date`, `cost`)
-VALUES ('2', 'dritchie', '2', 10, '2022-12-21 7:30:30', 5.50);
+INSERT into `logs` (`log_id`, `username`, `item_id`, `quantity`, `entry_date`, `total_calorie`, `total_protein`, `total_carbs`)
+VALUES ('2', 'dritchie', '2', 10, '2022-12-21 7:30:30', 1050, 10, 270);
 
-INSERT into `sales` (`transaction_id`, `username`, `item_id`, `quantity`, `sale_date`, `cost`)
-VALUES ('3', 'llamport', '3', 10, '2022-12-21 7:30:30', 5.50);
+INSERT into `logs` (`log_id`, `username`, `item_id`, `quantity`, `entry_date`, `total_calorie`, `total_protein`, `total_carbs`)
+VALUES ('3', 'llamport', '3', 10, '2022-12-21 7:30:30', 2010, 30, 500);

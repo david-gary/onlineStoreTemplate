@@ -1,9 +1,11 @@
-CREATE TABLE inventory (
+CREATE TABLE food (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     item_name VARCHAR(255) NOT NULL,
     info VARCHAR(255) NOT NULL,
-    price DECIMAL(10,2) NOT NULL,
-    stock INTEGER NOT NULL,
+    calorie INTEGER NOT NULL,
+    protein INTEGER NOT NULL,
+    carbs INTEGER NOT NULL,
+    allergy VARCHAR(255) NOT NULL,
     image_url VARCHAR(255) NOT NULL,
     category VARCHAR(255) NOT NULL
 );
@@ -16,15 +18,16 @@ CREATE TABLE users (
     last_name VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE sales (
-    sale_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    transaction_id VARCHAR(255) NOT NULL,
+CREATE TABLE logs (
+    entry_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    log_id VARCHAR(255) NOT NULL,
     username VARCHAR(255) NOT NULL,
     item_id INTEGER NOT NULL,
     quantity INTEGER NOT NULL,
-    sale_date DATETIME NOT NULL,
-    cost DECIMAL(10,2) NOT NULL,
+    entry_date DATETIME NOT NULL,
+    total_calorie INTEGER NOT NULL,
+    total_protein INTEGER NOT NULL,
+    total_carbs INTEGER NOT NULL,
     FOREIGN KEY (username) REFERENCES users(username),
-    FOREIGN KEY (item_id) REFERENCES inventory(id)
+    FOREIGN KEY (item_id) REFERENCES food(id)
 );
-

@@ -24,23 +24,28 @@ class Database:
         self.cursor = self.connection.cursor()
 
     # --------------------------------------------
-    # ----------------- INVENTORY ----------------
+    # ----------------- FOOD ---------------------
     # --------------------------------------------
 
-    def insert_new_item(self, item_name: str, price: int, info: str) -> None:
+    def insert_new_item(self, log_id: int, item_name: str, info: str, calorie: int, protein: int, carbs: int, allergy: str) -> None:
         """
         Inserts a new item_item into the database.
 
         args:
+            - log_id: The log id of the entry.
             - item_name: The name of the item.
-            - price: The price of the item.
             - info: The info of the item.
+            - calorie: The calories in an item.
+            - protein: The protein in an item.
+            - carbs: The carb in an item.
+            - allergy: Any applicable allergy warnings.
 
         returns:
             - None
         """
         self.cursor.execute(
-            "INSERT INTO inventory (item_name, price, info) VALUES (?, ?, ?)", (item_name, price, info))
+            "INSERT INTO inventory (log_id, item_name, info, calorie, protein, carbs, allergy) VALUES (?, ?, ?, ?, ?, ?)", 
+            (log_id, item_name, info, calorie, protein, carbs, allergy))
         self.connection.commit()
 
     # ------ Getter methods ------
@@ -55,7 +60,34 @@ class Database:
         returns:
             - List of the full inventory table from the database.
         """
-        self.cursor.execute("SELECT * FROM inventory")
+        self.cursor.execute("SELECT * FROM food")
+        return self.cursor.fetchall()
+    
+    def get_log_id_by_entry_id(self, entry_id: int):
+        """
+        Gets the log id for a entry from the database.
+
+        args:
+            - entry_id: The id of the entry whose log id to get.
+
+        returns:
+            - The log id for the sale with the given id.
+        """
+        self.cursor.execute("SELECT log_id FROM logs WHERE entry_id = ?", (entry_id,))
+        return self.cursor.fetchone()
+    
+    def get_entries_by_log_id(self, log_id: int):
+        """
+        Gets the entries for a log from the database.
+
+        args:
+            - log_id: The id of the log whose entries to get.
+
+        returns:
+            - The entries for the log with the given id.
+        """
+        self.cursor.execute(
+            "SELECT * FROM logs WHERE log_id = ?", (log_id,))
         return self.cursor.fetchall()
 
     def get_all_item_ids(self):
@@ -68,7 +100,7 @@ class Database:
         returns:
             - List of all item ids in the database.
         """
-        self.cursor.execute("SELECT id FROM inventory")
+        self.cursor.execute("SELECT id FROM food")
         return self.cursor.fetchall()
 
     def get_item_name_by_id(self, item_id: int):
@@ -81,7 +113,7 @@ class Database:
         returns:
             - The item with the given id.
         """
-        self.cursor.execute("SELECT * FROM inventory WHERE id = ?", (item_id,))
+        self.cursor.execute("SELECT * FROM food WHERE id = ?", (item_id,))
         return self.cursor.fetchone()
 
     def get_item_info_by_id(self, item_id: int):
@@ -95,35 +127,7 @@ class Database:
             - The info of the item with the given id.
         """
         self.cursor.execute(
-            "SELECT info FROM inventory WHERE id = ?", (item_id,))
-        return self.cursor.fetchone()
-
-    def get_item_price_by_id(self, item_id: int):
-        """
-        Gets the price of an item from the database.
-
-        args:
-            - item_id: The id of the item to get.
-
-        returns:
-            - The price of the item with the given id.
-        """
-        self.cursor.execute(
-            "SELECT price FROM inventory WHERE id = ?", (item_id,))
-        return self.cursor.fetchone()
-
-    def get_item_stock_by_id(self, item_id: int):
-        """
-        Gets the stock of an item from the database.
-
-        args:
-            - item_id: The id of the item to get.
-
-        returns:
-            - The stock of the item with the given id.
-        """
-        self.cursor.execute(
-            "SELECT stock FROM inventory WHERE id = ?", (item_id,))
+            "SELECT info FROM food WHERE id = ?", (item_id,))
         return self.cursor.fetchone()
 
     def get_item_image_url_by_id(self, item_id: int):
@@ -137,7 +141,7 @@ class Database:
             - The image_url of the item with the given id.
         """
         self.cursor.execute(
-            "SELECT image_url FROM inventory WHERE id = ?", (item_id,))
+            "SELECT image_url FROM food WHERE id = ?", (item_id,))
         return self.cursor.fetchone()
 
     def get_item_category_by_id(self, item_id: int):
@@ -151,10 +155,25 @@ class Database:
             - The category of the item with the given id.
         """
         self.cursor.execute(
-            "SELECT category FROM inventory WHERE id = ?", (item_id,))
+            "SELECT category FROM food WHERE id = ?", (item_id,))
         return self.cursor.fetchone()
 
     # ------ Setter methods ------
+
+    def set_entry_log_id(self, entry_id: int, new_log_id: int):
+        """
+        Updates the log id of a entry in the database.
+
+        args:
+            - entry_id: The id of the entry to update.
+            - new_log_id: The new log id of the entry.
+
+        returns:
+            - None
+        """
+        self.cursor.execute(
+            "UPDATE logs SET log_id = ? WHERE id = ?", (new_log_id, entry_id))
+        self.connection.commit()
 
     def set_item_name(self, item_id: int, new_name: str):
         """
@@ -168,7 +187,7 @@ class Database:
             - None
         """
         self.cursor.execute(
-            "UPDATE inventory SET name = ? WHERE id = ?", (new_name, item_id))
+            "UPDATE food SET name = ? WHERE id = ?", (new_name, item_id))
         self.connection.commit()
 
     def set_item_info(self, item_id: int, new_info: str):
@@ -183,37 +202,67 @@ class Database:
             - None
         """
         self.cursor.execute(
-            "UPDATE inventory SET info = ? WHERE id = ?", (new_info, item_id))
+            "UPDATE food SET info = ? WHERE id = ?", (new_info, item_id))
         self.connection.commit()
 
-    def set_item_price(self, item_id: int, new_price: float):
+    def set_item_calorie(self, item_id: int, new_cal: int):
         """
-        Updates the price of an item in the database.
+        Updates the information of an item in the database.
 
         args:
             - item_id: The id of the item to update.
-            - new_price: The new price of the item.
+            - new_info: The new information of the item.
 
         returns:
             - None
         """
         self.cursor.execute(
-            "UPDATE inventory SET price = ? WHERE id = ?", (new_price, item_id))
+            "UPDATE food SET calorie = ? WHERE id = ?", (new_cal, item_id))
         self.connection.commit()
 
-    def set_item_stock(self, item_id: int, new_stock: int):
+    def set_item_protein(self, item_id: int, new_pro: int):
         """
-        Updates the stock of an item in the database.
+        Updates the information of an item in the database.
 
         args:
             - item_id: The id of the item to update.
-            - new_stock: The new stock of the item.
+            - new_info: The new information of the item.
 
         returns:
             - None
         """
         self.cursor.execute(
-            "UPDATE inventory SET stock = ? WHERE id = ?", (new_stock, item_id))
+            "UPDATE food SET protein = ? WHERE id = ?", (new_pro, item_id))
+        self.connection.commit()
+
+    def set_item_carbs(self, item_id: int, new_carb: int):
+        """
+        Updates the information of an item in the database.
+
+        args:
+            - item_id: The id of the item to update.
+            - new_info: The new information of the item.
+
+        returns:
+            - None
+        """
+        self.cursor.execute(
+            "UPDATE food SET carbs = ? WHERE id = ?", (new_carb, item_id))
+        self.connection.commit()
+
+    def set_item_allergy(self, item_id: int, new_al: str):
+        """
+        Updates the information of an item in the database.
+
+        args:
+            - item_id: The id of the item to update.
+            - new_info: The new information of the item.
+
+        returns:
+            - None
+        """
+        self.cursor.execute(
+            "UPDATE food SET allergy = ? WHERE id = ?", (new_al, item_id))
         self.connection.commit()
 
     def set_item_image_url(self, item_id: int, new_image_url: str):
@@ -228,7 +277,7 @@ class Database:
             - None
         """
         self.cursor.execute(
-            "UPDATE inventory SET image_url = ? WHERE id = ?", (new_image_url, item_id))
+            "UPDATE food SET image_url = ? WHERE id = ?", (new_image_url, item_id))
         self.connection.commit()
 
     def set_item_category(self, item_id: int, new_category: str):
@@ -243,7 +292,7 @@ class Database:
             - None
         """
         self.cursor.execute(
-            "UPDATE inventory SET category = ? WHERE id = ?", (new_category, item_id))
+            "UPDATE food SET category = ? WHERE id = ?", (new_category, item_id))
         self.connection.commit()
 
     # --------------------------------------------
@@ -401,321 +450,291 @@ class Database:
         self.connection.commit()
 
     # --------------------------------------------
-    # ------------------ Sales -------------------
+    # ------------------ Logs --------------------
     # --------------------------------------------
 
-    def insert_new_sale(self, transaction_id: int, username: str, item_id: int, quantity: int, sale_date: dt.date, cost: float):
+    def insert_new_entry(self, username: str, item_id: int, quantity: int, entry_date: dt.date, total_calorie: int, total_protein: int, total_carbs: int):
         """
-        Inserts a new sale into the database.
+        Inserts a new entry into the database.
 
         args:
-            - transaction_id: The transaction id of the sale.
-            - username: The username of the sale.
-            - item_id: The item id of the sale.
-            - quantity: The quantity of the sale.
-            - sale_date: The sale date of the sale.
-            - cost: The cost of the sale.
+            - username: The username of the entry.
+            - item_id: The item id of the entry.
+            - quantity: The quantity of the entry.
+            - entry_date: The sale date of the entry.
+            - total_calorie: The total calories in the entry.
+            - total_protein: The total protein in the entry.
+            - total_carbs: The total carbs in the entry.
 
         returns:
             - None
         """
         self.cursor.execute(
-            "INSERT INTO sales (transaction_id, username, item_id, quantity, sale_date, cost) VALUES (?, ?, ?, ?, ?, ?)",
-            (transaction_id, username, item_id, quantity, sale_date, cost))
+            "INSERT INTO logs (username, item_id, quantity, entry_date, total_calorie, total_protein, total_carbs) VALUES (?, ?, ?, ?, ?, ?, ?)",
+            (username, item_id, quantity, entry_date, total_calorie, total_protein, total_carbs))
         self.connection.commit()
 
     # ------ Getter methods ------
 
-    def get_full_sales_information(self):
+    def get_full_entries_information(self):
         """
-        Gets all sales information from the database.
+        Gets all entries information from the database.
 
         args:
             - None
 
         returns:
-            - A list of all sales information in the database.
+            - A list of all entries information in the database.
         """
-        self.cursor.execute("SELECT * FROM sales")
+        self.cursor.execute("SELECT * FROM logs")
         return self.cursor.fetchall()
 
-    def get_transaction_id_by_sale_id(self, sale_id: int):
+    def get_username_by_entry_id(self, entry_id: int):
         """
-        Gets the transaction id for a sale from the database.
+        Gets the username for a entry from the database.
 
         args:
-            - sale_id: The id of the sale whose transaction id to get.
+            - entry_id: The id of the entry whose username to get.
 
         returns:
-            - The transaction id for the sale with the given id.
+            - The username for the entry with the given id.
         """
         self.cursor.execute(
-            "SELECT transaction_id FROM sales WHERE sale_id = ?", (sale_id,))
+            "SELECT username FROM logs WHERE entry_id = ?", (entry_id,))
         return self.cursor.fetchone()
 
-    def get_username_by_sale_id(self, sale_id: int):
+    def get_item_id_by_entry_id(self, entry_id: int):
         """
-        Gets the username for a sale from the database.
+        Gets the item id for an entry from the database.
 
         args:
-            - sale_id: The id of the sale whose username to get.
+            - entry_id: The id of the entry whose item id to get.
 
         returns:
-            - The username for the sale with the given id.
+            - The item id for the entry with the given id.
         """
         self.cursor.execute(
-            "SELECT username FROM sales WHERE sale_id = ?", (sale_id,))
+            "SELECT item_id FROM logs WHERE entry_id = ?", (entry_id,))
         return self.cursor.fetchone()
 
-    def get_item_id_by_sale_id(self, sale_id: int):
+    def get_quantity_by_entry_id(self, entry_id: int):
         """
-        Gets the item id for a sale from the database.
+        Gets the quantity for a entry from the database.
 
         args:
-            - sale_id: The id of the sale whose item id to get.
+            - entry_id: The id of the entry whose quantity to get.
 
         returns:
-            - The item id for the sale with the given id.
+            - The quantity for the entry with the given id.
         """
         self.cursor.execute(
-            "SELECT item_id FROM sales WHERE sale_id = ?", (sale_id,))
+            "SELECT quantity FROM logs WHERE entry_id = ?", (entry_id,))
         return self.cursor.fetchone()
 
-    def get_quantity_by_sale_id(self, sale_id: int):
+    def get_entry_date_by_entry_id(self, entry_id: int):
         """
-        Gets the quantity for a sale from the database.
+        Gets the entry date for a entry from the database.
 
         args:
-            - sale_id: The id of the sale whose quantity to get.
+            - entry_id: The id of the entry whose entry date to get.
 
         returns:
-            - The quantity for the sale with the given id.
+            - The entry date for the entry with the given id.
         """
         self.cursor.execute(
-            "SELECT quantity FROM sales WHERE sale_id = ?", (sale_id,))
+            "SELECT entry_date FROM logs WHERE entry_id = ?", (entry_id,))
         return self.cursor.fetchone()
 
-    def get_sale_date_by_sale_id(self, sale_id: int):
+    def get_full_entry_by_id(self, entry_id: int):
         """
-        Gets the sale date for a sale from the database.
+        Gets the entries for a entry from the database.
 
         args:
-            - sale_id: The id of the sale whose sale date to get.
+            - entry_id: The id of the entry whose information to get.
 
         returns:
-            - The sale date for the sale with the given id.
+            - The entry records for the entry with the given id.
         """
         self.cursor.execute(
-            "SELECT sale_date FROM sales WHERE sale_id = ?", (sale_id,))
+            "SELECT * FROM logs WHERE entry_id = ?", (entry_id,))
         return self.cursor.fetchone()
 
-    def get_cost_by_sale_id(self, sale_id: int):
+    def get_entries_by_username(self, username: str):
         """
-        Gets the cost for a sale from the database.
+        Gets the entries for a user from the database.
 
         args:
-            - sale_id: The id of the sale whose cost to get.
+            - username: The username of the user whose entries to get.
 
         returns:
-            - The cost for the sale with the given id.
+            - The entries for the user with the given username.
         """
         self.cursor.execute(
-            "SELECT cost FROM sales WHERE sale_id = ?", (sale_id,))
-        return self.cursor.fetchone()
-
-    def get_full_sale_by_id(self, sale_id: int):
-        """
-        Gets the sales for a sale from the database.
-
-        args:
-            - sale_id: The id of the sale whose information to get.
-
-        returns:
-            - The sales records for the sale with the given id.
-        """
-        self.cursor.execute(
-            "SELECT * FROM sales WHERE sale_id = ?", (sale_id,))
-        return self.cursor.fetchone()
-
-    def get_sales_by_transaction_id(self, transaction_id: int):
-        """
-        Gets the sales for a transaction from the database.
-
-        args:
-            - transaction_id: The id of the transaction whose sales to get.
-
-        returns:
-            - The sales for the transaction with the given id.
-        """
-        self.cursor.execute(
-            "SELECT * FROM sales WHERE transaction_id = ?", (transaction_id,))
+            "SELECT * FROM logs WHERE username = ?", (username,))
         return self.cursor.fetchall()
 
-    def get_sales_by_username(self, username: str):
+    def get_entry_by_item_id(self, item_id: int):
         """
-        Gets the sales for a user from the database.
+        Gets the entries for an item from the database.
 
         args:
-            - username: The username of the user whose sales to get.
+            - item_id: The id of the item we are getting entries for.
 
         returns:
-            - The sales for the user with the given username.
+            - The entries for the item with the given id.
         """
         self.cursor.execute(
-            "SELECT * FROM sales WHERE username = ?", (username,))
+            "SELECT * FROM logs WHERE item_id = ?", (item_id,))
         return self.cursor.fetchall()
 
-    def get_sales_by_item_id(self, item_id: int):
+    def get_entries_by_date_range(self, start_date: dt.date, end_date: dt.date):
         """
-        Gets the sales for an item from the database.
-
-        args:
-            - item_id: The id of the item we are getting sales for.
-
-        returns:
-            - The sales for the item with the given id.
-        """
-        self.cursor.execute(
-            "SELECT * FROM sales WHERE item_id = ?", (item_id,))
-        return self.cursor.fetchall()
-
-    def get_sales_by_date_range(self, start_date: dt.date, end_date: dt.date):
-        """
-        Gets the sales for a date range from the database.
+        Gets the entries for a date range from the database.
 
         args:
             - start_date: The start date of the date range.
             - end_date: The end date of the date range.
 
         returns:
-            - The sales for the given date range.
+            - The entries for the given date range.
         """
         self.cursor.execute(
-            "SELECT * FROM sales WHERE sale_date BETWEEN ? AND ?", (start_date, end_date))
+            "SELECT * FROM logs WHERE entry_date BETWEEN ? AND ?", (start_date, end_date))
         return self.cursor.fetchall()
 
-    def get_sales_by_quantity_range(self, start_quantity: int, end_quantity: int):
+    def get_entries_by_quantity_range(self, start_quantity: int, end_quantity: int):
         """
-        Gets the sales for a quantity range from the database.
+        Gets the entries for a quantity range from the database.
 
         args:
             - start_quantity: The start quantity of the quantity range.
             - end_quantity: The end quantity of the quantity range.
 
         returns:
-            - The sales for the given quantity range.
+            - The entries for the given quantity range.
         """
         self.cursor.execute(
-            "SELECT * FROM sales WHERE quantity BETWEEN ? AND ?", (start_quantity, end_quantity))
+            "SELECT * FROM logs WHERE quantity BETWEEN ? AND ?", (start_quantity, end_quantity))
         return self.cursor.fetchall()
 
-    def get_sales_by_cost_range(self, start_cost: float, end_cost: float):
+    def get_entries_by_cost_range(self, start_cost: float, end_cost: float):
         """
-        Gets the sales for a cost range from the database.
+        Gets the entries for a cost range from the database.
 
         args:
             - start_cost: The start cost of the cost range.
             - end_cost: The end cost of the cost range.
 
         returns:
-            - The sales for the given cost range.
+            - The entries for the given cost range.
         """
         self.cursor.execute(
-            "SELECT * FROM sales WHERE cost BETWEEN ? AND ?", (start_cost, end_cost))
+            "SELECT * FROM logs WHERE cost BETWEEN ? AND ?", (start_cost, end_cost))
         return self.cursor.fetchall()
 
     # ------ Setter methods ------
 
-    def set_sale_transaction_id(self, sale_id: int, new_transaction_id: int):
+    def set_entry_username(self, entry_id: int, new_username: str):
         """
-        Updates the transaction id of a sale in the database.
+        Updates the username of a entry in the database.
 
         args:
-            - sale_id: The id of the sale to update.
-            - new_transaction_id: The new transaction id of the sale.
+            - entry_id: The id of the entry to update.
+            - new_username: The new username of the entry.
 
         returns:
             - None
         """
         self.cursor.execute(
-            "UPDATE sales SET transaction_id = ? WHERE id = ?", (new_transaction_id, sale_id))
+            "UPDATE logs SET username = ? WHERE id = ?", (new_username, entry_id))
         self.connection.commit()
 
-    def set_sale_username(self, sale_id: int, new_username: str):
+    def set_entry_item_id(self, entry_id: int, new_item_id: int):
         """
-        Updates the username of a sale in the database.
+        Updates the item id of a entry in the database.
 
         args:
-            - sale_id: The id of the sale to update.
-            - new_username: The new username of the sale.
+            - entry_id: The id of the entry to update.
+            - new_item_id: The new item id of the entry.
 
         returns:
             - None
         """
         self.cursor.execute(
-            "UPDATE sales SET username = ? WHERE id = ?", (new_username, sale_id))
+            "UPDATE logs SET item_id = ? WHERE id = ?", (new_item_id, entry_id))
         self.connection.commit()
 
-    def set_sale_item_id(self, sale_id: int, new_item_id: int):
+    def set_entry_date(self, entry_id: int, new_entry_date: dt.date):
         """
-        Updates the item id of a sale in the database.
+        Updates the entry date of a entry in the database.
 
         args:
-            - sale_id: The id of the sale to update.
-            - new_item_id: The new item id of the sale.
+            - entry_id: The id of the entry_id to update.
+            - new_entry_date: The new entry_id date of the sale.
 
         returns:
             - None
         """
         self.cursor.execute(
-            "UPDATE sales SET item_id = ? WHERE id = ?", (new_item_id, sale_id))
+            "UPDATE logs SET entry_date = ? WHERE id = ?", (new_entry_date, entry_id))
         self.connection.commit()
 
-    def set_sale_date(self, sale_id: int, new_sale_date: dt.date):
+    def set_entry_quantity(self, entry_id: int, new_quantity: int):
         """
-        Updates the sale date of a sale in the database.
+        Updates the quantity of a entry in the database.
 
         args:
-            - sale_id: The id of the sale to update.
-            - new_sale_date: The new sale date of the sale.
+            - entry_id: The id of the entry to update.
+            - new_quantity: The new quantity of the entry.
 
         returns:
             - None
         """
         self.cursor.execute(
-            "UPDATE sales SET sale_date = ? WHERE id = ?", (new_sale_date, sale_id))
+            "UPDATE logs SET quantity = ? WHERE id = ?", (new_quantity, entry_id))
         self.connection.commit()
 
-    def set_sale_quantity(self, sale_id: int, new_quantity: int):
+    def set_entry_calorie(self, entry_id: int, new_calorie: int):
         """
-        Updates the quantity of a sale in the database.
+        Updates the calorie of a entry in the database.
 
         args:
-            - sale_id: The id of the sale to update.
-            - new_quantity: The new quantity of the sale.
+            - entry_id: The id of the entry to update.
+            - new_calorie: The new calorie of the entry.
 
         returns:
             - None
         """
         self.cursor.execute(
-            "UPDATE sales SET quantity = ? WHERE id = ?", (new_quantity, sale_id))
+            "UPDATE logs SET total_calorie = ? WHERE id = ?", (new_calorie, entry_id))
         self.connection.commit()
-
-    def set_sale_cost(self, sale_id: int, discount: float = 0, tax: float = 0.05):
+    
+    def set_entry_protein(self, entry_id: int, new_protein: int):
         """
-        Updates the cost of a sale in the database.
+        Updates the protein of a entry in the database.
 
         args:
-            - sale_id: The id of the sale to update.
+            - entry_id: The id of the entry to update.
+            - new_protein: The new protein of the entry.
 
         returns:
             - None
         """
-        item_id = self.get_item_id_by_sale_id(sale_id)
-        quantity = self.get_quantity_by_sale_id(sale_id)
-        item_price = self.get_item_price_by_id(item_id)
-        new_cost = calculate_cost(item_price, quantity, discount, tax)
-
         self.cursor.execute(
-            "UPDATE sales SET cost = ? WHERE id = ?", (new_cost, sale_id))
+            "UPDATE logs SET total_protein = ? WHERE id = ?", (new_protein, entry_id))
+        self.connection.commit()
+    
+    def set_entry_carbs(self, entry_id: int, new_carbs: int):
+        """
+        Updates the carbs of a entry in the database.
+
+        args:
+            - entry_id: The id of the entry to update.
+            - new_carbs: The new carbs of the entry.
+
+        returns:
+            - None
+        """
+        self.cursor.execute(
+            "UPDATE logs SET total_carbs = ? WHERE id = ?", (new_carbs, entry_id))
         self.connection.commit()
