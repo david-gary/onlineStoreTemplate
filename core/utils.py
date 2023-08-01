@@ -20,40 +20,35 @@ def dict_factory(cursor: sqlite3.Cursor, row: tuple) -> dict:
     return row_dict
 
 
-def calculate_cost(price: int, quantity: int, discount: float = 0.0, tax_rate: float = 0.05) -> float:
+def calculate_calories(calories: int, quantity: int) -> float:
     """
     Calculates the cost of an item.
 
     args:
-        - price: The price of the item.
+        - calories: The calories in the item.
         - quantity: The quantity of the item.
-        - discount: The discount of the item.
-        - tax_rate: The tax rate of the item.
 
     returns:
-        - The cost of the item as a float.
+        - The calories of the item as a float.
     """
-    return (price * quantity) * (1 - discount) * (1 + tax_rate)
+    return (calories * quantity)
 
-
-def calculate_total_cost(items: dict) -> float:
+def calculate_total_calories(items: dict) -> float:
     """
     Calculates the total cost of a set of items.
 
     args:
-        - items: A dictionary of items to calculate the total cost of.
+        - items: A dictionary of items to calculate the total calories of.
 
     returns:
         - The total cost of the sale as a float.
     """
-    total_cost = 0
+    total_cal = 0
     print(items)
     for i in items:
         item = items[i]
-        total_cost += calculate_cost(float(item["price"]), int(item["quantity"]),
-                                     float(item["discount"]), int(item["tax_rate"]))
-    return total_cost
-
+        total_cal += calculate_calories(float(item["calorie"]), int(item["quantity"]))
+    return total_cal
 
 def generate_unique_id() -> str:
     """

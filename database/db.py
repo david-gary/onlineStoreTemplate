@@ -1,4 +1,4 @@
-from core.utils import dict_factory, calculate_cost
+from core.utils import dict_factory, calculate_calories
 import datetime as dt
 import sqlite3
 
