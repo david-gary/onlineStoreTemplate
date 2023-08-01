@@ -37,7 +37,9 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12" id="index_buttons">
+                        {% if message != 'Your changes have been saved.' %}
                         <button type="submit" class="btn btn-primary" id="checkout_button">Submit</button>
+                        {% endif %}
                     </div>
                 </div>
             </form>
