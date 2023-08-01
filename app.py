@@ -181,7 +181,7 @@ def checkout():
         db.increment_wallet_by_username(username, -1 * user_session.total_cost)
         return render_template('checkout.html', order=order, sessions=sessions, total_cost=user_session.total_cost)
     else:
-        return render_template('checkout.html', order=order, sessions=sessions, total_cost="Purchase failed due to not enough funds.") 
+        return render_template('checkout.html', order=order, sessions=sessions, total_cost="  - Purchase failed due to not enough funds.") 
 
 @app.route("/wallet", methods=['GET'])
 def wallet():
