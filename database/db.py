@@ -27,12 +27,11 @@ class Database:
     # ----------------- FOOD ---------------------
     # --------------------------------------------
 
-    def insert_new_item(self, log_id: int, item_name: str, info: str, calorie: int, protein: int, carbs: int, allergy: str) -> None:
+    def insert_new_item(self, item_name: str, info: str, calorie: int, protein: int, carbs: int, allergy: str) -> None:
         """
-        Inserts a new item_item into the database.
+        Inserts a new item into the database.
 
         args:
-            - log_id: The log id of the entry.
             - item_name: The name of the item.
             - info: The info of the item.
             - calorie: The calories in an item.
@@ -44,8 +43,8 @@ class Database:
             - None
         """
         self.cursor.execute(
-            "INSERT INTO food (log_id, item_name, info, calorie, protein, carbs, allergy) VALUES (?, ?, ?, ?, ?, ?)", 
-            (log_id, item_name, info, calorie, protein, carbs, allergy))
+            "INSERT INTO food (item_name, info, calorie, protein, carbs, allergy) VALUES (?, ?, ?, ?, ?, ?)", 
+            (item_name, info, calorie, protein, carbs, allergy))
         self.connection.commit()
 
     # ------ Getter methods ------
