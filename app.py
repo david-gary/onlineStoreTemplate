@@ -148,7 +148,10 @@ def register():
     last_name = request.form['last_name']
     salt, key = hash_password(password)
     update_passwords(username, key, salt)
-    db.insert_user(username, key, email, first_name, last_name)
+    if len(db.get_email_by_username(username)) == 0: # A user does not already exist with that username
+        db.insert_user(username, key, email, first_name, last_name)
+    else:
+        print(f"A user already exists with the username {username}")
     return render_template('index.html')
 
 
