@@ -1,4 +1,4 @@
-from core.utils import calculate_total_cost
+from core.utils import calculate_total_calories
 from datetime import datetime
 from database.db import Database
 
@@ -45,8 +45,7 @@ class UserSession:
         inventory = self.db.get_full_inventory()
         new_cart = {}
         for item in inventory:
-            new_cart[item["id"]] = {"name": item["item_name"], "price": item["price"], "quantity": 0,
-                                    "discount": 0, "tax_rate": 0}
+            new_cart[item["id"]] = {"name": item["item_name"], "quantity": 0, "calorie": item["calorie"]}
         return new_cart
 
     def is_item_in_cart(self, id: str) -> bool:
@@ -61,23 +60,20 @@ class UserSession:
         """
         return id in self.cart
 
-    def add_new_item(self, id: str, name: str, price: int, quantity: int, discount: float = 0.0, tax_rate: float = 0.05) -> None:
+    def add_new_item(self, id: str, name: str, quantity: int, calorie: int) -> None:
         """
         Creates a new item to add to the user's cart.
 
         args:
             - id: The id of the item.
             - name: The name of the item.
-            - price: The price of the item.
             - quantity: The quantity of the item.
-            - discount: The discount of the item.
-            - tax_rate: The tax rate of the item.
+            - calorie: The number of calories in the item.
 
         returns:
             - None
         """
-        self.cart[id] = {"name": name, "price": price, "quantity": quantity,
-                         "discount": discount, "tax_rate": tax_rate}
+        self.cart[id] = {"name": name, "quantity": quantity, "calorie": calorie}
 
     def update_item_quantity(self, id: str, change_to_quantity: int) -> None:
         """
@@ -101,11 +97,11 @@ class UserSession:
         """
         del self.cart[id]
 
-    def update_total_cost(self) -> None:
+    def update_total_calories(self) -> None:
         """
-        Updates the total cost of the user's cart.
+        Updates the total calories of the user's cart.
         """
-        self.total_cost = calculate_total_cost(self.cart)
+        self.total_calories = calculate_total_calories(self.cart)
 
     def submit_cart(self) -> None:
         """
@@ -117,7 +113,7 @@ class UserSession:
         returns:
             - None
         """
-        self.update_total_cost()
+        self.update_total_calories()
         self.date = datetime.now()
 
 
