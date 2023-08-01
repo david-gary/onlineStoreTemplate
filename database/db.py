@@ -27,11 +27,12 @@ class Database:
     # ----------------- FOOD ---------------------
     # --------------------------------------------
 
-    def insert_new_item(self, item_name: str, info: str, calorie: int, protein: int, carbs: int, allergy: str) -> None:
+    def insert_new_item(self, transaction_id: int, item_name: str, info: str, calorie: int, protein: int, carbs: int, allergy: str) -> None:
         """
         Inserts a new item_item into the database.
 
         args:
+            - transaction_id: The transaction id of the log.
             - item_name: The name of the item.
             - info: The info of the item.
             - calorie: The calories in an item.
@@ -43,7 +44,8 @@ class Database:
             - None
         """
         self.cursor.execute(
-            "INSERT INTO inventory (item_name, info, calorie, protein, carbs, allergy) VALUES (?, ?, ?, ?, ?, ?)", (item_name, info, calorie, protein, carbs, allergy))
+            "INSERT INTO inventory (transaction_id, item_name, info, calorie, protein, carbs, allergy) VALUES (?, ?, ?, ?, ?, ?)", 
+            (transaction_id, item_name, info, calorie, protein, carbs, allergy))
         self.connection.commit()
 
     # ------ Getter methods ------
@@ -59,6 +61,33 @@ class Database:
             - List of the full inventory table from the database.
         """
         self.cursor.execute("SELECT * FROM food")
+        return self.cursor.fetchall()
+    
+    def get_transaction_id_by_log_id(self, log_id: int):
+        """
+        Gets the transaction id for a log from the database.
+
+        args:
+            - log_id: The id of the log whose transaction id to get.
+
+        returns:
+            - The transaction id for the sale with the given id.
+        """
+        self.cursor.execute("SELECT transaction_id FROM logs WHERE log_id = ?", (log_id,))
+        return self.cursor.fetchone()
+    
+    def get_logs_by_transaction_id(self, transaction_id: int):
+        """
+        Gets the logs for a transaction from the database.
+
+        args:
+            - transaction_id: The id of the transaction whose sales to get.
+
+        returns:
+            - The logs for the transaction with the given id.
+        """
+        self.cursor.execute(
+            "SELECT * FROM logs WHERE transaction_id = ?", (transaction_id,))
         return self.cursor.fetchall()
 
     def get_all_item_ids(self):
@@ -130,6 +159,21 @@ class Database:
         return self.cursor.fetchone()
 
     # ------ Setter methods ------
+
+    def set_sale_transaction_id(self, log_id: int, new_transaction_id: int):
+        """
+        Updates the transaction id of a log in the database.
+
+        args:
+            - log_id: The id of the log to update.
+            - new_transaction_id: The new transaction id of the log.
+
+        returns:
+            - None
+        """
+        self.cursor.execute(
+            "UPDATE logs SET transaction_id = ? WHERE id = ?", (new_transaction_id, log_id))
+        self.connection.commit()
 
     def set_item_name(self, item_id: int, new_name: str):
         """

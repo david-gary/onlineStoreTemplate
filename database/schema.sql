@@ -20,6 +20,7 @@ CREATE TABLE users (
 
 CREATE TABLE logs (
     log_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    transaction_id VARCHAR(255) NOT NULL,
     username VARCHAR(255) NOT NULL,
     item_id INTEGER NOT NULL,
     quantity INTEGER NOT NULL,
