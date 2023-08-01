@@ -44,7 +44,7 @@ class Database:
             - None
         """
         self.cursor.execute(
-            "INSERT INTO inventory (log_id, item_name, info, calorie, protein, carbs, allergy) VALUES (?, ?, ?, ?, ?, ?)", 
+            "INSERT INTO food (log_id, item_name, info, calorie, protein, carbs, allergy) VALUES (?, ?, ?, ?, ?, ?)", 
             (log_id, item_name, info, calorie, protein, carbs, allergy))
         self.connection.commit()
 
