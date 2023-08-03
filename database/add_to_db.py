@@ -1,16 +1,26 @@
-import pandas as pd
-from database.db import Database
+import csv
+import sqlite3
 
-def csv_to_database():
-    """
-    A function that imports foods_table.csv into the store_records.db file via Database
+# Connect to database
+connection = sqlite3.connect("store_records.db")
 
-    """
+# Create cursor
+cursor = connection.cursor()
 
-    foods = pd.read_csv('foods_table.csv')
-    for index, row in foods.iterrows():
-        Database.insert_new_item(row['item_name'],row['info'],row['calorie'],row['protein'],row['carbs'],row['allergy'])
+# Open and read csv
+file = open('foods_table.csv')
+contents = csv.reader(file)
 
+insert_statement = "INSERT into `food` (item_name, info, calorie, protein, carbs, allergy, image_url, category) VALUES(?,?,?,?,?,?,?,?)"
+
+cursor.executemany(insert_statement, contents)
+
+select_all = "SELECT * FROM `food`"
+rows = cursor.execute(select_all).fetchall()
+
+connection.commit()
+
+connection.close()
 
 
 

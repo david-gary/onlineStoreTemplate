@@ -1,46 +1,46 @@
-item_name,info,calorie,protein,carbs,allergy
-Apple,A tasty red fruit!,95,1,25,
-Avocado,A good fat that goes great on toast.,,,
-Banana,It has potassium and is great with just about anything.,,,
-Blackberries,A tarty flavored fruit.,,,
-Blueberries,A common sweet berry!,,,
-Bread,Great source of carbs which can be used to construct lots of meals!,,,
-Broccoli,Very healthy vegetable that goes great with cheese.,,,
-Butter,Makes bread or vegetables taste better. Just don't overuse!,,,
-Carrots,Orange vegetable great for eyesight!,,,
-Cheese,Dairy product that goes great with most meats.,,,
-Chicken,A white meat that has a large variety of preparation methods.,,,
-Corn,A sweet vegetable. Eat it on the cob or on the plate!,,,
-Cucumber,This vegetable is great in salads.,,,
-Grapefruit,A citrusy fruit that's like the brother of the orange.,,,
-Grapes,A classic berry which is one of the first to ever be cultivated!,,,
-Green Beans,Green vegetable that goes great with butter and salt.,,,
-Green Pepper,This pepper goes great in any Mexican food!,,,
-Grits,Southerners enjoy this classic side that's great with cheese.,,,
-Ice Cream,Watch the sugar intake but it's a sweet treat for a good occasion!,,,
-Lamb,Very good source of protein and tastes fantastic.,,,
-Lettuce,This can be used in almost anything and has a fresh taste!,,,
-Mango,A sweet and refreshing fruit that tastes like a mix of several others.,,,
-Milk,Comes from the cow and goes great with breakfast and in baking.,,,
-Oats,A very healthy way to start the day. Try mixing in cinnamon!,,,
-Onion,Goes great when cooked and mixed with meat.,,,
-Orange,The classic citrus fruit. Try it as juice in the morning!,,,
-Pasta,Good source of carbs and enjoy with tomato or Alfredo sauce!,,,
-Pear,Another sweet fruit but with an interesting shape.,,,
-Peas,Try with carrots for a classic healthy combination!,,,
-Pineapple,A sweet tropical fruit that produces some great drinks.,,,
-Popcorn,Great for movie night. Just try not to mindlessly eat!,,,
-Pork,Great source of protein at the dinner table!,,,
-Potato,Contains tons of daily nutrients and is a great source of carbs.,,,
-Red Pepper,This pepper has a kick to it. Pair it with other colored variants!,,,
-Rice,Very rich source of carbs which can go with most proteins very well!,,,
-Salmon,A healthy seafood option to enjoy!,,,
-Spinach,Not a big fan favorite but mix with a white sauce in a pasta dish and it's fantastic.,,,
-Steak,A classic meat option for dinnertime. One of the best loved classics for grilling night.,,,
-Strawberry,A very sweet fruit that goes well in desserts!,,,
-Tomato,People will debate over if it's a fruit or vegetable but either way it's great for vitamin C.,,,
-Tortilla,The basis of wonderful Mexican dishes. A good source of carbs!,,,
-Tuna,A lower priced seafood option to enjoy on sandwiches or in sushi!,,,
-Turkey,A very healthy protein that can be swapped out with beef to cut cholesterol.,,,
-Whey Protein,A great boost for muscles especially around workout time! Mix into a shake!,,,
-Yogurt,A sweet snack which is also an immunity booster!,,,
+item_name,info,calorie,protein,carbs,allergy,image_url,category
+Apple,A tasty red fruit!,95,1,25,,static/images/apple.jpeg,Fruits
+Avocado,A good fat that goes great on toast.,95,1,25,,static/images/apple.jpeg,Fruits
+Banana,It has potassium and is great with just about anything.,95,1,25,,static/images/apple.jpeg,Fruits
+Blackberries,A tarty flavored fruit.,95,1,25,,static/images/apple.jpeg,Fruits
+Blueberries,A common sweet berry!,95,1,25,,static/images/apple.jpeg,Fruits
+Bread,Great source of carbs which can be used to construct lots of meals!,95,1,25,,static/images/apple.jpeg,Fruits
+Broccoli,Very healthy vegetable that goes great with cheese.,95,1,25,,static/images/apple.jpeg,Fruits
+Butter,Makes bread or vegetables taste better. Just don't overuse!,95,1,25,,static/images/apple.jpeg,Fruits
+Carrots,Orange vegetable great for eyesight!,95,1,25,,static/images/apple.jpeg,Fruits
+Cheese,Dairy product that goes great with most meats.,95,1,25,,static/images/apple.jpeg,Fruits
+Chicken,A white meat that has a large variety of preparation methods.,95,1,25,,static/images/apple.jpeg,Fruits
+Corn,A sweet vegetable. Eat it on the cob or on the plate!,95,1,25,,static/images/apple.jpeg,Fruits
+Cucumber,This vegetable is great in salads.,95,1,25,,static/images/apple.jpeg,Fruits
+Grapefruit,A citrusy fruit that's like the brother of the orange.,95,1,25,,static/images/apple.jpeg,Fruits
+Grapes,A classic berry which is one of the first to ever be cultivated!,95,1,25,,static/images/apple.jpeg,Fruits
+Green Beans,Green vegetable that goes great with butter and salt.,95,1,25,,static/images/apple.jpeg,Fruits
+Green Pepper,This pepper goes great in any Mexican food!,95,1,25,,static/images/apple.jpeg,Fruits
+Grits,Southerners enjoy this classic side that's great with cheese.,95,1,25,,static/images/apple.jpeg,Fruits
+Ice Cream,Watch the sugar intake but it's a sweet treat for a good occasion!,95,1,25,,static/images/apple.jpeg,Fruits
+Lamb,Very good source of protein and tastes fantastic.,95,1,25,,static/images/apple.jpeg,Fruits
+Lettuce,This can be used in almost anything and has a fresh taste!,95,1,25,,static/images/apple.jpeg,Fruits
+Mango,A sweet and refreshing fruit that tastes like a mix of several others.,95,1,25,,static/images/apple.jpeg,Fruits
+Milk,Comes from the cow and goes great with breakfast and in baking.,95,1,25,,static/images/apple.jpeg,Fruits
+Oats,A very healthy way to start the day. Try mixing in cinnamon!,95,1,25,,static/images/apple.jpeg,Fruits
+Onion,Goes great when cooked and mixed with meat.,95,1,25,,static/images/apple.jpeg,Fruits
+Orange,The classic citrus fruit. Try it as juice in the morning!,95,1,25,,static/images/apple.jpeg,Fruits
+Pasta,Good source of carbs and enjoy with tomato or Alfredo sauce!,95,1,25,,static/images/apple.jpeg,Fruits
+Pear,Another sweet fruit but with an interesting shape.,95,1,25,,static/images/apple.jpeg,Fruits
+Peas,Try with carrots for a classic healthy combination!,95,1,25,,static/images/apple.jpeg,Fruits
+Pineapple,A sweet tropical fruit that produces some great drinks.,95,1,25,,static/images/apple.jpeg,Fruits
+Popcorn,Great for movie night. Just try not to mindlessly eat!,95,1,25,,static/images/apple.jpeg,Fruits
+Pork,Great source of protein at the dinner table!,95,1,25,,static/images/apple.jpeg,Fruits
+Potato,Contains tons of daily nutrients and is a great source of carbs.,95,1,25,,static/images/apple.jpeg,Fruits
+Red Pepper,This pepper has a kick to it. Pair it with other colored variants!,95,1,25,,static/images/apple.jpeg,Fruits
+Rice,Very rich source of carbs which can go with most proteins very well!,95,1,25,,static/images/apple.jpeg,Fruits
+Salmon,A healthy seafood option to enjoy!,95,1,25,,static/images/apple.jpeg,Fruits
+Spinach,Not a big fan favorite but mix with a white sauce in a pasta dish and it's fantastic.,95,1,25,,static/images/apple.jpeg,Fruits
+Steak,A classic meat option for dinnertime. One of the best loved classics for grilling night.,95,1,25,,static/images/apple.jpeg,Fruits
+Strawberry,A very sweet fruit that goes well in desserts!,95,1,25,,static/images/apple.jpeg,Fruits
+Tomato,People will debate over if it's a fruit or vegetable but either way it's great for vitamin C.,95,1,25,,static/images/apple.jpeg,Fruits
+Tortilla,The basis of wonderful Mexican dishes. A good source of carbs!,95,1,25,,static/images/apple.jpeg,Fruits
+Tuna,A lower priced seafood option to enjoy on sandwiches or in sushi!,95,1,25,,static/images/apple.jpeg,Fruits
+Turkey,A very healthy protein that can be swapped out with beef to cut cholesterol.,95,1,25,,static/images/apple.jpeg,Fruits
+Whey Protein,A great boost for muscles especially around workout time! Mix into a shake!,95,1,25,,static/images/apple.jpeg,Fruits
+Yogurt,A sweet snack which is also an immunity booster!,95,1,25,,static/images/apple.jpeg,Fruits
