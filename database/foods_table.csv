@@ -1,4 +1,5 @@
-Apple,A tasty red fruit!,95,1,25
+item_name,info,calorie,protein,carbs,allergy
+Apple,A tasty red fruit!,95,1,25,
 Avocado,A good fat that goes great on toast.,,,
 Banana,It has potassium and is great with just about anything.,,,
 Blackberries,A tarty flavored fruit.,,,
