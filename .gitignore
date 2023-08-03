@@ -13,4 +13,3 @@ __pycache__
 *.o
 
 # Project specific files and folders to ignore
-reports
