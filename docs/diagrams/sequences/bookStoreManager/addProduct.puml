@@ -1,0 +1,12 @@
+@startuml
+actor "Bookstore Manager" as manager
+participant "Web Application" as webapp
+database "Database" as db
+
+manager -> webapp: Click "Add Product"
+webapp -> manager: Display Product Form
+manager -> webapp: Fill Product Details
+webapp -> db: Add Product to Database
+db --> webapp: Product Added
+webapp --> manager: Product Added/Error
+@enduml

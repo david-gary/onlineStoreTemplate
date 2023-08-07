@@ -1,0 +1,11 @@
+@startuml
+actor "Customer" as customer
+participant "Web Application" as webapp
+database "Database" as db
+
+
+customer -> webapp: Click "Profile"
+webapp -> db: Fetch Profile Information
+db --> webapp: Order Profile Data
+webapp --> customer: Display Profile Information
+@enduml

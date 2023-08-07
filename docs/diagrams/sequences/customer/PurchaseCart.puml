@@ -1,0 +1,19 @@
+@startuml
+
+actor Customer
+participant "Bookstore Website" as Website
+database "Customer Database" as db
+control "PurchaseCart" as PurchaseCart
+
+Customer -> Website: Browse books
+Website -> Customer: Display available books
+Customer -> Website: Choose books to purchase
+Website -> Customer: Display cart and total
+Customer -> Website: Proceed to checkout
+Website -> PurchaseCart: Create order
+PurchaseCart -> db: Update inventory
+db --> PurchaseCart: Inventory updated
+PurchaseCart --> Website: Order confirmation
+Website --> Customer: Order confirmation message
+
+@enduml

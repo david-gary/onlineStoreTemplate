@@ -42,6 +42,12 @@ class UserSession:
             new_cart[item["id"]] = {"name": item["item_name"], "price": item["price"], "quantity": 0,
                                     "discount": 0, "tax_rate": 0}
         return new_cart
+    
+    def reset_cart(self):
+        """
+        Reset the user's cart
+        """
+        self.cart = self.empty_cart()
 
     def is_item_in_cart(self, id: str) -> bool:
         """
@@ -71,7 +77,7 @@ class UserSession:
             - None
         """
         self.cart[id] = {"name": name, "price": price, "quantity": quantity,
-                         "discount": discount, "tax_rate": tax_rate}
+                        "discount": discount, "tax_rate": tax_rate}
 
     def update_item_quantity(self, id: str, change_to_quantity: int) -> None:
         """
@@ -81,10 +87,10 @@ class UserSession:
             - id: The id of the item.
             - quantity: The quantity of the item.
         """
-        if self.cart[id]["quantity"] + change_to_quantity <= 0:
+        if change_to_quantity <= 0:
             self.remove_item(id)
         else:
-            self.cart[id]["quantity"] += change_to_quantity
+            self.cart[id]["quantity"] = change_to_quantity
 
     def remove_item(self, id: str) -> None:
         """
@@ -100,7 +106,44 @@ class UserSession:
         Updates the total cost of the user's cart.
         """
         self.total_cost = calculate_total_cost(self.cart)
+        
+    def get_cart_with_quantity(self) -> dict:
+        """
+        Returns the items in the cart with quantity over 0.
+        
+        returns:
+            - Items in the cart with quantity > 0.
+        """
+        full_cart = self.cart.copy()
+        items_to_remove = []
+        
+        for item_id, item in self.cart.items():
+            if int(item['quantity']) <= 0:
+                items_to_remove.append(item_id)
+            else:
+                price = float(item['price'])
+                quantity = int(item['quantity'])
+                discount = float(item['discount'])
+                tax_rate = float(item['tax_rate'])
+                subtotal = (price * quantity) * (1 - discount) * (1 + tax_rate)
+                item['subtotal'] = round(subtotal, 2)
+        for item_id in items_to_remove:
+            del full_cart[item_id]
+        return full_cart
+    
+    def update_date(self) -> None:
+        """
+        Update the data of the sale.
 
+        args:
+            - None
+
+        returns:
+            - None
+        """
+        now = datetime.now()
+        self.date = now.strftime('%m-%d-%Y %H:%M:%S') # Otherwise it would display decimals for the seconds
+        
     def submit_cart(self) -> None:
         """
         Called when the order is submitted. Finalizes user session details.

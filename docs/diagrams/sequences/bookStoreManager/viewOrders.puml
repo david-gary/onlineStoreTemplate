@@ -1,0 +1,10 @@
+@startuml
+actor "Bookstore Manager" as manager
+participant "Web Application" as webapp
+database "Database" as db
+
+manager -> webapp: Click "Orders"
+webapp -> db: Fetch All Orders
+db --> webapp: Order Data
+webapp --> manager: Display Order List
+@enduml

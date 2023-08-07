@@ -1,20 +1,27 @@
 @startuml customer
+skinparam actorStyle awesome
 left to right direction
 actor Customer
 rectangle "System" as system {
   (Login)
   (Register)
   (View Cart)
-  (View Items)
+  (Search Items)
   (View Orders)
+  (Purchase Cart)
   (View Profile)
+  (authentication.auth_tools)
+  (View Wishlist)
   (Logout)
 }
 Customer --> (Login)
 Customer --> (Register)
 Customer --> (View Cart)
-Customer --> (View Items)
+(View Cart) --> (Purchase Cart)
+Customer --> (Search Items)
 Customer --> (View Orders)
 Customer --> (View Profile)
+(View Profile) --> authentication.auth_tools
+Customer --> (View Wishlist)
 Customer --> (Logout)
 @enduml

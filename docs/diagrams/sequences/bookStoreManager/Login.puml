@@ -1,0 +1,10 @@
+@startuml
+actor "Bookstore Manager" as manager
+participant "Web Application" as webapp
+database "Database" as db
+
+manager -> webapp: Enter Username & Password
+webapp -> db: Check Credentials
+db --> webapp: Valid/Invalid
+webapp --> manager: Grant Permission/Error
+@enduml

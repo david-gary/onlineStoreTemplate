@@ -1,0 +1,12 @@
+@startuml
+actor Customer
+participant "Bookstore Website" as Website
+database "Customer Database" as db
+control "SearchItem" as SearchItem
+
+Website -> Customer: Display search form
+Customer -> Website: Enter search keywords
+Website -> SearchItem: Perform search
+SearchItem --> Website: Return search results
+Website -> Customer: Display search results
+@enduml

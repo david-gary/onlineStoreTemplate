@@ -1,27 +1,32 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<div class="row" id="info_row">
-    <div class="col-md-6">
-        <h3>Welcome!</h3>
+<div class="row" id ="register_page">
+    <div class="col-md-9 mx-auto">
+        <h3>Welcome!</h3><br>
+        <!-- Error message: if the username is 'admin' -->
+        {% if register_error %}
+        <p class="alert alert-danger">Customers can't have 'admin' or 'default' in their username. Please choose a different username.</p>
+        {% endif %}
+
         <form action="/register" method="POST">
-            <div class="form-group" id="info_form_group">
+            <div class="form-group" id="info_box">
                 <label for="username">Username</label>
                 <input type="text" name="username" id="username" class="form-control">
             </div>
-            <div class="form-group" id="info_form_group">
+            <div class="form-group" id="info_box">
                 <label for="password">Password</label>
                 <input type="password" name="password" id="password" class="form-control">
             </div>
-            <div class="form-group" id="info_form_group">
+            <div class="form-group" id="info_box">
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" class="form-control">
             </div>
-            <div class="form-group" id="info_form_group">
+            <div class="form-group" id="info_box">
                 <label for="first_name">First Name</label>
                 <input type="text" name="first_name" id="first_name" class="form-control">
             </div>
-            <div class="form-group" id="info_form_group">
+            <div class="form-group" id="info_box">
                 <label for="last_name">Last Name</label>
                 <input type="text" name="last_name" id="last_name" class="form-control">
             </div>
