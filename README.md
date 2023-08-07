@@ -2,7 +2,7 @@
 
 ## Description
 
-This repository contains template code for a simple online store, built for my students in ITSC 3155 - Software Engineering at UNC Charlotte. Since the code is written as a starting template for students' group final projects, this repository should not be seen as a complete, production-ready online store. Functional features like user session management, database access, unit testing, and server-side rendering are included but kept at an abstract level. Users are instructed to fork this repository and customize it to the needs of their own project.
+This repository contains code for an online bookstore created by our team based on the ITSC 3155 template. the website displays list of items in stock but one must be logged in to place an order. A customer can log in using the login button or register a new user using the register button.
 
 ## How to Use
 
@@ -22,7 +22,7 @@ pip3 install -r requirements.txt
 The project uses a SQLite database, which is stored in the `database` directory. To create or reset the database, navigate to the `database` directory and run the following command:
 
 ```bash
-python3 reset_database.py
+python3 ./database/reset_database.py
 # Note: depending on your system, you may need to use `python3.10` or `py` instead of `python3`
 ```
 

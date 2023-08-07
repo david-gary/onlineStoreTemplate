@@ -1,4 +1,4 @@
-from core.utils import dict_factory, calculate_cost
+from core.utils import dict_factory, calculate_cost, generate_transaction_id
 import datetime as dt
 import sqlite3
 
@@ -27,7 +27,7 @@ class Database:
     # ----------------- INVENTORY ----------------
     # --------------------------------------------
 
-    def insert_new_item(self, item_name: str, price: int, info: str) -> None:
+    def insert_new_item(self, item_name: str, price: int, info: str, stock: int, image_url: str, category: str) -> None:
         """
         Inserts a new item_item into the database.
 
@@ -40,7 +40,7 @@ class Database:
             - None
         """
         self.cursor.execute(
-            "INSERT INTO inventory (item_name, price, info) VALUES (?, ?, ?)", (item_name, price, info))
+            "INSERT INTO inventory (item_name, price, info, stock, image_url, category) VALUES (?, ?, ?, ?, ?, ?)", (item_name, price, info, stock, image_url, category))
         self.connection.commit()
 
     # ------ Getter methods ------
@@ -81,7 +81,7 @@ class Database:
         returns:
             - The item with the given id.
         """
-        self.cursor.execute("SELECT * FROM inventory WHERE id = ?", (item_id,))
+        self.cursor.execute("SELECT item_name FROM inventory WHERE id = ?", (item_id,))
         return self.cursor.fetchone()
 
     def get_item_info_by_id(self, item_id: int):
@@ -168,7 +168,7 @@ class Database:
             - None
         """
         self.cursor.execute(
-            "UPDATE inventory SET name = ? WHERE id = ?", (new_name, item_id))
+            "UPDATE inventory SET item_name = ? WHERE id = ?", (new_name, item_id))
         self.connection.commit()
 
     def set_item_info(self, item_id: int, new_info: str):
@@ -190,7 +190,7 @@ class Database:
         """
         Updates the price of an item in the database.
 
-        args:
+        args:f
             - item_id: The id of the item to update.
             - new_price: The new price of the item.
 
@@ -425,6 +425,17 @@ class Database:
         self.connection.commit()
 
     # ------ Getter methods ------
+    def get_new_sale_transaction_id(self):
+        """
+        Create a new unique transaction ID.
+
+        args:
+            - None
+
+        returns:
+            - Unique transaction ID.
+        """
+        return generate_transaction_id(5)
 
     def get_full_sales_information(self):
         """

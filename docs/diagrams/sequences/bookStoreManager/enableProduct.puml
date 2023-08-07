@@ -1,0 +1,14 @@
+@startuml
+actor "Bookstore Manager" as manager
+participant "Web Application" as webapp
+database "Database" as db
+
+manager -> webapp: Click Product Row
+webapp -> db: Fetch Product Details
+db --> webapp: Product Data
+webapp -> manager: Display Product Details
+manager -> webapp: Click "Enable"
+webapp -> db: Update Product Enabled Field
+db --> webapp: Product Enabled
+webapp --> manager: Product Enabled
+@enduml

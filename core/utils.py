@@ -33,7 +33,8 @@ def calculate_cost(price: int, quantity: int, discount: float = 0.0, tax_rate: f
     returns:
         - The cost of the item as a float.
     """
-    return (price * quantity) * (1 - discount) * (1 + tax_rate)
+    subtotal = (price * quantity) * (1 - discount) * (1 + tax_rate)
+    return round(subtotal, 2)
 
 
 def calculate_total_cost(items: dict) -> float:
@@ -47,12 +48,12 @@ def calculate_total_cost(items: dict) -> float:
         - The total cost of the sale as a float.
     """
     total_cost = 0
-    print(items)
+    #print(items)
     for i in items:
         item = items[i]
         total_cost += calculate_cost(float(item["price"]), int(item["quantity"]),
-                                     float(item["discount"]), int(item["tax_rate"]))
-    return total_cost
+                                     float(item["discount"]), float(item["tax_rate"]))
+    return round(total_cost, 2)
 
 
 def generate_unique_id() -> str:
@@ -66,3 +67,15 @@ def generate_unique_id() -> str:
         - A unique ID as a string.
     """
     return str(uuid.uuid4())
+
+def generate_transaction_id(length) -> str:
+    """
+    Generates a unique transaction ID with 5 characters.
+
+    args:
+        - None
+
+    returns:
+        - A unique transaction ID as a string.
+    """
+    return str(uuid.uuid4())[:length]

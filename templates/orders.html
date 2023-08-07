@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h1>Past Orders</h1><br>
+<div id="product_page">
+    <hr> 
+    {% set transactions = {} %}
+    {% for order in sales %}
+        {% set transaction_id = order['transaction_id'] %}
+        {% set _ = transactions.setdefault(transaction_id, []) %}
+        {% set _ = transactions[transaction_id].append(order) %}
+    {% endfor %}
+
+    {% if no_user_error %}
+        <h3>Need to login into an account</h3>
+    {% else %}
+        {% if transactions.items()|length == 0 %}
+            <p>No orders found.</p>
+        {% else %}
+            {% for transaction_id, orders in transactions.items() %}
+                <h2>Transaction ID: {{ transaction_id }}</h2>
+                <table class="order_table">
+                    <tr>
+                        <th>Item ID</th>
+                        <th>Quantity</th>
+                        <th>Sale Date</th>
+                        <th>Cost</th>
+                    </tr>
+                    {% for order in orders %}
+                    <tr>
+                        <td>{{ order['item_id'] }}</td>
+                        <td>{{ order['quantity'] }}</td>
+                        <td>{{ order['sale_date'] }}</td>
+                        <td>${{ '{:.2f}'.format(order['cost']) }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            {% endfor %}
+        {% endif %}
+    {% endif %}
+</div>
+
+{% endblock %}
