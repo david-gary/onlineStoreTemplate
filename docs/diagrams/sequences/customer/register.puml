@@ -1,0 +1,12 @@
+@startuml
+actor Customer
+participant "Bookstore Website" as Website
+database "Customer Database" as db
+
+Customer -> Website: Go to registration page
+Website -> Customer: Display registration form
+Customer -> Website: Fill in registration details
+Website -> db: Save customer details
+db --> Website: Confirmation
+Website --> Customer: Display confirmation message
+@enduml

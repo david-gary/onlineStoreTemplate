@@ -1,0 +1,140 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="navbar">
+    <a href="#" onclick="showSection('add')">Add New Product</a>
+    <a href="#" onclick="showSection('update')">Update Product</a>
+    <a href="#" onclick="showSection('view-all')">View Inventory</a>
+</div>
+
+<div class="container">
+    
+    <!-- Add New Product -->
+    <div class="admin_selection" id="add-section">
+        <form action="/admin_panel/add-product" method="post">
+            <div class="admin_panel_menu">
+                <h2>Add New Product</h2><br>
+                <!-- Errors message display -->
+                {% if empty_field %}
+                    <p class="alert alert-danger" id="admin_warning">Please complete all fields</p>
+                {% endif %}
+                {% if negative_number %}
+                    <p class="alert alert-danger" id="admin_warning">'Price' or 'Stock' can't be negative</p>
+                {% endif %}
+                {% if stock_not_integer %}
+                    <p class="alert alert-danger" id="admin_warning">'Stock' needs to be an integer</p>
+                {% endif %}
+                {% if product_added %}
+                    <hr>
+                    <h3>Product added successfully</h3>
+                    <hr>
+                {% endif %}
+                <label id="admin_info">Item Name: </label><br><input type="text" name="itemname" id="admin_text" placeholder="Enter Item Name"><br>
+                <label id="admin_info">Info: </label><br><textarea name="info" id="admin_text" placeholder="Enter Info" style="width: 60%"></textarea><br>
+                <label id="admin_info">Price: </label><br><input type="number" name="price" id="admin_text" placeholder="Enter Price" step="any"><br>
+                <label id="admin_info">Stock: </label><br><input type="number" name="stock" id="admin_text" placeholder="Enter Stock Amount" step="any"><br>
+                <label id="admin_info">Image URL: </label><br><input type="text" name="image_url" id="admin_text" placeholder="Enter Image Url"><br>
+                <label id="admin_info">Category: </label><br><input type="text" name="category" id="admin_text" placeholder="Enter Category"><br>
+                <button type="submit" class="btn btn-primary" id="admin_button">Add Product</button><br>
+            </div>
+        </form>
+    </div>
+
+    <!-- Update Product -->
+    <div class="admin_selection" id="update-section">
+        <form action="/admin_panel/update-product" method="post">
+            <div class="admin_panel_menu">
+                <h2>Update product</h2><br>
+                <label id="admin_info">Item ID: </label><br><input type="text" name="itemid" id="admin_text" placeholder="Enter Item id"><br>
+                <button type="submit" class="btn btn-primary" name="button_send" value="find_product" id="admin_button">Find Product</button><br>
+                {% if item_not_found %}
+                    <hr>
+                    <h2>Item not found</h2>
+                {% endif %}
+                {% if item_found %}
+                    <hr>
+                    <h2>Item Found</h2>
+                    <hr>
+                    <!-- Display information plus textfield for updated value -->
+                    <label id="admin_info"><b>ID: {{ item_id }}</b></label><br>
+                    <input type="hidden" name="id_update" value="{{ item_id }}">
+                    <label id="admin_info"><b>Item Name: </b></label><br>{{ name }}<br>
+                    <input type="text" name="itemname_update" id="admin_text" placeholder="New Item Name"><br>
+                    <label id="admin_info"><b>Info: </b></label><br>{{ info }}<br>
+                    <textarea name="info_update" id="admin_text" placeholder="New Info" style="width: 60%"></textarea><br>
+                    <label id="admin_info"><b>Price: </b></label><br>{{ price }}<br>
+                    <input type="text" name="price_update" id="admin_text" placeholder="New Price"><br>
+                    <label id="admin_info"><b>Stock: </b></label><br>{{ stock }}<br>
+                    <input type="text" name="stock_update" id="admin_text" placeholder="New Stock Amount"><br>
+                    <label id="admin_info"><b>Image Url: </b></label><br>{{ image_url }}<br>
+                    <input type="text" name="image_url_update" id="admin_text" placeholder="New Image Url"><br>
+                    <label id="admin_info"><b>Category: </b></label><br>{{ category }}<br>
+                    <input type="text" name="category_update" id="admin_text" placeholder="New Category"><br>
+                    <button type="submit" class="btn btn-primary" name="button_send" value="update_product" id="admin_button">Update Product</button><br>
+                {% endif %}
+            </div>
+        </form>
+    </div>
+
+    <!-- View All Products -->
+    <div class="admin_selection" id="view-all-section">
+        <form action="/admin_panel/view-inventory" method="POST">
+            <div class="admin_panel_menu" style="width: 90%;">
+                <h2>Inventory</h2><br>
+                <button type="submit" class="btn btn-primary" value="view_products" id="admin_button">View Inventory</button><br><br>
+                {% if inventory %}
+                    <table class="inventory_table">
+                        <tr>
+                            <th>ID</th>
+                            <th>Item Name</th>
+                            <th>Info</th>
+                            <th>Price</th>
+                            <th>Stock</th>
+                            <th>Category</th>
+                        </tr>
+                        {% for item in inventory %}
+                            <tr>
+                                <td>{{ item.id }}</td>
+                                <td>{{ item.item_name }}</td>
+                                <td>{{ item.info }}</td>
+                                <td>${{ '{:.2f}'.format(item.price) }}</td>
+                                <td>{{ item.stock }}</td>
+                                <td>{{ item.category }}</td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                {% endif %}
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    function hideAllSections() { // Hide all selections
+        const sections = document.querySelectorAll('.admin_selection');
+        for (let i = 0; i < sections.length; i++) {
+            sections[i].style.display = 'none';
+        }
+    }
+
+    function showSection(sectionId) { // Show a navbar selection
+        hideAllSections();
+        const sectionToShow = document.getElementById(`${sectionId}-section`);
+        if (sectionToShow) {
+            sectionToShow.style.display = 'block';
+            /*
+                If page is reloaded (because of a button or new information to display), keep the navbar selection to be shown
+                by storing it in the SessionStorage
+            */
+            sessionStorage.setItem('navbar-selection', sectionId); 
+        }
+    }
+
+    hideAllSections(); // Hide all selections by default
+    window.onload = function() { // On page reload, check SessionStotage for navbar selection to display
+            var section = sessionStorage.getItem('navbar-selection');
+            showSection(section);
+        };
+</script>
+
+{% endblock %}

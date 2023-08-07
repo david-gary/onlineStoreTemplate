@@ -1,0 +1,16 @@
+@startuml
+actor "Customer" as customer
+participant "Web Application" as webapp
+database "Database" as db
+
+customer -> Website: Log in
+Website -> customer: Prompt for login credentials
+customer -> Website: Provide login credentials
+Website -> db: Validate credentials
+db --> Website: Confirmation
+customer -> webapp: Click "Wishlist"
+Website --> customer: Redirect to Wishlist page
+Website -> db: Retrieve Wishlist items
+db --> Website: Wishlist items
+Website --> customer: Display Wishlist
+@enduml

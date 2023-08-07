@@ -1,3 +1,20 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.content {
+    margin-top: 30px;
+}
+
+h3 {
+    margin-bottom: 0;
+}
+
+.container-fluid {
+    padding: 0;
+}
+
 #index_buttons {
     padding-top: 15px;
     margin: 0 auto;
@@ -6,13 +23,33 @@
 }
 
 #login_button {
-    background-color: #4963f4;
+    background-color: #7c8acc;
     border-color: #ccc;
+	border-radius: 70%;
+    color: rgb(255, 255, 255);
+    width: 100px;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+#register_button {
+    background-color: #5b5e70;
+    border-color: #ccc;
+    border-radius: 70%;
     color: rgb(236, 236, 236);
     width: 100px;
     font-weight: bold;
-    margin-top: 10px;
+    margin-top: 15px;
     margin-bottom: 10px;
+}
+
+#checkout_page_button {
+    background-color: #7c8acc;
+    border-color: #ccc;
+    color: rgb(255, 255, 255);
+    width: auto;
+    font-weight: bold;
 }
 
 #info_row {
@@ -21,19 +58,21 @@
     width: 320px;
     background-color: #f5f5f5;
     border: 1px solid #ccc;
+    text-align: center;
+    justify-content: center;
 }
 
-#register_button {
-    background-color: #444654;
-    border-color: #ccc;
-    color: rgb(236, 236, 236);
-    width: 100px;
-    font-weight: bold;
-    margin-top: 10px;
-    margin-bottom: 10px;
+#register_page {
+    padding-top: 15px;
+    margin: 0 auto;
+    width: 420px;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    text-align: center;
 }
 
-#info_form_group {
+#info_box {
+    margin: 0 auto;
     margin-top: 10px;
     width: 200px;
 }
@@ -45,16 +84,16 @@
     width: 302px;
     background-color: #cac2c2;
     border: 1px solid rgb(178, 178, 178);
-    height: 500px;
+    height: 550px;
 }
 
 .product_card-img {
-    width: 300px;
+    width: auto;
     height: 300px;
+    padding-top: 15px;
 }
 
 .product_card-title {
-    /* Centered */
     text-align: center;
     font-size: 20px;
     font-weight: bold;
@@ -65,16 +104,22 @@
 .product_card-text {
     text-align: center;
     font-size: 15px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin: 10px 5px;
     font-style: italic;
-    height: 60px;
+    height: 75px;
+}
+
+.product_card-stock {
+    text-align: center;
+    font-size: 15px;
+    margin: 10px 5px;
+    font-style: italic;
 }
 
 .product_card-price {
     text-align: center;
     font-size: 15px;
-    margin-top: 10px;
+    margin-top: 25px;
     margin-bottom: 10px;
     font-weight: bold;
     font-style: italic;
@@ -91,25 +136,6 @@
     text-align: center;
 }
 
-
-#count_row {
-    margin: 0 auto;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: 300px;
-    background-color: #fff9f9;
-    border: 1px solid rgb(178, 178, 178);
-    height: 50px;
-
-}
-
-.quanity {
-    margin-left: 130px;
-    margin-right: 130px;
-    text-align: center;
-    font-size: 20px;
-}
-
 #checkout_button {
     background-color: #49f4d8;
     border-color: #ccc;
@@ -119,4 +145,106 @@
     margin-top: 10px;
     margin-bottom: 10px;
     text-align: center;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+
+/* Checkout Page Table */
+
+#product_page {
+    justify-content: center;
+}
+
+#cart-table-form {
+    min-width: 600px;
+    max-width: 900px;
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+}
+
+.cart-table th, .cart-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.cart-table th {
+    background-color: #f2f2f2;
+}
+
+.total-row {
+    font-weight: bold;
+}
+
+
+/* Order Page Table */
+
+.order_table {
+    width: 60%; 
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+
+.order_table tr, .order_table td, .order_table th {
+    padding: 8px 10px;
+}
+
+/* About us page styles */
+
+.about-section {
+    padding: 20px;
+	border-right: inset gray;
+	border-left: outset gray;
+	border-radius: 50px 0px 50px 0px;
+	margin-bottom:50px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    background-color: lightblue;
+}
+
+.section-title {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.section-content {
+    width: 100%;
+}
+
+.centered-section {
+    margin-top: 100px;
+    text-align: center;
+}
+
+#about_page h1 {
+    text-align: center;
+    margin-bottom: 50px;
+    color: purple;
+    text-decoration: underline;
+}
+
+#about_page h3 {
+    text-align: left;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+#about_page ul {
+    list-style: none;
+}
+#about_page p {
+    text-align: left;
+    margin-bottom: 20px;
+}
+#about_page li {
+    text-align: left;
+    margin-bottom: 10px;
 }
