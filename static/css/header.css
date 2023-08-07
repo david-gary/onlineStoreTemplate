@@ -1,0 +1,90 @@
+.header1 {
+    display: flex;
+    flex-direction: column;
+    background-color:#f5f5f5;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    min-height: 35vh;
+    font-family: Hack, monospace;
+    border: 2px solid;
+    border-right: inset gray;
+	border-left: outset gray;
+	border-radius: 50px 0px 50px 0px;
+	margin-top:20px;
+}
+
+body{
+    background-color: white;
+    font-family: 'Lato', sans-serif;
+    margin: 0px;
+    padding: 0px;
+
+}
+
+div {
+    color: #727272;
+    text-align: center;
+}
+
+pop {
+    margin: 16px;
+    font-size: 96px;
+    color: #ccc;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: all 1s ease-in-out;
+    position: relative;
+}
+
+pop::before {
+    content: attr(data-item);
+    transition: all 1s ease-in-out;
+    color: #8254ff;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 0;
+    overflow: hidden;
+}
+
+pop:hover::before {
+    width: 100%;
+}
+
+nav {
+    margin: 25px;
+    background: #8254ff;
+    padding: 0px;
+}
+
+nav .menuItems {
+    list-style: none;
+    display: flex;
+    padding-left: 0;
+    margin: 0 60px;
+}
+
+nav .menuItems li {
+    padding: 30px;
+}
+
+nav .menuItems space {
+    padding: 30px;
+}
+
+nav .menuItems li a {
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+    font-weight: 400;
+    transition: all 0.5s ease-in-out;
+    position: relative;
+    text-transform: uppercase;
+}
+
+nav .menuItems li:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,25 @@
+@startuml packages
+set namespaceSeparator none
+
+package "database" as database #lightblue {
+  rectangle "wishlist" as wishlist #lightgreen
+  rectangle "favourite" as favourite #lightgreen
+}
+
+package "authentication" as authentication #aliceblue {
+  rectangle "User Login" as login #lightgreen
+  rectangle "User Registration" as register #lightgreen
+}
+
+package "authentication.auth_tools" as authentication.auth_tools #aliceblue {
+  rectangle "Logout" as logout #lightgreen
+  rectangle "Email confirmation" as email #lightgreen
+  rectangle "Change password" as password #lightgreen
+  rectangle "Change username" as username #lightgreen
+}
+
+register --> login : Register an account
+login --> database : Database Storage for accounts
+login --> authentication.auth_tools : Tools for accounts
+
+@enduml

@@ -1,0 +1,23 @@
+@startuml BookStoreManager
+skinparam actorStyle awesome
+left to right direction
+actor BookStoreManager
+rectangle "System" as system #lightblue {
+ (Login)
+ (Add Product)
+ (Disable Product)
+ (Enable Product)
+ (Update Product)
+ (View Products)
+ (View Orders)
+ (Logout)
+}
+BookStoreManager --> (Login)
+BookStoreManager --> (Add Product)
+BookStoreManager --> (Disable Product)
+BookStoreManager --> (Enable Product)
+BookStoreManager --> (Update Product)
+BookStoreManager --> (View Products)
+BookStoreManager --> (View Orders)
+BookStoreManager --> (Logout)
+@enduml

@@ -1,0 +1,11 @@
+@startuml
+actor "Customer" as customer
+participant "Web Application" as webapp
+database "Database" as db
+
+
+customer -> webapp: Click "Cart"
+webapp -> db: Fetch Shopping Cart
+db --> webapp: Shopping Cart Data
+webapp --> customer: Display Shopping Cart
+@enduml

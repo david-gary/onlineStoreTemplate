@@ -1,0 +1,11 @@
+@startuml
+actor "Customer" as customer
+participant "Web Application" as webapp
+database "Database" as db
+
+
+customer -> webapp: Click "Orders"
+webapp -> db: Fetch Previous Orders
+db --> webapp: Order Data
+webapp --> customer: Display Orders
+@enduml

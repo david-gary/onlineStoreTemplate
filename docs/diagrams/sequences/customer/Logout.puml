@@ -1,0 +1,8 @@
+@startuml
+actor "Customer" as customer
+participant "Web Application" as webapp
+
+customer -> webapp: Click "Logout"
+webapp -> webapp: Clear Session
+webapp --> customer: Redirect to Login
+@enduml

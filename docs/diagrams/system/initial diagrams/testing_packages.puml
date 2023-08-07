@@ -1,0 +1,9 @@
+@startuml
+
+package "Testing" {
+    [auth_tests.py]
+    [core_tests.py]
+    [db_tests.py]
+}
+
+@enduml

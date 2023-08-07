@@ -1,0 +1,8 @@
+@startuml
+actor "Bookstore Manager" as manager
+participant "Web Application" as webapp
+
+manager -> webapp: Click "Logout"
+webapp -> webapp: Clear Session
+webapp --> manager: Redirect to Login
+@enduml

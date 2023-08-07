@@ -1,0 +1,25 @@
+@startuml packages
+set namespaceSeparator none
+
+package "database" as database #aliceblue {
+  package "database.db" as db #aliceblue {
+    rectangle "User Accounts" as users #lightgray
+    rectangle "Inventory" as inventory #lightgray
+    rectangle "Sales" as cart #lightgray
+    note "Wishlist" as wishlist #lightgray
+    note "Information" as info #lightgray
+  }
+  
+  
+  package "database.reset_database" as reset_database #aliceblue {
+    rectangle "Remove Database" as remove #lightgray
+    rectangle "Create Database" as create #lightgray
+    database "Starting Data" as starting #lightgray
+  }
+}
+remove --> db
+starting --> db
+create --> starting
+users --> wishlist
+users --> info
+@enduml
