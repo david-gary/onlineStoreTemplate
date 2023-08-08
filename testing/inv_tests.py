@@ -11,7 +11,7 @@ def inv_empty():
         - True if inventory is empty.
     """
 
-def inv_full():
+def inventory_contains_items():
     """
     Tests that the inventory is stocked with all necessary supplies.
 
@@ -21,6 +21,13 @@ def inv_full():
     returns:
         - True if inventory is fully stocked.
     """
+    db = Database("database/store_records.db")
+    if len(db.get_full_inventory()) > 0:
+        return True, "Items exist in inventory"
+    else:
+        message = f"Items not found in inventory. Found {len(db.get_full_inventory())} items."
+        return False, message
+    
 
 def inv_check():
     """
@@ -44,6 +51,12 @@ def inv_add():
     returns:
         - True if items can be added to inventory.
     """
+    db = Database("database/store_records.db")
+    try:
+        db.insert_new_item("item_name", 10, "item info")
+        return True, "Item successfully added"
+    except:
+        return False, "Item failed to add"
 
 def inv_remove():
     """

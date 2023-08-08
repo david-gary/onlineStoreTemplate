@@ -4,6 +4,7 @@ from datetime import datetime
 from testing.db_tests import test_init_db, test_get_inventory_exists, test_dict_factory_link, test_check_connection_threaded
 from testing.core_tests import test_init_sessions, test_add_new_session, test_get_session
 import os
+from testing.inv_tests import inventory_contains_items, inv_add
 
 # -------- Testing Function Constants --------
 
@@ -20,9 +21,13 @@ CORE_FUNCS = [test_init_sessions,
               test_add_new_session,
               test_get_session]
 
+INV_FUNCS = [inventory_contains_items,
+             inv_add]
+
 TESTING_FUNCTIONS = {"core": CORE_FUNCS,
                      "database": DB_FUNCS,
-                     "authentication": AUTH_FUNCS}
+                     "authentication": AUTH_FUNCS,
+                     "inventory":INV_FUNCS}
 
 
 def run_tests(test_type: str, test_funcs: list, report_file_path: str) -> int:

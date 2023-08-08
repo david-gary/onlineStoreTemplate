@@ -23,6 +23,7 @@ def sys_transaction():
         - True if user's items are in cart or ready for transaction. 
         (Either walletBalanceChange or cancelTransaction)
     """
+    Database()
 
 def sys_walletBalanceChange():
     """
