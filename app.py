@@ -4,17 +4,14 @@ from authentication.auth_tools import login_pipeline, update_passwords, hash_pas
 from database.db import Database
 from flask import Flask, render_template, request
 from core.session import Sessions
-from database import Database
 
 app = Flask(__name__)
 HOST, PORT = 'localhost', 8080
 global username, products, db, sessions
 username = 'default'
 db = Database('database/store_records.db')
-# products = db.get_full_inventory()
+products = db.get_full_inventory()
 # NEW CODE
-products_query = "SELECT * FROM inventory"
-products = db.execute_query(products_query)
 #
 sessions = Sessions()
 sessions.add_new_session(username, db)
