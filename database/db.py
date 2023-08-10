@@ -738,7 +738,7 @@ class Database:
     # ------------------ Wallet ------------------
     # --------------------------------------------
     def create_wallet(self, username, amount: int):
-        if self.get_wallet_amount_username == []:
+        if self.get_wallet_amount_username(username) == []:
             self.cursor.execute(
                 "INSERT INTO wallets (username, amount) VALUES (?, ?)", (username, amount))
             self.connection.commit()
