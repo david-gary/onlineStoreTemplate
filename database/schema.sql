@@ -28,3 +28,9 @@ CREATE TABLE sales (
     FOREIGN KEY (item_id) REFERENCES inventory(id)
 );
 
+CREATE TABLE wallets (
+    wallet_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username VARCHAR(255) NOT NULL,
+    amount INTEGER NOT NULL,
+    FOREIGN KEY (username) REFERENCES users(username)
+);

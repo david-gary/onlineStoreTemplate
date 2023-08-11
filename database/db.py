@@ -27,7 +27,7 @@ class Database:
     # ----------------- INVENTORY ----------------
     # --------------------------------------------
 
-    def insert_new_item(self, item_name: str, price: int, info: str) -> None:
+    def insert_new_item(self, item_name: str, price: int, info: str, stock=100, image_url="static/images/banana.jpeg", category="Food") -> None:
         """
         Inserts a new item_item into the database.
 
@@ -40,7 +40,7 @@ class Database:
             - None
         """
         self.cursor.execute(
-            "INSERT INTO inventory (item_name, price, info) VALUES (?, ?, ?)", (item_name, price, info))
+            "INSERT INTO inventory (item_name, price, info, stock, image_url, category) VALUES (?, ?, ?, ?, ?, ?)", (item_name, price, info, stock, image_url, category))
         self.connection.commit()
 
     # ------ Getter methods ------
@@ -246,6 +246,17 @@ class Database:
             "UPDATE inventory SET category = ? WHERE id = ?", (new_category, item_id))
         self.connection.commit()
 
+    # ------ Deleter methods -----
+    def delete_item_id(self, item_id: int):
+        """
+        Deletes an item from the inventory based on its id.
+        """
+        
+        self.cursor.execute(
+            "DELETE FROM inventory WHERE id = ?", (item_id, )
+        )
+        self.connection.commit()
+
     # --------------------------------------------
     # ------------------ Users -------------------
     # --------------------------------------------
@@ -399,6 +410,7 @@ class Database:
         self.cursor.execute(
             "UPDATE users SET last_name = ? WHERE username = ?", (new_last_name, username))
         self.connection.commit()
+        
 
     # --------------------------------------------
     # ------------------ Sales -------------------
@@ -624,6 +636,8 @@ class Database:
             "SELECT * FROM sales WHERE cost BETWEEN ? AND ?", (start_cost, end_cost))
         return self.cursor.fetchall()
 
+   
+
     # ------ Setter methods ------
 
     def set_sale_transaction_id(self, sale_id: int, new_transaction_id: int):
@@ -718,4 +732,34 @@ class Database:
 
         self.cursor.execute(
             "UPDATE sales SET cost = ? WHERE id = ?", (new_cost, sale_id))
+        self.connection.commit()
+
+    # --------------------------------------------
+    # ------------------ Wallet ------------------
+    # --------------------------------------------
+    def create_wallet(self, username, amount: int):
+        if self.get_wallet_amount_username(username) == []:
+            self.cursor.execute(
+                "INSERT INTO wallets (username, amount) VALUES (?, ?)", (username, amount))
+            self.connection.commit()
+
+    def get_wallet_amount_id(self, wallet_id):
+        self.cursor.execute(
+            "SELECT * FROM wallets WHERE wallet_id = ?", (wallet_id,))
+        return self.cursor.fetchall()
+
+    def get_wallet_amount_username(self, username):
+        self.cursor.execute(
+            "SELECT * FROM wallets WHERE username = ?", (username,))
+        return self.cursor.fetchall()
+
+    def get_all_wallets(self):
+        self.cursor.execute(
+            "SELECT * FROM wallets")
+        return self.cursor.fetchall()
+
+    def increment_wallet_by_username(self, username, change_amount):
+        current_amount = self.get_wallet_amount_username(username)[0]['amount']
+        self.cursor.execute(
+            "UPDATE wallets SET amount = ? WHERE username = ?", (current_amount + change_amount, username))
         self.connection.commit()

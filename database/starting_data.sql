@@ -11,13 +11,22 @@ INSERT into `users` (`username`, `password_hash`, `email`, `first_name`, `last_n
 VALUES ('bliskov', '1e4b9ae956cad1385cfa6fffd8323dd16c3fe18c54e6447e49bddef2138d042e84e1505a541c6ef19a5026e684b2559efd366145870a0a8d4d4173c0877f6cd2', 'barbara@thor.com', 'Barbara', 'Liskov');
 
 INSERT into `inventory` (`item_name`, `info`, `price`, `stock`, `image_url`, `category`)
-VALUES ('Apples', 'An edible cultivation of the Malus genus.', 2.00, 100, 'static/images/apple.jpeg', 'Fruit');
+VALUES ('Latte', 'Steamed milk and espresso.', 5.00, 100, 'static/images/488latte.png', 'Coffee');
 
 INSERT into `inventory` (`item_name`, `info`, `price`, `stock`, `image_url`, `category`)
-VALUES ('Bananas', 'A long curved fruit which grows in clusters and has soft pulpy flesh and yellow skin when ripe.', 1.00, 100, 'static/images/banana.jpeg', 'Fruit');
+VALUES ('Iced Latte', 'Milk and espresso, served over ice.', 4.00, 100, 'static/images/488icedlatte.jpeg', 'Coffee');
 
 INSERT into `inventory` (`item_name`, `info`, `price`, `stock`, `image_url`, `category`)
-VALUES ('Mangos', 'The best fruit on the planet.', 4.00, 100, 'static/images/mango.jpeg', 'Fruit');
+VALUES ('Filter Coffee', 'Made via pour over.', 3.00, 100, 'static/images/488coffee.jpeg', 'Coffee');
+
+INSERT into `inventory` (`item_name`, `info`, `price`, `stock`, `image_url`, `category`)
+VALUES ('Nitro Cold Brew', 'Brewed cold and flushed with nitrogen to give it a heady, beer-like foam.', 6.00, 100, 'static/images/488nitro.jpeg', 'Coffee');
+
+INSERT into `inventory` (`item_name`, `info`, `price`, `stock`, `image_url`, `category`)
+VALUES ('Matcha Latte', 'Steamed milk over powdered green tea.', 5.00, 100, 'static/images/488matcha.jpeg', 'Tea');
+
+INSERT into `inventory` (`item_name`, `info`, `price`, `stock`, `image_url`, `category`)
+VALUES ('Tea', 'Black tea.', 3.00, 100, 'static/images/488tea.jpeg', 'Tea');
 
 INSERT into `sales` (`transaction_id`, `username`, `item_id`, `quantity`, `sale_date`, `cost`)
 VALUES ('1', 'aturing', '1', 10, '2022-12-21 7:30:30', 5.50);

@@ -4,7 +4,9 @@
 
 <div class="row" id="products_page">
     <div class="col-md-12">
-        <h3>Products</h3>
+        <a href="/wallet" class="btn btn-primary" id="wallet_button">Wallet</a>
+        <h3>Beverages</h3>
+        <p>Welcome User: {{ username }}</p>
         <hr>
         <div class="row">
             <form action="/checkout" method="post">
@@ -19,7 +21,7 @@
                                     <p class="product_card-text">{{ product.info }}</p>
                                     <p class="product_card-price">${{ product.price }}</p>
                                     <input type="number" class="quantity" id={{product.id}} name={{product.id}}
-                                        placeholder="0">
+                                           placeholder="0">
                                 </div>
                             </div>
                         </div>

@@ -1,0 +1,28 @@
+@startuml order
+actor Customer order 10
+boundary "System" as system order 30
+database "Products" as products order 40
+control "Wallet Manager" as wallet order 50
+control "Sessions" as sessions order 20
+Customer -> sessions : Purchase Request
+activate sessions
+sessions -> system : Forward Request
+activate system
+deactivate sessions
+system -> products : Product lookup
+activate products
+products --> system : Product info
+system -> wallet : Account Balance Check
+activate wallet
+wallet --> system : Balance Confirmation
+system -> wallet : Deduction Order
+wallet -> wallet : Deduction
+wallet --> system : Deduction Confirmation
+deactivate wallet
+system -> products : Quantity decrease
+deactivate products
+system --> sessions : Purchase confirmation
+deactivate system
+sessions --> Customer : Purchase confirmation
+deactivate sessions
+@enduml

@@ -1,0 +1,20 @@
+@startuml inventory
+left to right direction
+actor inventory
+rectangle "Inventory" as Inventory {
+  (Deserts)
+  (Coffee Beans)
+  (Tea)
+  (Milk)
+  (Add products)
+  (Remove products)
+  (Go Back)
+}
+Inventory --> (Deserts)
+Inventory --> (Coffee Beans)
+Inventory --> (Tea)
+Inventory --> (Milk)
+Inventory --> (Add products)
+Inventory --> (Remove products)
+Inventory --> (Go Back)
+@enduml

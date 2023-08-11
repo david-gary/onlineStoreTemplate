@@ -1,0 +1,20 @@
+
+
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12" id="index_buttons">
+        <a href="/home" class="btn btn-primary" id="home_button">Home</a>
+    </div>
+</div>
+
+<div class = "row" id="info_row">
+    <h3>Your Wallet</h3>
+    <p>Username: {{ username }}</p>
+    <p>Balance: $<span id="balance">{{ balance }}</span></p>
+    <form action="/wallet" method="post" id="wallet_form">
+        <button id="add_funds" type="submit">Add Funds</button>
+    </form>
+</div>
+{% endblock %}
