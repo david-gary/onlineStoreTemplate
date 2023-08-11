@@ -1,3 +1,4 @@
+from typing import Callable, List, Tuple
 import sqlite3
 import uuid
 
@@ -53,16 +54,3 @@ def calculate_total_cost(items: dict) -> float:
         total_cost += calculate_cost(float(item["price"]), int(item["quantity"]),
                                      float(item["discount"]), int(item["tax_rate"]))
     return total_cost
-
-
-def generate_unique_id() -> str:
-    """
-    Generates a unique ID.
-
-    args:
-        - None
-
-    returns:
-        - A unique ID as a string.
-    """
-    return str(uuid.uuid4())

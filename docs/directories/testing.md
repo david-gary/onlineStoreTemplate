@@ -15,6 +15,10 @@ database tests complete.
 3 out of 4 tests passed.
 ```
 
+## Reviews Subdirectory
+
+The `reviews` subdirectory is where written test reviews are stored. Each review is created by a group member and should mimic the `template.md` included in this subdirectory.
+
 ## auth_tests.py File
 
 This script contains the unittests for the `authentication` module. The tests focus on evaluating the `hash_password` function from the `auth_tools.py` file. This is done by ensuring that the salt is generated, used, and returned correctly, which requires the tests to reference generated and provided password hash keys. This is another point where students can easily extend the codebase for their group project, as unittests for all other functions in the `authentication` module are missing.
