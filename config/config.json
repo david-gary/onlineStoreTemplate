@@ -1,0 +1,9 @@
+{
+    "database_path": "database/store_records.db",
+    "schema_path": "database/schema.sql",
+    "starting_data_path": "database/starting_data.sql",
+    "reset_database": true,
+    "host": "localhost",
+    "port": 8080,
+    "username": "default"
+}

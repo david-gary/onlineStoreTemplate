@@ -1,6 +1,6 @@
 from core.utils import dict_factory, calculate_cost
-import datetime as dt
-import sqlite3
+from sqlite3 import connect, Cursor
+from datetime import date
 
 
 class Database:
@@ -16,9 +16,9 @@ class Database:
         - cursor: The cursor of the database.
     """
 
-    def __init__(self, database_path: str = "store_records.db") -> None:
+    def __init__(self, database_path) -> None:
         self.database_path = database_path
-        self.connection = sqlite3.connect(
+        self.connection = connect(
             database_path, check_same_thread=False)
         self.connection.row_factory = dict_factory
         self.cursor = self.connection.cursor()
@@ -404,7 +404,7 @@ class Database:
     # ------------------ Sales -------------------
     # --------------------------------------------
 
-    def insert_new_sale(self, transaction_id: int, username: str, item_id: int, quantity: int, sale_date: dt.date, cost: float):
+    def insert_new_sale(self, transaction_id: int, username: str, item_id: int, quantity: int, sale_date: date, cost: float):
         """
         Inserts a new sale into the database.
 
@@ -579,7 +579,7 @@ class Database:
             "SELECT * FROM sales WHERE item_id = ?", (item_id,))
         return self.cursor.fetchall()
 
-    def get_sales_by_date_range(self, start_date: dt.date, end_date: dt.date):
+    def get_sales_by_date_range(self, start_date: date, end_date: date):
         """
         Gets the sales for a date range from the database.
 
@@ -671,7 +671,7 @@ class Database:
             "UPDATE sales SET item_id = ? WHERE id = ?", (new_item_id, sale_id))
         self.connection.commit()
 
-    def set_sale_date(self, sale_id: int, new_sale_date: dt.date):
+    def set_sale_date(self, sale_id: int, new_sale_date: date):
         """
         Updates the sale date of a sale in the database.
 

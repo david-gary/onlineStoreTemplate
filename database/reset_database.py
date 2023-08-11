@@ -1,10 +1,11 @@
-import os
-import sqlite3
+from os import path, remove
+from sqlite3 import Cursor, connect
+
 
 def remove_database(database_path: str) -> None:
     """
     Remove the database file if it exists.
-    
+
     args:
         - database_path: The path to the database file.
 
@@ -12,14 +13,15 @@ def remove_database(database_path: str) -> None:
         - None
     """
 
-    if os.path.exists(database_path):
-        os.remove(database_path)
+    if path.exists(database_path):
+        remove(database_path)
     return None
 
-def execute_sql_file(cursor: sqlite3.Cursor, sql_file_path: str) -> None:
+
+def execute_sql_file(cursor: Cursor, sql_file_path: str) -> None:
     """
     Executes an SQL file on a given database cursor.
-    
+
     args:
         - cursor: The database cursor.
         - sql_file_path: The path to the SQL file.
@@ -33,10 +35,11 @@ def execute_sql_file(cursor: sqlite3.Cursor, sql_file_path: str) -> None:
         cursor.executescript(sql)
     return None
 
+
 def create_database(schema_path: str, starting_data_path: str, database_path: str) -> None:
     """
     Set the database schema.
-    
+
     args:
         - schema_path: The path to the schema file.
         - starting_data_path: The path to the starting data file.
@@ -47,7 +50,7 @@ def create_database(schema_path: str, starting_data_path: str, database_path: st
     """
 
     # Connects to the database.
-    connection = sqlite3.connect(database_path)
+    connection = connect(database_path)
     cursor = connection.cursor()
 
     # Builds the database from the schema and starting data.
@@ -59,17 +62,19 @@ def create_database(schema_path: str, starting_data_path: str, database_path: st
     connection.close()
     return None
 
-def main() -> None:
-    """Reset the database."""
 
-    database_path = os.path.join(os.path.dirname(__file__), 'store_records.db')
-    schema_path = os.path.join(os.path.dirname(__file__), 'schema.sql')
-    starting_data_path = os.path.join(os.path.dirname(__file__), 'starting_data.sql')
+def reset_database(database_path: str, schema_path: str, starting_data_path: str) -> None:
+    """Resets the database from the schema and starting data.
 
+    args:
+        - database_path: The path to the database file.
+        - schema_path: The path to the schema file.
+        - starting_data_path: The path to the starting data file.
+
+    returns:
+        - None
+    """
     # Removes the database file and creates a new one.
     remove_database(database_path)
     create_database(schema_path, starting_data_path, database_path)
     return None
-
-if __name__ == '__main__':
-    main()

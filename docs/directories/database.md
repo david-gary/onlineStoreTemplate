@@ -8,7 +8,7 @@ This script contains the core `Database` class, wherein all querying and databas
 
 ## reset_database.py File
 
-This script is automatically run when the `setup.py` script from root is run, but this can also be run manually whenever the database needs to be reset. Assuming permissions are set correctly, this script can be run by executing `reset_database.py` from the `database` directory. This script will delete the `store_records.db` file (if it exists), and then run the `schema.sql` and `starting_data.sql` files to create a new database with the correct schema and starter data.
+This script contains functions to delete the `store_records.db` file (if it exists), and then run the `schema.sql` and `starting_data.sql` files to create a new database with the correct schema and starter data.
 
 ## schema.sql File
 

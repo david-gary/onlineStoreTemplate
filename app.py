@@ -1,21 +1,28 @@
 #!/usr/bin/env python3
 
 from authentication.auth_tools import login_pipeline, update_passwords, hash_password
+from config.config_loader import get_config, load_by_key
 from database.db import Database
+from database.reset_database import reset_database
 from flask import Flask, render_template, request
 from core.session import Sessions
 
 app = Flask(__name__)
-HOST, PORT = 'localhost', 8080
 global username, products, db, sessions
-username = 'default'
+config = get_config()
+HOST = load_by_key(config, 'host')
+PORT = load_by_key(config, 'port')
+username = load_by_key(config, 'username')
+if load_by_key(config, 'reset_database'):
+    reset_database(load_by_key(config, 'database_path'), load_by_key(
+        config, 'schema_path'), load_by_key(config, 'starting_data_path'))
 db = Database('database/store_records.db')
 products = db.get_full_inventory()
 sessions = Sessions()
 sessions.add_new_session(username, db)
 
 
-@app.route('/')
+@ app.route('/')
 def index_page():
     """
     Renders the index page when the user is at the `/` endpoint, passing along default flask variables.
@@ -29,7 +36,7 @@ def index_page():
     return render_template('index.html', username=username, products=products, sessions=sessions)
 
 
-@app.route('/login')
+@ app.route('/login')
 def login_page():
     """
     Renders the login page when the user is at the `/login` endpoint.
@@ -43,7 +50,7 @@ def login_page():
     return render_template('login.html')
 
 
-@app.route('/home', methods=['POST'])
+@ app.route('/home', methods=['POST'])
 def login():
     """
     Renders the home page when the user is at the `/home` endpoint with a POST request.
@@ -68,7 +75,7 @@ def login():
         return render_template('index.html')
 
 
-@app.route('/register')
+@ app.route('/register')
 def register_page():
     """
     Renders the register page when the user is at the `/register` endpoint.
@@ -82,7 +89,7 @@ def register_page():
     return render_template('register.html')
 
 
-@app.route('/register', methods=['POST'])
+@ app.route('/register', methods=['POST'])
 def register():
     """
     Renders the index page when the user is at the `/register` endpoint with a POST request.
@@ -108,7 +115,7 @@ def register():
     return render_template('index.html')
 
 
-@app.route('/checkout', methods=['POST'])
+@ app.route('/checkout', methods=['POST'])
 def checkout():
     """
     Renders the checkout page when the user is at the `/checkout` endpoint with a POST request.

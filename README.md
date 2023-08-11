@@ -19,12 +19,7 @@ pip3 install -r requirements.txt
 
 ### Database Setup
 
-The project uses a SQLite database, which is stored in the `database` directory. To create or reset the database, navigate to the `database` directory and run the following command:
-
-```bash
-python3 reset_database.py
-# Note: depending on your system, you may need to use `python3.10` or `py` instead of `python3`
-```
+The project uses a SQLite database, which is stored in the `database` directory. Each time the server is started, the database is reset to its original state.
 
 ### Running the Server
 
