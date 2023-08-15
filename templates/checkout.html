@@ -6,8 +6,26 @@
     <div class="col-md-12">
         <h3>Your Order</h3>
         <hr>
-        <div class="row">
-            <p>{{ total_cost }} </p>
+        <div class="checkout_row">
+            <!-- create a table and populate it with items in the order -->
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in order %}
+                    <tr>
+                        <td>{{ item }}</td>
+                        <td>{{ order[item] }}</td>
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <td><strong>Total</strong></td>
+                        <td><strong>{{ total_cost }}</strong></td>
+                </tbody>
         </div>
     </div>
 </div>
